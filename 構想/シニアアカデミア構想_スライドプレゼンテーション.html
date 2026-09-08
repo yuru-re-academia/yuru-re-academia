@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シニアアカデミア YURU-RE:（ユルリ）構想プレゼンテーション</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .font-num { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .slide {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 1100px;
+        }
+        @media print {
+            body { background: white !important; padding: 0 !important; color: #0f172a !important; }
+            .no-print { display: none !important; }
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                box-shadow: none !important;
+                border: 1px solid #cbd5e1 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 98vh !important;
+                margin-bottom: 0 !important;
+            }
+            @page {
+                size: A4 landscape;
+                margin: 5mm;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col items-center justify-center p-2 sm:p-4 selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Floating Toolbar (No Print) -->
+    <header class="w-full max-w-5xl mb-3 flex flex-wrap justify-between items-center gap-3 no-print bg-slate-800/90 backdrop-blur px-4 py-2.5 rounded-xl border border-slate-700 shadow-lg text-xs">
+        <div class="flex items-center gap-3">
+            <a href="../index.html" class="text-slate-400 hover:text-white transition flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i> ポータルへ
+            </a>
+            <span class="text-slate-600">|</span>
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-bold text-slate-200">シニアアカデミア YURU-RE: 構想スライド</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="slideIndicator" class="font-num text-xs font-bold text-emerald-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-700">1 / 13</span>
+            <div class="flex items-center gap-1">
+                <button onclick="prevSlide()" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-white rounded transition">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-white rounded transition">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <button onclick="toggleFullscreen()" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-white rounded transition" title="全画面表示">
+                <i class="fa-solid fa-expand"></i>
+            </button>
+            <button onclick="window.print()" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded shadow transition flex items-center gap-1">
+                <i class="fa-solid fa-print"></i> 全スライド印刷 / PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Slides Container -->
+    <main id="presentationContainer" class="w-full max-w-5xl flex justify-center items-center">
+
+        <!-- Slide 1: Cover -->
+        <article class="slide bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-14 flex flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="1">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-emerald-100/80 via-teal-50/50 to-transparent rounded-bl-full pointer-events-none"></div>
+            <div>
+                <span class="inline-block px-3 py-1 bg-slate-900 text-emerald-400 text-xs font-bold rounded-md uppercase tracking-wider mb-4">
+                    事業構想プレゼンテーション
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    シニアアカデミア <span class="text-emerald-700">YURU-RE:</span>（ユルリ）
+                </h1>
+                <p class="text-lg sm:text-2xl text-slate-700 font-bold leading-relaxed mb-4">
+                    シニアの生きがいと自立を育む「大人の好奇心が満たされる学び舎」
+                </p>
+                <div class="w-20 h-1.5 bg-emerald-600 rounded-full mb-6"></div>
+                <p class="text-sm text-slate-500 max-w-2xl leading-relaxed">
+                    従来の預かり型デイサービスから脱却。大人の知的好奇心をくすぐるカルチャー探究と独自ダンスリハビリを融合した「卒業型リエイブルメントデイ」事業計画。
+                </p>
+            </div>
+            <div class="flex justify-between items-end text-xs text-slate-500 border-t border-slate-200 pt-4">
+                <div class="flex items-center gap-2 text-emerald-700 font-bold">
+                    <i class="fa-solid fa-graduation-cap text-base"></i>
+                    <span>地域密着型通所介護（鳥取県米子市モデル）</span>
+                </div>
+                <span>令和8年（2026年）最新改訂版</span>
+            </div>
+        </article>
+
+        <!-- Slide 2: Origin & Problem -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="2">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">01. ORIGIN & MISSION</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">構想の原点：二重の原体験と問題意識</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                    <div class="bg-amber-50/60 border border-amber-200 p-5 rounded-xl">
+                        <div class="flex items-center gap-2 text-amber-900 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-heart-crack text-amber-600 text-base"></i>
+                            <span>原体験 1：祖父の言葉</span>
+                        </div>
+                        <p class="text-lg font-bold text-slate-900 mb-2">「退屈だから行きたくない」</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            デイサービスに通い始めた祖父の言葉。単なる「時間や身体の預かり」「お遊戯的なレク」になっており、大人のプライドが傷つく介護現場の実態への直面。
+                        </p>
+                    </div>
+                    <div class="bg-emerald-50/60 border border-emerald-200 p-5 rounded-xl">
+                        <div class="flex items-center gap-2 text-emerald-900 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-music text-emerald-600 text-base"></i>
+                            <span>原体験 2：ゆるダン® 参加者の感動</span>
+                        </div>
+                        <p class="text-lg font-bold text-slate-900 mb-2">「こんなに楽しい体操があるんだ！」</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            ダンスレッスンで見せた参加者の弾ける笑顔。音楽とリズムに合わせて身体を動かす歓びが、シニアの生きがいへと昇華する瞬間を目撃した確信。
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-slate-900 text-white p-4 rounded-xl flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center text-white text-lg font-bold shrink-0">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] text-emerald-400 font-bold uppercase tracking-wider block">導き出した本質的な課題感</span>
+                        <p class="text-sm font-bold">通うこと自体が誇らしくワクワクする「大人の学び舎・生きがいと成長の場」を創る</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 2</span>
+            </div>
+        </article>
+
+        <!-- Slide 3: Concept Statement -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-14 flex flex-col justify-center items-center text-center border border-slate-200 relative overflow-hidden" data-slide="3">
+            <div class="max-w-2xl">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 mb-4 inline-block">
+                    CORE CONCEPT
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    「大人の学び舎」という新しい選択
+                </h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto mb-6 rounded-full"></div>
+                <p class="text-base sm:text-xl font-bold text-slate-800 leading-relaxed mb-6">
+                    デイサービスの小さな革命。<br>
+                    「お世話される場所」から、大人の好奇心が刺激され、目標に向かって意欲的に取り組む「学びと機能再開発の場」へ。
+                </p>
+                <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm text-slate-600 leading-relaxed text-left">
+                    <p class="mb-1.5"><strong>★ なぜ「学び舎（リカレント教育）」なのか？</strong></p>
+                    <p>
+                        知的好奇心は、年齢を重ねても衰えない人間の根源的な欲求です。「教えられる・介護される」受動的な立場から、「自ら学び・探究し・身体を整える」能動的な主人公へと転換することで、自己効力感（Self-efficacy）を取り戻します。
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Slide 4: Two Core Pillars -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="4">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">02. CORE PILLARS</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">アカデミアを支える2つのコア柱</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4">
+                    <div class="border-2 border-emerald-200 bg-emerald-50/40 rounded-xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-emerald-800 font-bold block">カルチャー連携プログラム</span>
+                                <h3 class="text-lg font-black text-slate-900">知の探究（リカレント教育）</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            本格的なカルチャー講座から専門講師を招き、知的好奇心や創作欲、挑戦意欲を刺激。いくつになっても新しいことを学べる喜びを提供します。
+                        </p>
+                        <div class="bg-white p-2.5 rounded-lg border border-emerald-200 text-[11px] text-slate-700">
+                            <strong>■ chukaiコムコムスクエアとの連携：</strong><br>
+                            向かいの地域カルチャー拠点が持つ100以上の講座・講師ネットワークを直結し、質の高い学びをデイ内で実現。
+                        </div>
+                    </div>
+                    <div class="border-2 border-orange-200 bg-orange-50/40 rounded-xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-lg bg-orange-600 text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-shoe-prints"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs text-orange-800 font-bold block">「ゆるダン®」機能訓練</span>
+                                <h3 class="text-lg font-black text-slate-900">身体の歓び（生活機能改善）</h3>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                            音楽に合わせて楽しく身体を動かし、日常生活動作（ADL/IADL）の維持・改善を図ります。身体機能向上とともに心の自信を取り戻します。
+                        </p>
+                        <div class="bg-white p-2.5 rounded-lg border border-orange-200 text-[11px] text-slate-700">
+                            <strong>■ 「ゆるダン®」とは：</strong><br>
+                            シニア向けに特化した独自のダンスエクササイズ。無理なく楽しくリズムに合わせて全身を解きほぐす効果的なリハビリ。
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 4</span>
+            </div>
+        </article>
+
+        <!-- Slide 5: 5-Step Lifecycle -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="5">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">03. SERVICE STEP</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">アカデミアの5つのステップ（卒業型サイクル）</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-5 gap-2.5 my-6">
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl text-center flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">STEP 1</span>
+                            <h4 class="font-bold text-sm text-slate-900 my-1.5">入学</h4>
+                            <p class="text-[11px] text-slate-600 leading-snug">やりたいこと・興味関心の丁寧なヒアリング。実現したい目標の共有。</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl text-center flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">STEP 2</span>
+                            <h4 class="font-bold text-sm text-slate-900 my-1.5">アセスメント</h4>
+                            <p class="text-[11px] text-slate-600 leading-snug">生活機能・身体機能の評価。個別最適な「探究・リハビリ計画」立案。</p>
+                        </div>
+                    </div>
+                    <div class="bg-emerald-50 border-2 border-emerald-400 p-3 rounded-xl text-center flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">STEP 3</span>
+                            <h4 class="font-bold text-sm text-emerald-900 my-1.5">通学・探究</h4>
+                            <p class="text-[11px] text-emerald-800 leading-snug">「知の探究（カルチャー）」×「身体の歓び（ゆるダン®）」の実践。</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded-xl text-center flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-slate-800 text-white text-[10px] font-bold rounded">STEP 4</span>
+                            <h4 class="font-bold text-sm text-slate-900 my-1.5">成果達成</h4>
+                            <p class="text-[11px] text-slate-600 leading-snug">ADL・生活動作の改善。自ら動ける自己効力感（自信）の獲得。</p>
+                        </div>
+                    </div>
+                    <div class="bg-amber-50 border-2 border-amber-400 p-3 rounded-xl text-center flex flex-col justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-amber-600 text-white text-[10px] font-bold rounded">STEP 5</span>
+                            <h4 class="font-bold text-sm text-amber-900 my-1.5">卒業</h4>
+                            <p class="text-[11px] text-amber-800 leading-snug">達成を称える卒業式の実施。誇りを持って地域社会へ笑顔で復帰。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 bg-slate-100 rounded-lg text-xs text-slate-600 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-info text-blue-600"></i>
+                    <span><strong>卒業型の意義：</strong> 介護保険給付依存から脱却し、利用者の自立達成を地域全体の成果として祝福する先進モデル。</span>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 5</span>
+            </div>
+        </article>
+
+        <!-- Slide 6: Post-Graduation Ecosystem -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="6">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">04. ECOSYSTEM</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">卒業後の展開：持続的なコミュニティ循環</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="flex items-center gap-2 text-indigo-900 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-graduation-cap text-indigo-600"></i>
+                            <span>「進学」エコシステム（継続的な学習・運動）</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-angle-right text-indigo-500 mt-0.5"></i>
+                                <span><strong>午後の自費ダンスレッスンへ移行：</strong> 慣れ親しんだ同じ拠点で自費通学し、健康習慣を完全定着。</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-angle-right text-indigo-500 mt-0.5"></i>
+                                <span><strong>chukai一般カルチャー講座へ進学：</strong> 一般受講生として地域講座に参加し、社会活動を拡張。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <div class="flex items-center gap-2 text-rose-900 font-bold text-sm mb-2">
+                            <i class="fa-solid fa-handshake-angle text-rose-600"></i>
+                            <span>「就職・社会参加」エコシステム（社会的役割の獲得）</span>
+                        </div>
+                        <ul class="text-xs text-slate-600 space-y-2">
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-angle-right text-rose-500 mt-0.5"></i>
+                                <span><strong>地域活動・ボランティアへの復帰：</strong> 自信を携えて地域サロンや趣味サークルで活躍。</span>
+                            </li>
+                            <li class="flex items-start gap-1.5">
+                                <i class="fa-solid fa-angle-right text-rose-500 mt-0.5"></i>
+                                <span><strong>支えられる側から支える側へ：</strong> アカデミアの後輩へのサポーターとして役割を創出。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-900 flex items-center gap-2 font-medium">
+                    <i class="fa-solid fa-shield-heart text-emerald-600 text-sm"></i>
+                    <span><strong>リバウンド防止セーフティネット：</strong> 卒業生同窓会や定期相談機会を設け、孤立や身体機能の再悪化を未然に防止。</span>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 6</span>
+            </div>
+        </article>
+
+        <!-- Slide 7: Business Plan Cover -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-14 flex flex-col justify-center items-center text-center border border-slate-200" data-slide="7">
+            <div class="max-w-2xl">
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full border border-blue-200 mb-4 inline-block">
+                    BUSINESS & FINANCIAL PLAN
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    事業計画 ＆ 初期収支モデル
+                </h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-base sm:text-xl font-bold text-slate-700 leading-relaxed mb-4">
+                    鳥取県米子市における地域密着型通所介護モデル。<br>
+                    高品質なサービスと人件費の最適化による高持続性経営。
+                </p>
+                <p class="text-xs text-slate-500">
+                    初期投資総額850万円 / 内装350万円 / 最小3名人員体制 / 損益分岐点（BEP）1日6名
+                </p>
+            </div>
+        </article>
+
+        <!-- Slide 8: Operations & Team -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="8">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">05. OPERATION & TEAM</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">事業スペック ＆ 最小人員体制モデル</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-4 text-xs">
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <h4 class="font-bold text-slate-900 text-sm mb-2 border-b border-slate-200 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-sliders text-blue-600"></i> 事業スペック概要
+                        </h4>
+                        <ul class="space-y-1.5 text-slate-700">
+                            <li class="flex justify-between"><span>・事業形態：</span><span class="font-bold">地域密着型通所介護（米子市指定）</span></li>
+                            <li class="flex justify-between"><span>・定員・営業：</span><span class="font-bold">定員15名（平日午前のみ・月22日）</span></li>
+                            <li class="flex justify-between"><span>・提供時間：</span><span class="font-bold">9:00〜12:15（3〜4時間特化）</span></li>
+                            <li class="flex justify-between"><span>・ターゲット：</span><span class="font-bold">要支援1〜2、要介護1〜2</span></li>
+                            <li class="flex justify-between"><span>・食事・入浴：</span><span class="font-bold text-emerald-700">なし（機能特化・高効率）</span></li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <h4 class="font-bold text-slate-900 text-sm mb-2 border-b border-slate-200 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-users text-emerald-600"></i> 初期人員体制（最小3名）
+                        </h4>
+                        <ul class="space-y-1.5 text-slate-700">
+                            <li><strong>管理者（自身）：</strong> 常勤専従 / 役員報酬 月25.0万円<br><span class="text-[10px] text-slate-500">【午前】送迎・介護 【午後】営業・事務・個別計画</span></li>
+                            <li><strong>看護職員（パート）：</strong> 午前4h×22日 / 時給1,500円（月13.2万）</li>
+                            <li><strong>介護職員（パート）：</strong> 午前4h×22日 / 時給1,100円（月9.7万）</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-3 bg-emerald-50 border border-emerald-200 rounded-lg text-xs text-emerald-900 font-medium">
+                    ★ 運用メリット：サービス時間は3名常駐で法令基準・安全性をクリア。午後はパート帰宅で外部支払人件費を月約22.9万円に極小化。
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 8</span>
+            </div>
+        </article>
+
+        <!-- Slide 9: Cost Structure -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="9">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">06. COST STRUCTURE</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">月間コスト構造（人件費 ＋ 運営経費）</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 text-xs">
+                    <div class="border border-slate-200 rounded-xl p-4 bg-white">
+                        <div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-2">
+                            <span class="font-bold text-slate-900 text-sm">人件費内訳</span>
+                            <span class="font-num font-bold text-base text-slate-900">約 47.9 万円 / 月</span>
+                        </div>
+                        <ul class="space-y-1.5 text-slate-600">
+                            <li class="flex justify-between"><span>管理者役員報酬（自身）：</span><span class="font-num font-bold">25.0 万円</span></li>
+                            <li class="flex justify-between"><span>看護職員パート（看護師）：</span><span class="font-num">約 13.2 万円</span></li>
+                            <li class="flex justify-between"><span>介護福祉士パート：</span><span class="font-num">約 9.7 万円</span></li>
+                            <li class="pt-2 border-t border-slate-100 text-emerald-700 font-bold flex justify-between">
+                                <span>※ 外部実質人件費支払：</span><span class="font-num">約 22.9 万円</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-200 rounded-xl p-4 bg-white">
+                        <div class="flex justify-between items-center border-b border-slate-200 pb-2 mb-2">
+                            <span class="font-bold text-slate-900 text-sm">運営経費内訳</span>
+                            <span class="font-num font-bold text-base text-slate-900">約 15.1 万円 / 月</span>
+                        </div>
+                        <ul class="space-y-1.5 text-slate-600">
+                            <li class="flex justify-between"><span>家賃・共益費按分（半日）：</span><span class="font-num">5.0 万円</span></li>
+                            <li class="flex justify-between"><span>車両費・ガソリン代（送迎22日）：</span><span class="font-num">3.0 万円</span></li>
+                            <li class="flex justify-between"><span>介護ソフト・通信費（カイポケ）：</span><span class="font-num">2.0 万円</span></li>
+                            <li class="flex justify-between"><span>水道光熱費（半日・入浴無）：</span><span class="font-num">1.5 万円</span></li>
+                            <li class="flex justify-between"><span>chukai講師謝金・賠償保険・消耗品：</span><span class="font-num">3.6 万円</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-3 bg-slate-900 text-white rounded-xl flex justify-between items-center px-6">
+                    <div>
+                        <span class="text-xs text-slate-400 block">月間実質現金支出（給与除く）</span>
+                        <span class="font-num text-sm font-bold text-slate-200">約 38.0 万円 / 月</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-emerald-400 block">月間総支出（自身給与25万含む）</span>
+                        <span class="font-num text-lg sm:text-xl font-black text-emerald-400">約 63.0 万円 / 月</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 9</span>
+            </div>
+        </article>
+
+        <!-- Slide 10: BEP & Capacity -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="10">
+            <div>
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">07. BEP & SIMULATION</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">損益分岐点（BEP）と稼働シミュレーション</h2>
+                </div>
+                <div class="border border-slate-200 rounded-xl overflow-hidden text-xs shadow-sm mb-3">
+                    <table class="w-full text-center border-collapse">
+                        <thead class="bg-slate-800 text-white text-[11px]">
+                            <tr>
+                                <th class="py-2 px-2">稼働段階</th>
+                                <th class="py-2 px-2">1日平均</th>
+                                <th class="py-2 px-2">登録者数</th>
+                                <th class="py-2 px-2">月延べ回数</th>
+                                <th class="py-2 px-2">月間売上</th>
+                                <th class="py-2 px-2">収支（役員込）</th>
+                                <th class="py-2 px-2 text-left">経営状態・指標</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 text-slate-700">
+                            <tr class="bg-amber-50/70">
+                                <td class="py-1.5 px-2 font-bold text-amber-900">最低存続ライン</td>
+                                <td class="py-1.5 px-2 font-num font-bold">約 4 名</td>
+                                <td class="py-1.5 px-2 font-num">約 11 名</td>
+                                <td class="py-1.5 px-2 font-num">88 回</td>
+                                <td class="py-1.5 px-2 font-num font-bold">44.0 万円</td>
+                                <td class="py-1.5 px-2 font-num text-amber-700">▲ 19.0 万円</td>
+                                <td class="py-1.5 px-2 text-left text-[11px]">外部実質支出（約38万）を完全回収</td>
+                            </tr>
+                            <tr class="bg-emerald-50 border-2 border-emerald-500 font-bold">
+                                <td class="py-1.5 px-2 text-emerald-900">損益分岐点 (BEP)</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-800 text-sm">約 6 名</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-800">約 16 名</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-800">126 回</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-800 text-sm">63.0 万円</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-700">± 0 万円</td>
+                                <td class="py-1.5 px-2 text-left text-[11px] text-emerald-900">全コスト回収・自身給与25万円確保</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1.5 px-2 font-medium">安定成長ライン</td>
+                                <td class="py-1.5 px-2 font-num font-bold">8 名</td>
+                                <td class="py-1.5 px-2 font-num">約 22 名</td>
+                                <td class="py-1.5 px-2 font-num">176 回</td>
+                                <td class="py-1.5 px-2 font-num font-bold">88.0 万円</td>
+                                <td class="py-1.5 px-2 font-num text-blue-700 font-bold">+ 25.0 万円</td>
+                                <td class="py-1.5 px-2 text-left text-[11px]">専従管理者引継ぎ検討・設備再投資</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1.5 px-2 font-medium">高収益ライン</td>
+                                <td class="py-1.5 px-2 font-num font-bold">10 名</td>
+                                <td class="py-1.5 px-2 font-num">約 28 名</td>
+                                <td class="py-1.5 px-2 font-num">220 回</td>
+                                <td class="py-1.5 px-2 font-num font-bold">110.0 万円</td>
+                                <td class="py-1.5 px-2 font-num text-blue-700 font-bold">+ 47.0 万円</td>
+                                <td class="py-1.5 px-2 text-left text-[11px]">午後スタジオ・自費展開へ投資</td>
+                            </tr>
+                            <tr class="bg-slate-50">
+                                <td class="py-1.5 px-2 font-bold text-slate-900">満席（100%）</td>
+                                <td class="py-1.5 px-2 font-num font-bold">15 名</td>
+                                <td class="py-1.5 px-2 font-num">約 41 名</td>
+                                <td class="py-1.5 px-2 font-num">330 回</td>
+                                <td class="py-1.5 px-2 font-num font-bold">165.0 万円</td>
+                                <td class="py-1.5 px-2 font-num text-emerald-600 font-black">+ 102.0 万円</td>
+                                <td class="py-1.5 px-2 text-left text-[11px] text-slate-900">午前枠最大利益（月利102万）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-2.5 bg-emerald-50 rounded-lg text-xs text-emerald-900 font-medium flex items-center justify-between px-4">
+                    <span><strong>【前提条件】</strong> 単価: 約5,000円/回（米子市7級地・個別機能訓練加算等含む）、週2回利用想定</span>
+                    <span class="font-bold text-emerald-800">1日わずか6名で完全黒字化達成</span>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 10</span>
+            </div>
+        </article>
+
+        <!-- Slide 11: Roadmap Cover -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-14 flex flex-col justify-center items-center text-center border border-slate-200" data-slide="11">
+            <div class="max-w-2xl">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 mb-4 inline-block">
+                    ROADMAP & EXECUTION
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                    2027年秋開業 マスターロードマップ
+                </h2>
+                <div class="w-16 h-1 bg-emerald-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-base sm:text-xl font-bold text-slate-700 leading-relaxed mb-4">
+                    2026年9月スタート 〜 2027年10月1日グランドオープン<br>
+                    全実務工程・提携・許認可・資金調達の逆算タイムライン
+                </p>
+                <p class="text-xs text-slate-500">
+                    4つの実行フェーズ ＆ 2大センターピンの確実な完遂
+                </p>
+            </div>
+        </article>
+
+        <!-- Slide 12: 4 Execution Phases -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">08. TIMELINE</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">2027年10月1日オープンへの全実行フェーズ</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 text-xs">
+                    <div class="border border-blue-200 bg-blue-50/40 rounded-xl p-3">
+                        <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">PHASE 01</span>
+                        <h4 class="font-bold text-slate-900 text-xs my-1">提携＆枠確定期</h4>
+                        <span class="text-[10px] text-blue-800 font-num block mb-2">'26.9月〜11月</span>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>・米子市長寿社会課へ事前相談</li>
+                            <li>・Chukai包括提案プレゼン</li>
+                            <li>・内装レイアウト設計（45㎡確認）</li>
+                        </ul>
+                    </div>
+                    <div class="border border-indigo-200 bg-indigo-50/40 rounded-xl p-3">
+                        <span class="px-2 py-0.5 bg-indigo-600 text-white text-[10px] font-bold rounded">PHASE 02</span>
+                        <h4 class="font-bold text-slate-900 text-xs my-1">資金調達＆契約期</h4>
+                        <span class="text-[10px] text-indigo-800 font-num block mb-2">'26.12月〜'27.2月</span>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>・公庫＆信金協調融資申請</li>
+                            <li>・Chukai賃貸借本契約</li>
+                            <li>・定款目的に介護事業追加</li>
+                        </ul>
+                    </div>
+                    <div class="border border-amber-200 bg-amber-50/40 rounded-xl p-3">
+                        <span class="px-2 py-0.5 bg-amber-600 text-white text-[10px] font-bold rounded">PHASE 03</span>
+                        <h4 class="font-bold text-slate-900 text-xs my-1">施工＆指定申請期</h4>
+                        <span class="text-[10px] text-amber-800 font-num block mb-2">'27.3月〜6月</span>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>・内装バリアフリー着工（350万）</li>
+                            <li>・パート看護師・介護福祉士募集</li>
+                            <li>・<strong>米子市指定申請提出【6月末】</strong></li>
+                        </ul>
+                    </div>
+                    <div class="border border-emerald-300 bg-emerald-50/60 rounded-xl p-3">
+                        <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">PHASE 04</span>
+                        <h4 class="font-bold text-slate-900 text-xs my-1">営業＆GRAND OPEN</h4>
+                        <span class="text-[10px] text-emerald-800 font-num block mb-2">'27.7月〜10月1日</span>
+                        <ul class="text-[11px] text-slate-600 space-y-1">
+                            <li>・竣工検査・送迎車納車</li>
+                            <li>・米子市現地検査・番号受領</li>
+                            <li>・ケアマネ営業＆内覧会</li>
+                            <li>・<strong>10/1 開業（BEP6名動員）</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 12</span>
+            </div>
+        </article>
+
+        <!-- Slide 13: Funding & Key Success Factors -->
+        <article class="slide hidden bg-white text-slate-900 rounded-2xl shadow-2xl p-8 sm:p-12 flex flex-col justify-between border border-slate-200" data-slide="13">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-emerald-700 font-bold text-sm uppercase tracking-wider">09. KEY STRATEGY</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900">開業成功を決定づける「資金調達」と「2大センターピン」</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-3 text-xs">
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <h4 class="font-bold text-slate-900 text-sm mb-2 border-b border-slate-200 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-coins text-emerald-600"></i> 資金調達計画（総額850万円モデル）
+                        </h4>
+                        <ul class="space-y-1.5 text-slate-600 text-[11px]">
+                            <li class="flex justify-between"><span>・内装バリアフリー工事費：</span><span class="font-num font-bold">350 万円</span></li>
+                            <li class="flex justify-between"><span>・設備・車両購入費（送迎車2台等）：</span><span class="font-num font-bold">200 万円</span></li>
+                            <li class="flex justify-between"><span>・初期運転資金（キャッシュガード）：</span><span class="font-num font-bold">300 万円</span></li>
+                            <li class="pt-1.5 border-t border-slate-200 text-slate-900 font-bold flex justify-between">
+                                <span>自己資金100万 ＋ 協調融資750万</span>
+                                <span class="font-num text-emerald-700">計 850 万円</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="border border-slate-200 rounded-xl p-4 bg-slate-50">
+                        <h4 class="font-bold text-slate-900 text-sm mb-2 border-b border-slate-200 pb-1 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bullseye text-blue-600"></i> 開業の2大センターピン
+                        </h4>
+                        <div class="space-y-2 text-[11px] text-slate-600">
+                            <div>
+                                <span class="font-bold text-slate-800">① 米子市長寿社会課への事前協議：</span><br>
+                                R9年度指定枠の確認と機能訓練室45㎡以上基準クリア。
+                            </div>
+                            <div>
+                                <span class="font-bold text-slate-800">② 中海テレビ放送（Chukai）包括提携：</span><br>
+                                講座連携・番組取材連動による強力な集客パイプライン構築。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-3 bg-slate-900 text-white rounded-xl text-center text-xs font-bold">
+                    2026年9月〜11月中に2大センターピンを完遂し、無駄のない1年逆算スケジュールで10/1オープンを目指します。
+                </div>
+            </div>
+            <div class="text-[11px] text-slate-400 border-t border-slate-100 pt-3 flex justify-between">
+                <span>シニアアカデミア YURU-RE: 構想</span>
+                <span>Page 13</span>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Bottom Controls (No Print) -->
+    <footer class="mt-4 flex items-center gap-4 text-xs text-slate-400 no-print">
+        <span>キーボード操作： <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">←</kbd> 前へ / <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">→</kbd> または <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">Space</kbd> 次へ</span>
+    </footer>
+
+    <!-- Slide Controller Script -->
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 13;
+
+        function updateSlide() {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, index) => {
+                if (index + 1 === currentSlide) {
+                    slide.classList.remove('hidden');
+                    slide.classList.add('flex');
+                } else {
+                    slide.classList.add('hidden');
+                    slide.classList.remove('flex');
+                }
+            });
+            document.getElementById('slideIndicator').textContent = `${currentSlide} / ${totalSlides}`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`フルスクリーンエラー: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                prevSlide();
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                currentSlide = 1;
+                updateSlide();
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                currentSlide = totalSlides;
+                updateSlide();
+            }
+        });
+
+        // Initialize
+        updateSlide();
+    </script>
+</body>
+</html>

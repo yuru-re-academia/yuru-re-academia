@@ -1,0 +1,977 @@
+<!--
+Chosen Palette: Vibrant Forest & Terracotta (Primary: #2e5a44, Accent: #d96b43, Dark: #1e3e2e, Neutral: #f4f6f3, Text: #1e2e25)
+Narrative Plan:
+1. Executive Header & Core KPIs: Overview of the graduation-style re-ablement day service in Yonago City.
+2. Mission & Concept Origins: Dual emotional drivers, core vision, two structural pillars, and 5-step graduation lifecycle.
+3. Post-Graduation Ecosystem: Visual breakdown of the 3 main post-graduation pathways (Further Study, Stage Performance "100-Sai", and Community Role) + Safety Net.
+4. Monthly Cost & Revenue Structure: Interactive Donut chart breakdown of operating expenses and real labor cash flows.
+5. Break-Even Analysis (BEP) & Financial Simulation: Grouped Bar Chart comparing revenues and net profit across 5 operational capacity stages.
+6. Funding & Capital Allocation: Horizontal Bar Chart showing precise breakdown of 12-15M yen startup capital allocation.
+7. Opening Roadmap & Strategic Pillars: 4-Phase execution timeline leading to October 1, 2027 Grand Opening and 3 success drivers.
+
+Visualization Choices & Rationale:
+1. Monthly Expense Breakdown: Donut Chart (Chart.js / Canvas) - Offers immediate proportion visualization for fixed vs. variable operational costs. (NO SVG)
+2. Capacity & BEP Simulation: Grouped Bar Chart (Chart.js / Canvas) - Compares monthly revenues against net profits across operational load stages. (NO SVG)
+3. Capital Allocation: Horizontal Bar Chart (Chart.js / Canvas) - Clearly details initial investment breakdown from loan proceeds. (NO SVG)
+4. Ecosystem, Step Lifecycle, and Roadmap: Structured HTML/CSS Cards with Tailwind system - Clean visual hierarchy and optimal content density. (NO SVG, NO MERMAID)
+
+Confirmation:
+NEITHER Mermaid JS NOR SVG were used anywhere in this output. All charts use Chart.js Canvas rendering, and all icons/graphics use HTML/CSS and FontAwesome web fonts.
+-->
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シニアアカデミア YURU-RE:（ユルリ）事業計画 | 大人の好奇心が満たされる学び舎</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1e3e2e',
+                            green: '#2e5a44',
+                            lightgreen: '#eef4ec',
+                            orange: '#d96b43',
+                            lightorange: '#fff8f5',
+                            softorange: '#f7b399',
+                            bg: '#f4f6f3',
+                            card: '#ffffff',
+                            text: '#1e2e25',
+                            muted: '#526358'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'sans-serif'],
+                        number: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 360px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- Sticky Navigation Header -->
+    <header class="sticky top-0 z-50 bg-brand-dark/95 backdrop-blur-md text-white shadow-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-brand-orange flex items-center justify-center font-bold text-lg text-white">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight block leading-none">シニアアカデミア YURU-RE:</span>
+                    <span class="text-xs text-brand-softorange hidden sm:inline-block">大人の好奇心が満たされる学び舎 ＆ リカレント教育</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#overview" class="hover:text-brand-softorange transition-colors">構想概要</a>
+                <a href="#ecosystem" class="hover:text-brand-softorange transition-colors">エコシステム</a>
+                <a href="#financials" class="hover:text-brand-softorange transition-colors">収支・BEP</a>
+                <a href="#funding" class="hover:text-brand-softorange transition-colors">資金調達</a>
+                <a href="#roadmap" class="hover:text-brand-softorange transition-colors">ロードマップ</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <a href="../index.html" class="text-xs font-semibold bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg transition flex items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> ポータル
+                </a>
+                <a href="シニアアカデミア構想_スライドプレゼンテーション.html" class="text-xs font-semibold bg-brand-orange hover:bg-brand-orange/90 text-white px-3 py-1.5 rounded-lg transition flex items-center gap-1">
+                    <i class="fa-solid fa-presentation"></i> スライド版
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Executive Summary Section -->
+    <section id="overview" class="pt-8 pb-12 bg-gradient-to-b from-brand-dark to-brand-green text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="inline-block bg-brand-orange text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 shadow-sm">
+                    鳥取県米子市モデル（中海テレビ連携）
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight mb-4">
+                    大人の好奇心が満たされる場所<br><span class="text-brand-softorange">「大人の学び舎 × リカレント教育」</span>
+                </h1>
+                <p class="text-brand-lightgreen text-base sm:text-lg leading-relaxed">
+                    「お世話される場所」から、知的好奇心を満たし身体を調律する「大人の学び舎」へ。シニアのリカレント教育と、地域で誇らしく生きる自立支援エコシステムを創出します。
+                </p>
+            </div>
+
+            <!-- Key Metric KPI Cards Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-5 text-center transform hover:-translate-y-1 transition-transform">
+                    <div class="text-xs text-brand-softorange font-bold uppercase tracking-wider mb-1">1日定員 (午前特化)</div>
+                    <div class="font-number text-3xl sm:text-4xl font-extrabold text-white">15<span class="text-lg font-normal ml-1">名</span></div>
+                    <p class="text-xs text-gray-300 mt-1">食事・入浴なし/半日型</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-5 text-center transform hover:-translate-y-1 transition-transform">
+                    <div class="text-xs text-brand-softorange font-bold uppercase tracking-wider mb-1">損益分岐点 (BEP)</div>
+                    <div class="font-number text-3xl sm:text-4xl font-extrabold text-white">6<span class="text-lg font-normal ml-1">名/日</span></div>
+                    <p class="text-xs text-gray-300 mt-1">登録約16名で完全黒字化</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-5 text-center transform hover:-translate-y-1 transition-transform">
+                    <div class="text-xs text-brand-softorange font-bold uppercase tracking-wider mb-1">満席時想定利益</div>
+                    <div class="font-number text-3xl sm:text-4xl font-extrabold text-white">85.0<span class="text-lg font-normal ml-1">万円/月</span></div>
+                    <p class="text-xs text-gray-300 mt-1">役員報酬25万含め高収益</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-5 text-center transform hover:-translate-y-1 transition-transform">
+                    <div class="text-xs text-brand-softorange font-bold uppercase tracking-wider mb-1">調達目標額</div>
+                    <div class="font-number text-3xl sm:text-4xl font-extrabold text-white">850<span class="text-lg font-normal ml-1">万円</span></div>
+                    <p class="text-xs text-gray-300 mt-1">公庫750万 ＋ 自己資金100万</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Main Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- SECTION 1: Origin & Dual Pillars -->
+        <section class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">1. 構想の原点 ＆ コンセプト</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    二重の原体験から導き出した「誇らしく通える場所」の創出と、知と体を刺激する2つのコア柱。
+                </p>
+            </div>
+
+            <!-- Origin Dual Cards & Mission Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Origin 1 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-lightgreen text-brand-green flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-heart-crack"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-brand-dark">原体験 1：祖父の言葉</h3>
+                        </div>
+                        <div class="bg-brand-bg border-l-4 border-brand-green p-3 rounded-r-lg font-bold text-brand-dark mb-3">
+                            「退屈だから行きたくない」
+                        </div>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            デイサービスに通い始めた祖父の本音。単なる時間の消化ではなく、通うこと自体が誇らしくワクワクする「目標のある場所」が必要であるという強い確信。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Origin 2 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl bg-brand-lightorange text-brand-orange flex items-center justify-center font-bold text-lg">
+                                <i class="fa-solid fa-face-smile-beam"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-brand-dark">原体験 2：ゆるダン® 参加者の感動</h3>
+                        </div>
+                        <div class="bg-brand-lightorange/60 border-l-4 border-brand-orange p-3 rounded-r-lg font-bold text-brand-dark mb-3">
+                            「こんなに楽しい体操があるんだ！」
+                        </div>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            ダンスレッスンで見せたシニアの弾ける笑顔。音楽に合わせて身体を動かす歓びが、自己効力感と生きがいへと変わる瞬間を目撃した実情。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Core Pillars Grid -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                <h3 class="text-xl font-bold text-brand-dark text-center">アカデミアを支える「2つのコア柱」</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border border-brand-lightgreen bg-brand-lightgreen/30 rounded-xl p-6 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-brand-dark">知の探究</h4>
+                                <span class="text-xs text-brand-green font-semibold">カルチャー連携プログラム</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            本格的なカルチャー講座から専門講師を招き、知的好奇心や創作欲、挑戦意欲を刺激。いくつになっても新しい学びを得る歓びを提供します。
+                        </p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-brand-muted border border-brand-green/20">
+                            <strong class="text-brand-green block mb-0.5"><i class="fa-solid fa-building-columns mr-1"></i> chukaiコムコムスクエア連携</strong>
+                            地域のカルチャー拠点が持つ豊富な講座プログラムや講師ネットワークを活用し、質の高い学びをデイ内で再現。
+                        </div>
+                    </div>
+
+                    <div class="border border-brand-softorange/40 bg-brand-lightorange/40 rounded-xl p-6 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-brand-dark">身体の歓び</h4>
+                                <span class="text-xs text-brand-orange font-semibold">「ゆるダン®」機能訓練</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-brand-muted leading-relaxed">
+                            音楽に合わせて楽しく身体を動かし、日常生活動作（ADL/IADL）の維持・改善を図ります。身体機能とともに心の自信を取り戻します。
+                        </p>
+                        <div class="bg-white rounded-lg p-3 text-xs text-brand-muted border border-brand-orange/20">
+                            <strong class="text-brand-orange block mb-0.5"><i class="fa-solid fa-child-reaching mr-1"></i> シニア特化型ダンスエクササイズ</strong>
+                            無理なく楽しくリズムに合わせて全身を解きほぐし、転倒予防・関節可動域拡大を実現する独自プログラム。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Step Lifecycle Cards -->
+            <div class="bg-brand-dark text-white rounded-2xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-xl font-bold text-center mb-6">アカデミアの「5ステップ」受講サイクル</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                    <div class="bg-white/10 p-4 rounded-xl text-center space-y-1 border border-white/10">
+                        <span class="text-xs font-number font-bold text-brand-softorange bg-white/10 px-2 py-0.5 rounded-full">STEP 01</span>
+                        <h4 class="font-bold text-base">入学</h4>
+                        <p class="text-xs text-gray-300">興味関心の丁寧なヒアリングと目標設定</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center space-y-1 border border-white/10">
+                        <span class="text-xs font-number font-bold text-brand-softorange bg-white/10 px-2 py-0.5 rounded-full">STEP 02</span>
+                        <h4 class="font-bold text-base">アセスメント</h4>
+                        <p class="text-xs text-gray-300">身体機能の評価と個別最適計画の立案</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center space-y-1 border border-white/10">
+                        <span class="text-xs font-number font-bold text-brand-softorange bg-white/10 px-2 py-0.5 rounded-full">STEP 03</span>
+                        <h4 class="font-bold text-base">通学・探究</h4>
+                        <p class="text-xs text-gray-300">「知の探究」×「ゆるダン®」の実践</p>
+                    </div>
+                    <div class="bg-white/10 p-4 rounded-xl text-center space-y-1 border border-white/10">
+                        <span class="text-xs font-number font-bold text-brand-softorange bg-white/10 px-2 py-0.5 rounded-full">STEP 04</span>
+                        <h4 class="font-bold text-base">成果達成</h4>
+                        <p class="text-xs text-gray-300">ADL改善と自己効力感（自信）の獲得</p>
+                    </div>
+                    <div class="bg-brand-orange p-4 rounded-xl text-center space-y-1 shadow-lg">
+                        <span class="text-xs font-number font-bold text-white bg-black/20 px-2 py-0.5 rounded-full">STEP 05</span>
+                        <h4 class="font-bold text-base">卒業・発表</h4>
+                        <p class="text-xs text-white/90">卒業式 ＆ 「100祭」での成果披露</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: Post-Graduation Ecosystem -->
+        <section id="ecosystem" class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">2. 卒業後の持続的コミュニティ循環（3大進路）</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    介護保険からの自立を達成したシニアが、持続的に生きがいを維持するためのエコシステム構造。
+                </p>
+            </div>
+
+            <!-- Start Node Banner -->
+            <div class="bg-gradient-to-r from-brand-dark to-brand-green text-white p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-brand-orange text-white flex items-center justify-center text-2xl font-bold">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">アカデミア卒業（介護保険からの自立・達成）</h3>
+                        <p class="text-xs text-brand-lightgreen">身体機能の改善・要介護度の改善を経て次なるステージへ</p>
+                    </div>
+                </div>
+                <div class="bg-white/15 px-4 py-2 rounded-xl text-xs font-bold text-brand-softorange border border-white/20 whitespace-nowrap">
+                    機能改善 ＆ 自信獲得の成果
+                </div>
+            </div>
+
+            <!-- 3 Pathways Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Branch 1: 進学 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-brand-green/30 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
+                            <div class="w-10 h-10 rounded-lg bg-brand-green text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-school"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-base">「進学」エコシステム</h4>
+                                <span class="text-xs text-brand-muted">運動・学習習慣の継続</span>
+                            </div>
+                        </div>
+                        <ul class="mt-4 space-y-2.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-green mt-0.5"></i>
+                                <span><strong>午後の自費レッスンへ移行</strong><br>慣れ親しんだ拠点内でスムーズに自費クラスへ進級。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-green mt-0.5"></i>
+                                <span><strong>一般カルチャー講座へ</strong><br>chukaiコムコムスクエア等で一般受講生として学びを継続。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-green mt-0.5"></i>
+                                <span><strong>習慣の自然な維持</strong><br>自立後も運動・学習習慣が途切れない。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Branch 2: 披露 (100祭) -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-brand-orange/40 bg-brand-lightorange/20 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center gap-3 border-b border-brand-orange/20 pb-3">
+                            <div class="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-base">「披露」の舞台設計</h4>
+                                <span class="text-xs text-brand-orange font-bold">自主開催イベント「100祭」</span>
+                            </div>
+                        </div>
+                        <ul class="mt-4 space-y-2.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-orange mt-0.5"></i>
+                                <span><strong>「100祭」への出演・発表</strong><br>日頃のダンスや講座の成果を地域大舞台で発表。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-orange mt-0.5"></i>
+                                <span><strong>家族・地域から拍手を受ける</strong><br>「見てもらう歓び」が最高の生きがい・自己肯定感に。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-orange mt-0.5"></i>
+                                <span><strong>リハビリの原動力</strong><br>「100祭に出る！」目標が日々の意欲を最大化。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Branch 3: 就職 -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border-2 border-blue-200 flex flex-col justify-between space-y-4">
+                    <div>
+                        <div class="flex items-center gap-3 border-b border-gray-100 pb-3">
+                            <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-brand-dark text-base">「就職」エコシステム</h4>
+                                <span class="text-xs text-brand-muted">社会的役割の獲得</span>
+                            </div>
+                        </div>
+                        <ul class="mt-4 space-y-2.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-0.5"></i>
+                                <span><strong>地域活動へ復帰・デビュー</strong><br>地域サロンやボランティア活動へ積極的に参加。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-0.5"></i>
+                                <span><strong>支える側への転換</strong><br>「支えられる側」から地域を照らす存在へ変容。</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-blue-600 mt-0.5"></i>
+                                <span><strong>社会還元の喜び</strong><br>培った自信と元気で地域活性化に貢献。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Net Card -->
+            <div class="bg-white rounded-xl p-5 border border-dashed border-brand-green flex items-center gap-4">
+                <div class="w-10 h-10 rounded-full bg-brand-lightgreen text-brand-green flex items-center justify-center text-lg shrink-0">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-brand-green text-sm">リバウンド防止のフォロー構造（セーフティネット）</h4>
+                    <p class="text-xs text-brand-muted leading-relaxed">
+                        卒業生同窓会や「100祭」練習会、定期的な健康相談機会を設けることで、卒業後の孤立や身体機能の再悪化（リバウンド）を未然に防止します。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: Financial Structure & Operating Costs -->
+        <section id="financials" class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">3. 月間収支モデル ＆ コスト構造</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    人件費の最適化（最小3名体制）と高品質なカルチャープログラム運営を両立させた高持続性経営モデル。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Text / Cost Structure Details -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 space-y-4">
+                        <h3 class="font-bold text-lg text-brand-dark flex items-center gap-2">
+                            <i class="fa-solid fa-calculator text-brand-orange"></i>
+                            月間支出構造内訳（計 87.9 万円/月）
+                        </h3>
+                        
+                        <!-- Cost List -->
+                        <div class="space-y-3 text-xs sm:text-sm">
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="font-bold text-brand-dark">管理者（自身）役員報酬</span>
+                                <span class="font-number font-bold text-brand-green">25.0 万円</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="text-brand-muted">看護職員パート（看護師/時給1,500円）</span>
+                                <span class="font-number font-medium">約 13.2 万円</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="text-brand-muted">生活相談員/介護パート（福祉士/時給1,100円）</span>
+                                <span class="font-number font-medium">約 9.7 万円</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="text-brand-muted">テナント家賃・駐車場（米子市内相場）</span>
+                                <span class="font-number font-medium">15.0 万円</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="text-brand-muted">送迎車両費・ガソリン代（22日稼働分）</span>
+                                <span class="font-number font-medium">6.0 万円</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-2 border-b border-gray-100">
+                                <span class="text-brand-muted">chukaiカルチャー講師謝金 ＆ 介護ソフト・光熱費等</span>
+                                <span class="font-number font-medium">19.0 万円</span>
+                            </div>
+                        </div>
+
+                        <!-- Highlight Banner -->
+                        <div class="bg-brand-lightgreen/60 p-4 rounded-xl text-xs text-brand-green border border-brand-green/30">
+                            <strong class="block mb-1 font-bold"><i class="fa-solid fa-coins mr-1"></i> 実質現金支出の抑制効果</strong>
+                            借入半減（融資750万）に伴い返済負担が約10万円軽くなり、役員報酬（25万円）を除いた<strong>外部への実質現金支出は約53.0万円/月</strong>に抑えられ、創業初期のキャッシュフローリスクを大幅に低減しています。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Donut Chart Container -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 space-y-4">
+                    <h3 class="font-bold text-lg text-brand-dark text-center">月間費用構成比率 (Donut Chart)</h3>
+                    <div class="chart-container">
+                        <canvas id="costStructureChart"></canvas>
+                    </div>
+                    <p class="text-xs text-brand-muted text-center">
+                        借入返済が半減したことで、月間総支出が約78万円にスリム化。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: BEP & Operational Stage Simulation -->
+        <section class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">4. 損益分岐点（BEP）と稼働段階別シミュレーション</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    1日あたり利用者数と売上・利益の推移。1日6名（登録16名）で完全黒字化を達成。
+                </p>
+            </div>
+
+            <!-- BEP Interactive Chart Section -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-100 pb-4">
+                    <div>
+                        <h3 class="font-bold text-xl text-brand-dark">稼働段階別 収支比較グラフ</h3>
+                        <p class="text-xs text-brand-muted">単価：約5,000円/回（米子市7級地・各種加算含）、週2回利用想定</p>
+                    </div>
+                    <span class="bg-brand-orange text-white text-xs font-bold px-3 py-1.5 rounded-full">
+                        BEP: 1日6名（利用率 40.0%）
+                    </span>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="chart-container" style="max-width: 850px; height: 360px;">
+                    <canvas id="bepSimulationChart"></canvas>
+                </div>
+
+                <!-- Simulation Data Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-brand-green text-white font-bold">
+                                <th class="p-3 rounded-tl-lg">稼働段階</th>
+                                <th class="p-3 text-center">1日利用</th>
+                                <th class="p-3 text-center">登録者数</th>
+                                <th class="p-3 text-right">月間売上</th>
+                                <th class="p-3 text-right">月間収支</th>
+                                <th class="p-3 rounded-tr-lg">経営状態・判断指標</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3 font-bold text-brand-dark">最低存続ライン</td>
+                                <td class="p-3 text-center font-number">約 4 名</td>
+                                <td class="p-3 text-center font-number">約 11 名</td>
+                                <td class="p-3 text-right font-number">42.0 万円</td>
+                                <td class="p-3 text-right font-number text-red-500 font-bold">▲ 36.0 万円</td>
+                                <td class="p-3 text-xs text-brand-muted">外部実質支出（約53万）の大部分を回収</td>
+                            </tr>
+                            <tr class="bg-brand-lightorange/50 font-bold border-l-4 border-brand-orange">
+                                <td class="p-3 text-brand-orange flex items-center gap-1">
+                                    <span>損益分岐点 (BEP)</span>
+                                    <span class="bg-brand-orange text-white text-[10px] px-1.5 py-0.5 rounded">BEP</span>
+                                </td>
+                                <td class="p-3 text-center font-number">約 6 名</td>
+                                <td class="p-3 text-center font-number">約 16 名</td>
+                                <td class="p-3 text-right font-number">63.0 万円</td>
+                                <td class="p-3 text-right font-number text-brand-green">+ 0.5 万円</td>
+                                <td class="p-3 text-xs text-brand-dark">全コスト回収 ＆ 役員報酬25万確保</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3 font-bold text-brand-dark">安定成長ライン</td>
+                                <td class="p-3 text-center font-number">8 名</td>
+                                <td class="p-3 text-center font-number">約 22 名</td>
+                                <td class="p-3 text-right font-number">88.0 万円</td>
+                                <td class="p-3 text-right font-number text-brand-green font-bold">+ 25.5 万円</td>
+                                <td class="p-3 text-xs text-brand-muted">専従管理者への引継ぎ・人員増強可能</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-3 font-bold text-brand-dark">高収益ライン</td>
+                                <td class="p-3 text-center font-number">10 名</td>
+                                <td class="p-3 text-center font-number">約 28 名</td>
+                                <td class="p-3 text-right font-number">110.0 万円</td>
+                                <td class="p-3 text-right font-number text-brand-green font-bold">+ 47.5 万円</td>
+                                <td class="p-3 text-xs text-brand-muted">午後スタジオ・自費展開へ投資拡大</td>
+                            </tr>
+                            <tr class="bg-brand-lightgreen/40 font-bold">
+                                <td class="p-3 text-brand-green">満席 (100%)</td>
+                                <td class="p-3 text-center font-number">15 名</td>
+                                <td class="p-3 text-center font-number">約 41 名</td>
+                                <td class="p-3 text-right font-number">165.0 万円</td>
+                                <td class="p-3 text-right font-number text-brand-green font-bold">+ 85.0 万円</td>
+                                <td class="p-3 text-xs text-brand-green">午前枠最大利益（月利 約85万円）</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: Funding & Capital Allocation -->
+        <section id="funding" class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">5. 資金調達計画 ＆ 使途計画</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    日本政策金融公庫（750万円）および自己資金（100万円）によるスリム調達モデル。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Funding Chart -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-200/80 space-y-4">
+                    <h3 class="font-bold text-lg text-brand-dark text-center">資金使途計画（850万円スリムモデル）</h3>
+                    <div class="chart-container">
+                        <canvas id="fundingChart"></canvas>
+                    </div>
+                    <p class="text-xs text-brand-muted text-center">
+                        共用部車椅子トイレ活用で内装費を半減させ、国保連入金タイムラグを耐える運転資金を厳格に確保。
+                    </p>
+                </div>
+
+                <!-- Funding Cards Breakdown -->
+                <div class="space-y-4">
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-brand-green space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-brand-dark text-base">内装バリアフリー工事費</h4>
+                            <span class="font-number font-extrabold text-brand-green text-lg">350 万円</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            床材防滑化、壁面手すり施工、静養室・相談室簡易間仕切り、消防設備導入（共用部車椅子トイレ活用）。
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-brand-orange space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-brand-dark text-base">初期運転資金（キャッシュガード）</h4>
+                            <span class="font-number font-extrabold text-brand-orange text-lg">350 万円</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            介護報酬（国保連）の2ヶ月入金遅延タイムラグへの備えおよび開業初期の固定費・人件費の防御用手元資金。
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border-l-4 border-blue-500 space-y-2">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-brand-dark text-base">設備・車両・備品購入費</h4>
+                            <span class="font-number font-extrabold text-blue-600 text-lg">250 万円</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            送迎用軽自動車2台、介護請求ソフト（カイポケ等）、スタイリッシュユニフォーム、機能訓練・学習器具等。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 6: Master Opening Roadmap & 3 Success Strategies -->
+        <section id="roadmap" class="space-y-8">
+            <div class="border-l-4 border-brand-orange pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-brand-dark">6. 2027年秋開業 マスターロードマップ ＆ 3大戦略</h2>
+                <p class="text-brand-muted text-sm sm:text-base mt-1">
+                    2026年9月の準備開始から2027年10月1日のグランドオープンまでの逆算全実行工程。
+                </p>
+            </div>
+
+            <!-- 4 Phase Timeline Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Phase 1 -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-200/80 flex flex-col justify-between space-y-3 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-green"></div>
+                    <div>
+                        <span class="text-[10px] font-number font-extrabold text-white bg-brand-green px-2 py-0.5 rounded-full">PHASE 01</span>
+                        <h3 class="font-bold text-base text-brand-dark mt-2">提携 ＆ 包括挨拶期</h3>
+                        <p class="text-xs font-number font-semibold text-brand-orange">2026.9月 〜 11月</p>
+                        <ul class="mt-3 space-y-1.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 米子市長寿社会課への事前相談</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> <strong>市内全地域包括支援センター挨拶回り</strong></li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> Chukai包括提案 ＆ 物件現地精査</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 内装バリアフリーレイアウト設計</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-lightgreen/60 p-2 rounded-lg text-[11px] text-brand-green font-bold text-center border border-brand-green/20">
+                        <i class="fa-solid fa-bullseye mr-1"></i> 行政枠・包括接点構築
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-200/80 flex flex-col justify-between space-y-3 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-green"></div>
+                    <div>
+                        <span class="text-[10px] font-number font-extrabold text-white bg-brand-green px-2 py-0.5 rounded-full">PHASE 02</span>
+                        <h3 class="font-bold text-base text-brand-dark mt-2">資金調達 ＆ 契約期</h3>
+                        <p class="text-xs font-number font-semibold text-brand-orange">2026.12月 〜 2027.2月</p>
+                        <ul class="mt-3 space-y-1.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 一括融資申請（公庫/地銀協調）</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 融資内諾受領（1,200〜1,500万）</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> Chukai賃貸借契約 ＆ 業務提携締結</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> ブランド・ユニフォームデザイン策定</li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-lightgreen/60 p-2 rounded-lg text-[11px] text-brand-green font-bold text-center border border-brand-green/20">
+                        <i class="fa-solid fa-file-contract mr-1"></i> 融資・賃貸契約完了
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="bg-white rounded-2xl p-5 shadow-sm border border-gray-200/80 flex flex-col justify-between space-y-3 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-green"></div>
+                    <div>
+                        <span class="text-[10px] font-number font-extrabold text-white bg-brand-green px-2 py-0.5 rounded-full">PHASE 03</span>
+                        <h3 class="font-bold text-base text-brand-dark mt-2">施工 ＆ 指定申請期</h3>
+                        <p class="text-xs font-number font-semibold text-brand-orange">2027.3月 〜 6月</p>
+                        <ul class="mt-3 space-y-1.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 内装バリアフリー着工 ＆ ソフト選定</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> パート介護福祉士・看護師採用内定</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> 消防設備検査・看板設置</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-green font-bold">•</span> <strong>米子市へ指定申請書提出【6月末】</strong></li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-lightgreen/60 p-2 rounded-lg text-[11px] text-brand-green font-bold text-center border border-brand-green/20">
+                        <i class="fa-solid fa-paper-plane mr-1"></i> 6月末 指定申請完了
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="bg-white rounded-2xl p-5 shadow-md border-2 border-brand-orange flex flex-col justify-between space-y-3 relative overflow-hidden bg-brand-lightorange/20">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-orange"></div>
+                    <div>
+                        <span class="text-[10px] font-number font-extrabold text-white bg-brand-orange px-2 py-0.5 rounded-full">PHASE 04</span>
+                        <h3 class="font-bold text-base text-brand-dark mt-2">見学会 ＆ OPEN</h3>
+                        <p class="text-xs font-number font-semibold text-brand-orange">2027.7月 〜 10月1日</p>
+                        <ul class="mt-3 space-y-1.5 text-xs text-brand-muted">
+                            <li class="flex items-start gap-1"><span class="text-brand-orange font-bold">•</span> 米子市現地立入調査 ＆ 指定取得</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-orange font-bold">•</span> <strong>【9月】ケアマネ向け先行見学会</strong></li>
+                            <li class="flex items-start gap-1"><span class="text-brand-orange font-bold">•</span> Chukai連携メディア内覧会</li>
+                            <li class="flex items-start gap-1"><span class="text-brand-orange font-bold">•</span> <strong>2027年10月1日 開業（8名動員）</strong></li>
+                        </ul>
+                    </div>
+                    <div class="bg-brand-orange text-white p-2 rounded-lg text-[11px] font-bold text-center shadow">
+                        <i class="fa-solid fa-flag-checkered mr-1"></i> 10/1 GRAND OPEN
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Success Strategies Cards -->
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-200/80 space-y-6">
+                <h3 class="text-xl font-bold text-brand-dark text-center">開業成功を決定づける「3大推進戦略」</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-bg rounded-xl p-5 border border-gray-200/80 space-y-2">
+                        <div class="flex items-center gap-2 text-brand-green font-bold text-sm">
+                            <i class="fa-solid fa-building-user text-lg"></i>
+                            <span>戦略 1：地域包括との早期連携</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            構想段階（2026年秋）から米子市内の全包括支援センターへ挨拶回りを行い、「自立を目指す学び舎型デイ」の認知と相談紹介網を構築。
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-lightorange/50 rounded-xl p-5 border border-brand-orange/30 space-y-2">
+                        <div class="flex items-center gap-2 text-brand-orange font-bold text-sm">
+                            <i class="fa-solid fa-door-open text-lg"></i>
+                            <span>戦略 2：ケアマネ向け先行体験会</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            2027年9月に包括関係者・ケアマネを招いた体験会を開催。プログラムと洗練された空間を体感させ、初月からのスムーズな紹介を獲得。
+                        </p>
+                    </div>
+
+                    <div class="bg-brand-lightgreen/50 rounded-xl p-5 border border-brand-green/30 space-y-2">
+                        <div class="flex items-center gap-2 text-brand-green font-bold text-sm">
+                            <i class="fa-solid fa-handshake text-lg"></i>
+                            <span>戦略 3：Chukai提携 ＆ 100祭</span>
+                        </div>
+                        <p class="text-xs text-brand-muted leading-relaxed">
+                            Chukai連携による講師・番組連動に加え、自主イベント「100祭」を晴れ舞台に設定。メディア露出と地域での高い評判を獲得。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-white border-t border-white/10 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-brand-orange text-base"></i>
+                <span class="font-bold text-white text-sm">アカデミア構想</span>
+                <span>| 卒業型リエイブルメントデイサービス事業計画</span>
+            </div>
+            <div>
+                © 2026 Academia Project All Rights Reserved. (米子市モデル)
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart.js Logic Implementation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Common Chart.js Configuration Options
+            Chart.defaults.font.family = "'Noto Sans JP', sans-serif";
+            Chart.defaults.color = '#526358';
+
+            // Shared Tooltip Title Callback for array label handling
+            const sharedTooltipCallback = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                    return label.join(' ');
+                                } else {
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Label wrapping helper function (max 16 chars)
+            function wrapLabel(label) {
+                if (typeof label !== 'string') return label;
+                if (label.length <= 16) return label;
+                
+                const words = label.split(' ');
+                if (words.length > 1) {
+                    let lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + word).length > 16) {
+                            if (currentLine) lines.push(currentLine.trim());
+                            currentLine = word + ' ';
+                        } else {
+                            currentLine += word + ' ';
+                        }
+                    });
+                    if (currentLine) lines.push(currentLine.trim());
+                    return lines;
+                } else {
+                    // Split string at 16 chars limit
+                    let lines = [];
+                    for (let i = 0; i < label.length; i += 16) {
+                        lines.push(label.substring(i, i + 16));
+                    }
+                    return lines;
+                }
+            }
+
+            // --- CHART 1: Cost Structure Donut Chart ---
+            const costCtx = document.getElementById('costStructureChart').getContext('2d');
+            const rawCostLabels = [
+                '管理者役員報酬 (25.0万円)',
+                '看護・介護パート人件費 (22.9万円)',
+                'テナント家賃・駐車場 (15.0万円)',
+                '車両費・ガソリン代 (6.0万円)',
+                '講師謝金・ソフト代 (9.0万円)',
+                '光熱費・保険・雑費 (10.0万円)'
+            ];
+
+            new Chart(costCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: rawCostLabels.map(wrapLabel),
+                    datasets: [{
+                        data: [25.0, 22.9, 15.0, 6.0, 9.0, 10.0],
+                        backgroundColor: [
+                            '#2e5a44', // Dark Green
+                            '#d96b43', // Orange
+                            '#f7b399', // Soft Orange
+                            '#3b82f6', // Blue
+                            '#10b981', // Emerald
+                            '#9ca3af'  // Gray
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 12,
+                                font: { size: 11 }
+                            }
+                        },
+                        tooltip: sharedTooltipCallback.plugins.tooltip
+                    },
+                    cutout: '60%'
+                }
+            });
+
+            // --- CHART 2: BEP & Financial Simulation Bar Chart ---
+            const bepCtx = document.getElementById('bepSimulationChart').getContext('2d');
+            const rawBepLabels = [
+                '1. 最低存続 (4名/日)',
+                '2. 損益分岐点 (6名/日)',
+                '3. 安定成長 (8名/日)',
+                '4. 高収益 (10名/日)',
+                '5. 満席100% (15名/日)'
+            ];
+
+            new Chart(bepCtx, {
+                type: 'bar',
+                data: {
+                    labels: rawBepLabels.map(wrapLabel),
+                    datasets: [
+                        {
+                            label: '月間売上 (万円)',
+                            data: [42.0, 63.0, 88.0, 110.0, 165.0],
+                            backgroundColor: '#2e5a44',
+                            borderRadius: 6
+                        },
+                        {
+                            label: '月間収支 (役員込 万円)',
+                            data: [-36.0, 0.5, 25.5, 47.5, 85.0],
+                            backgroundColor: '#d96b43',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { font: { size: 12, weight: 'bold' } }
+                        },
+                        tooltip: sharedTooltipCallback.plugins.tooltip
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: '#f3f4f6' },
+                            ticks: {
+                                callback: function(value) { return value + ' 万円'; }
+                            }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+            // --- CHART 3: Funding Allocation Horizontal Bar Chart ---
+            const fundingCtx = document.getElementById('fundingChart').getContext('2d');
+            const rawFundingLabels = [
+                '内装バリアフリー工事費',
+                '初期運転資金 (手元保有)',
+                '設備・車両・備品購入費'
+            ];
+
+            new Chart(fundingCtx, {
+                type: 'bar',
+                data: {
+                    labels: rawFundingLabels.map(wrapLabel),
+                    datasets: [{
+                        label: '調達資金配分 (万円)',
+                        data: [350, 350, 150],
+                        backgroundColor: [
+                            '#2e5a44',
+                            '#d96b43',
+                            '#3b82f6'
+                        ],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: sharedTooltipCallback.plugins.tooltip
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            grid: { color: '#f3f4f6' },
+                            ticks: {
+                                callback: function(value) { return value + ' 万円'; }
+                            }
+                        },
+                        y: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>

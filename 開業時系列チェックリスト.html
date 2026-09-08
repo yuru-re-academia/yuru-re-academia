@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>「シニアアカデミア　YURU-RE：（ゆるり）」 2028年春開業 時系列マスターチェックリスト</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',
+                            blue: '#1D4ED8',
+                            accent: '#2563EB',
+                            light: '#EFF6FF',
+                        },
+                        amber: {
+                            accent: '#D97706',
+                            light: '#FEF3C7',
+                        },
+                        green: {
+                            phase: '#15803D',
+                            light: '#DCFCE7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; font-size: 11pt; }
+            .card-shadow { box-shadow: none !important; border: 1px solid #cbd5e1 !important; }
+            .details-content { display: block !important; }
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen font-sans antialiased pb-12">
+
+    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-semibold text-blue-400 uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-flag-checkered"></i> 逆算実行マスター計画
+                    </div>
+                    <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+                        「シニアアカデミア　YURU-RE：（ゆるり）」開業時系列チェックリスト
+                    </h1>
+                    <p class="text-xs text-slate-400 mt-1">ターゲット開業日：2028年4月1日（鳥取県米子市 / 地域密着型通所介護 / 株式会社ユルク）</p>
+                </div>
+                
+                <div class="flex items-center gap-2 no-print flex-wrap">
+                    <a href="team_hub.html" class="px-3 py-1.5 text-xs bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded border border-indigo-500 transition flex items-center gap-1 shadow-sm">
+                        <i class="fa-solid fa-users"></i> チームハブ
+                    </a>
+                    <a href="index.html" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition flex items-center gap-1">
+                        <i class="fa-solid fa-arrow-left"></i> ポータル
+                    </a>
+                    <a href="開業ロードマップ.html" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition flex items-center gap-1">
+                        <i class="fa-solid fa-timeline text-blue-400"></i> ロードマップ
+                    </a>
+                    <button onclick="resetData()" class="px-3 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition">
+                        <i class="fa-solid fa-rotate-left mr-1"></i> リセット
+                    </button>
+                    <button onclick="window.print()" class="px-4 py-1.5 text-xs bg-blue-600 hover:bg-blue-500 text-white font-medium rounded transition shadow-sm">
+                        <i class="fa-solid fa-print mr-1"></i> 印刷 / PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+
+        <!-- Progress Overview Bar -->
+        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200 mb-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3">
+                <div>
+                    <h2 class="text-sm font-bold text-slate-700 uppercase tracking-wider">全体の進行状況</h2>
+                    <div class="flex items-baseline gap-2 mt-1">
+                        <span id="completed-count" class="text-3xl font-black text-blue-700">0</span>
+                        <span id="total-count" class="text-sm font-medium text-slate-500">/ 0 タスク完了</span>
+                    </div>
+                </div>
+                <div class="w-full md:w-auto flex items-center gap-4">
+                    <div class="text-right">
+                        <span class="text-xs text-slate-500 font-medium">達成度</span>
+                        <div id="progress-percent" class="text-2xl font-bold text-slate-800">0%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Progress Bar Graphic -->
+            <div class="w-full bg-slate-100 rounded-full h-3 overflow-hidden border border-slate-200">
+                <div id="progress-bar-fill" class="bg-gradient-to-r from-blue-600 to-indigo-600 h-full rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            </div>
+
+            <!-- Phase Pills Status -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4 pt-4 border-t border-slate-100 text-xs">
+                <div class="flex items-center gap-2 p-2 rounded bg-blue-50/50">
+                    <span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>
+                    <span class="font-medium text-slate-700">Phase 1 (提携&枠確定)</span>
+                    <span id="phase1-ratio" class="ml-auto font-bold text-blue-700">0/0</span>
+                </div>
+                <div class="flex items-center gap-2 p-2 rounded bg-indigo-50/50">
+                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span>
+                    <span class="font-medium text-slate-700">Phase 2 (資金&契約)</span>
+                    <span id="phase2-ratio" class="ml-auto font-bold text-indigo-700">0/0</span>
+                </div>
+                <div class="flex items-center gap-2 p-2 rounded bg-amber-50/50">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block"></span>
+                    <span class="font-medium text-slate-700">Phase 3 (施工&申請)</span>
+                    <span id="phase3-ratio" class="ml-auto font-bold text-amber-700">0/0</span>
+                </div>
+                <div class="flex items-center gap-2 p-2 rounded bg-emerald-50/50">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span>
+                    <span class="font-medium text-slate-700">Phase 4 (営業&開業)</span>
+                    <span id="phase4-ratio" class="ml-auto font-bold text-emerald-700">0/0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-6 no-print">
+            <div class="flex flex-wrap gap-1.5">
+                <button onclick="filterPhase('all')" class="filter-btn active px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-white shadow-sm transition">全期間表示</button>
+                <button onclick="filterPhase('p1')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 1 (26.9-11)</button>
+                <button onclick="filterPhase('p2')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 2 (26.12-27.3)</button>
+                <button onclick="filterPhase('p3')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 3 (27.4-7)</button>
+                <button onclick="filterPhase('p4')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 4 (27.8-10)</button>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <label class="inline-flex items-center cursor-pointer text-xs font-medium text-slate-600">
+                    <input type="checkbox" id="toggle-completed" onchange="renderTasks()" class="sr-only peer">
+                    <div class="relative w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                    <span class="ms-2">完了タスクを非表示</span>
+                </label>
+            </div>
+        </div>
+
+        <div id="checklist-container" class="space-y-8">
+            <!-- Dynamic Content Injected via JS -->
+        </div>
+
+    </main>
+
+    <script>
+        // Master Task Dataset mapped directly to Roadmap Timeline
+        const tasksData = [
+            // PHASE 01: 提携 & 枠確定期 (2026.9 - 11)
+            {
+                phase: "p1",
+                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseColor: "blue",
+                month: "2026年 9月",
+                title: "行政事前協議【最優先センターピン1】",
+                tasks: [
+                    { id: "t9-1", tag: "最優先", target: "米子市長寿社会課", text: "令和9年度（2027年度）地域密着型通所介護の指定枠（総量規制・公募の有無）の最新状況確認", detail: "窓口訪問または電話で確認。「10月1日オープンに向けた枠があるか」を明確にする。" },
+                    { id: "t9-2", tag: "厳守", target: "米子市長寿社会課", text: "指定申請スケジュール（10/1指定に向けた提出締切日：通常開所2〜3ヶ月前）の確定", detail: "6月末が本申請締め切りであることを口頭および要領紙面で確認。" },
+                    { id: "t9-3", tag: "最優先", target: "米子市長寿社会課", text: "地域医療介護総合確保基金（施設整備）令和9年度予算要望の事前希望申出書の提出打診", detail: "手元の申出書様式の提出期限および要件を担当官へ確認。" },
+                    { id: "t9-4", tag: "標準", target: "不動産 / 自社", text: "機能訓練室「専用面積45㎡以上（15名×3.0㎡）」および同一フロア共用車椅子トイレの要件整理", detail: "静養室、相談室、手洗い施設、共用バリアフリートイレの行政適合要件リスト化。" }
+                ]
+            },
+            {
+                phase: "p1",
+                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseColor: "blue",
+                month: "2026年 10月",
+                title: "Chukai包括提案【最優先センターピン2】",
+                tasks: [
+                    { id: "t10-1", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送（Chukai）向け「シニアアカデミア YURU-RE: 提携提案書」のプレゼン実施", detail: "単なる賃貸ではなく、大人の学び舎・リカレント教育・100祭舞台連動などシニア事業シナジーを強調。" },
+                    { id: "t10-2", tag: "最優先", target: "Chukai物件現場", text: "候補物件の現地調査（内法寸法・同一フロア共用車椅子トイレ寸法・段差なし動線確認）", detail: "内法実測で専用45㎡以上、トイレ有効開口幅80cm以上、回転スペースを確認し内装費350万円プランを確定。" },
+                    { id: "t10-3", tag: "標準", target: "中海テレビ放送", text: "賃貸条件（家賃15万円目安・駐車場共用条件・午前利用範囲）の交渉", detail: "午後の自費カルチャースタジオ按分利用を見越した賃貸交渉を実施。" }
+                ]
+            },
+            {
+                phase: "p1",
+                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseColor: "blue",
+                month: "2026年 11月",
+                title: "図面確定 ＆ 消防・建築課事前照会",
+                tasks: [
+                    { id: "t11-1", tag: "厳守", target: "内装施工業者", text: "内装レイアウト平面図（案）の作成（機能訓練室45㎡以上・簡易間仕切り動線設計）", detail: "静養室（ベッド配置）、プライバシー相談室、既存共用車椅子トイレへの安全動線を決定。" },
+                    { id: "t11-2", tag: "厳守", target: "米子市消防局", text: "消防局への事前相談（自動火災報知設備・誘導灯・消火器・避難経路確認）", detail: "デイサービス用途に必要な消防設備の追加設置要件を見積書に反映させる。" },
+                    { id: "t11-3", tag: "標準", target: "米子市建築指導課", text: "建築基準法に基づく用途変更の要否確認（200㎡以下か、建築物用途確認）", detail: "デイサービスへの用途変更手続きが不要または簡易に済むことを確認。" }
+                ]
+            },
+
+            // PHASE 02: 資金調達 & 本契約・設計期 (2026.12 - 2027.3)
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseColor: "indigo",
+                month: "2026年 12月",
+                title: "一括融資申請（公庫 ＆ 地銀/信金協調調達）",
+                tasks: [
+                    { id: "t12-1", tag: "最優先", target: "公庫 / ごうぎん / 米信", text: "一括融資申込（目標：750万〜850万円）の事業計画書・資金繰り表の完成", detail: "内装工事費350万、車両リース頭金30万、備品90万、初期運転資金350万、諸経費30万の総額850万（自己資金100万＋融資750万）で申請。" },
+                    { id: "t12-2", tag: "最優先", target: "日本政策金融公庫", text: "公庫（新創業融資/新規事業枠）への融資申請書類提出 ＆ 面談予約", detail: "米子支店へ事業計画書、見積書一式、履歴事項全部証明書を持参し提出。" },
+                    { id: "t12-3", tag: "標準", target: "山陰合同銀行 / 米子信金", text: "地銀・信金窓口への制度融資（信用保証協会付き）協調融資打診", detail: "公庫との協調融資の形で進め、地域金融機関との深い口座取引関係を構築。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseColor: "indigo",
+                month: "2027年 1月",
+                title: "協定・業務提携覚書締結 ＆ 法人定款変更",
+                tasks: [
+                    { id: "t1-1", tag: "厳守", target: "法務局（YURU'Q合同会社）", text: "法人定款目的に「介護保険法に基づく地域密着型通所介護事業」等の追加登記", detail: "法務局で定款変更登記申請を行い、履歴事項全部証明書を更新。" },
+                    { id: "t1-2", tag: "最優先", target: "中海テレビ放送", text: "Chukaiとの「包括業務提携に関する基本合意（覚書）」の正式締結", detail: "コムコムスクエア講師の出張頻度（週2-3回）、謝金単価、広報連動の基本契約書。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseColor: "indigo",
+                month: "2027年 2月",
+                title: "資金調達内諾 ＆ 物件賃貸借本契約",
+                tasks: [
+                    { id: "t2-1", tag: "最優先", target: "金融機関", text: "公庫 ＆ 金融機関からの融資内諾（満額決裁）の受領", detail: "金利条件・返済期間（据置期間6ヶ月〜1年設定）を確認し契約取り交わし。" },
+                    { id: "t2-2", tag: "最優先", target: "中海テレビ放送", text: "Chukai所有物件の「建物賃貸借本契約」の締結", detail: "引渡し日、フリーレント期間（工事期間中）、賃料発生開始日を最終合意。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseColor: "indigo",
+                month: "2027年 3月",
+                title: "施工契約・介護ソフト ＆ 送迎車両選定",
+                tasks: [
+                    { id: "t3-1", tag: "厳守", target: "内装施工業者", text: "内装バリアフリー工事請負契約の締結（着工日の確定）", detail: "工事日程を水回り工事不要のためスリム工期（5月着工〜6月上旬完了・約3〜4週間）に設定。" },
+                    { id: "t3-2", tag: "標準", target: "カイポケ等", text: "介護請求・計画書作成ソフト（カイポケ等）の選定・仮申し込み", detail: "国保連伝送機能、国保連入金ファクタリング・給与計算連携の確認。" },
+                    { id: "t3-3", tag: "標準", target: "自動車ディーラー", text: "送迎用車輌（軽ワゴン1台・中古カーリース頭金のみ）の選定・契約手配", detail: "初期は軽1台で運行開始し、登録10名突破時に2台目を月額追加リース。" }
+                ]
+            },
+
+            // PHASE 03: 施工 & 行政指定申請期 (2027.4 - 7)
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
+                phaseColor: "amber",
+                month: "2027年 4月",
+                title: "内装着工 ＆ 求人募集開始",
+                tasks: [
+                    { id: "t4-1", tag: "標準", target: "現場", text: "内装バリアフリー施工の着工（床防滑クッション化・手すり・簡易間仕切り）", detail: "共用部車椅子トイレ活用により配管工事なし。現場打合せにて床仕上げと動線を確認。" },
+                    { id: "t4-2", tag: "最優先", target: "求人媒体 / ハローワーク", text: "オープニングスタッフ（パート介護福祉士 1名）の求人募集開始", detail: "時給1,100円前後、午前4時間勤務（8:30-12:30）の好条件でターゲット採用。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
+                phaseColor: "amber",
+                month: "2027年 5月",
+                title: "人員内定 ＆ 消防・エアコン等機器設置",
+                tasks: [
+                    { id: "t5-1", tag: "最優先", target: "採用品候補者", text: "パート介護福祉士の面接・内定決定（雇用契約書の交わし）", detail: "介護福祉士資格証の原本確認・氏名本籍の一致を点検。" },
+                    { id: "t5-2", tag: "厳守", target: "施工業者 / 消防", text: "自動火災報知設備・業務用エアコン・事務機材の搬入・設置完了", detail: "消防機器の点検・設置完了報告書の控えを取得。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
+                phaseColor: "amber",
+                month: "2027年 6月",
+                title: "米子市指定申請提出【超重要・期日厳守】",
+                tasks: [
+                    { id: "t6-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "「地域密着型通所介護」事業者指定申請書一式の提出（6月末締切）", detail: "申請書、運営規程、役員名簿、資格証写し、シフト表、事業計画、平面図等の一式提出。" },
+                    { id: "t6-2", tag: "厳守", target: "損害保険会社", text: "通所介護事業者賠償責任保険への加入手続き", detail: "送迎中事故、フロア内転倒事故をカバーする賠償保険に加入。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
+                phaseColor: "amber",
+                month: "2027年 7月",
+                title: "竣工検査 ＆ 送迎車納車完了",
+                tasks: [
+                    { id: "t7-1", tag: "標準", target: "施工業者 / 自社", text: "内装施工の完成・引き渡し・竣工検査（バリアフリーチェック）", detail: "手すり高さ、ドア開口幅、床段差ゼロ確認、看板設置。" },
+                    { id: "t7-2", tag: "標準", target: "ディーラー / 保険", text: "送迎車両（軽ワゴン1台）の納車・任意保険手続き完了", detail: "全スタッフが運転できるよう対人・対物無制限保険加入。" }
+                ]
+            },
+
+            // PHASE 04: 営業 & 開業期 (2027.8 - 10)
+            {
+                phase: "p4",
+                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseColor: "emerald",
+                month: "2027年 8月",
+                title: "現地検査 ＆ 事業者指定取得",
+                tasks: [
+                    { id: "t8-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "米子市担当官による「現地立ち入り確認検査」の受検", detail: "図面通りの設備配置、鍵付き書類庫、消毒液、非常口を現地確認。" },
+                    { id: "t8-2", tag: "最優先", target: "米子市", text: "「介護事業者指定通知書（介護事業所番号）」の受領", detail: "指定番号確定後、パンフレットや名刺に事業者番号を印字。" }
+                ]
+            },
+            {
+                phase: "p4",
+                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseColor: "emerald",
+                month: "2027年 9月",
+                title: "ケアマネ営業 ＆ 共同プレ内覧会",
+                tasks: [
+                    { id: "t9b-1", tag: "最優先", target: "居宅 / 地域包括", text: "米子市内居宅介護支援事業所・地域包括への挨拶回り（ケアマネ営業）", detail: "「大人の学び舎・リカレント教育×身体調律」の差別化チラシを持参し体験利用を促進。" },
+                    { id: "t9b-2", tag: "最優先", target: "Chukai / 地域住民", text: "Chukai共同プレ内覧会・無料健康体験イベントの開催", detail: "体験送迎・機能訓練体験・ダンス体験を実施し、初期見込み客を獲得。" },
+                    { id: "t9b-3", tag: "厳守", target: "利用契約者", text: "初期オープン利用者のアセスメント・契約・通所介護計画書の作成", detail: "10月1日スタート時の初期目標利用枠（1日4〜6名以上）を確定させる。" }
+                ]
+            },
+            {
+                phase: "p4",
+                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseColor: "emerald",
+                month: "2027年 10月 1日",
+                title: "★ 2027年10月1日 GRAND OPEN",
+                tasks: [
+                    { id: "t10b-1", tag: "最優先", target: "自社サービス", text: "「シニアアカデミア YURU-RE:（ユルリ）」提供開始・安全運行", detail: "送迎ルートの確認、午前提供、バイタルチェック、安全第一でスタート。" },
+                    { id: "t10b-2", tag: "目標達成", target: "経営ターゲット", text: "開業3ヶ月以内（12月まで）に登録16名（1日6名 / BEP達成）の確立", detail: "ケアマネへの月次実績報告、機能改善の「成果」をタイムリーに報告。" }
+                ]
+            }
+        ];
+
+        let completedTasks = JSON.parse(localStorage.getItem('yurugura_tasks_state') || '{}');
+        let currentFilter = 'all';
+
+        function saveState() {
+            localStorage.setItem('yurugura_tasks_state', JSON.stringify(completedTasks));
+            updateDashboard();
+        }
+
+        function resetData() {
+            if (confirm('すべてのチェック状況をリセットして初期状態に戻しますか？')) {
+                completedTasks = {};
+                saveState();
+                renderTasks();
+            }
+        }
+
+        function toggleTask(id) {
+            completedTasks[id] = !completedTasks[id];
+            saveState();
+            
+            // Toggle visual styling immediately
+            const card = document.getElementById(`card-${id}`);
+            if (card) {
+                if (completedTasks[id]) {
+                    card.classList.add('bg-slate-50', 'opacity-75');
+                } else {
+                    card.classList.remove('bg-slate-50', 'opacity-75');
+                }
+            }
+            if (document.getElementById('toggle-completed').checked) {
+                renderTasks();
+            }
+        }
+
+        function filterPhase(phase) {
+            currentFilter = phase;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-slate-800', 'text-white', 'active');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-600');
+            event.target.classList.add('bg-slate-800', 'text-white', 'active');
+            renderTasks();
+        }
+
+        function updateDashboard() {
+            let total = 0;
+            let completed = 0;
+            let phaseCounts = { p1: { t: 0, c: 0 }, p2: { t: 0, c: 0 }, p3: { t: 0, c: 0 }, p4: { t: 0, c: 0 } };
+
+            tasksData.forEach(section => {
+                section.tasks.forEach(task => {
+                    total++;
+                    phaseCounts[section.phase].t++;
+                    if (completedTasks[task.id]) {
+                        completed++;
+                        phaseCounts[section.phase].c++;
+                    }
+                });
+            });
+
+            const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
+
+            document.getElementById('completed-count').innerText = completed;
+            document.getElementById('total-count').innerText = `/ ${total} タスク完了`;
+            document.getElementById('progress-percent').innerText = `${percent}%`;
+            document.getElementById('progress-bar-fill').style.width = `${percent}%`;
+
+            // Update Phase Status Pills
+            for (let i = 1; i <= 4; i++) {
+                const key = `p${i}`;
+                document.getElementById(`phase${i}-ratio`).innerText = `${phaseCounts[key].c}/${phaseCounts[key].t}`;
+            }
+        }
+
+        function getTagStyle(tag) {
+            if (tag.includes("最優先") || tag.includes("期日厳守")) {
+                return "bg-rose-100 text-rose-700 border-rose-200 font-bold";
+            } else if (tag.includes("厳守")) {
+                return "bg-amber-100 text-amber-800 border-amber-200 font-semibold";
+            } else if (tag.includes("目標達成")) {
+                return "bg-emerald-100 text-emerald-800 border-emerald-200 font-bold";
+            }
+            return "bg-slate-100 text-slate-600 border-slate-200";
+        }
+
+        function getPhaseColorBorder(color) {
+            switch(color) {
+                case 'blue': return 'border-l-blue-600';
+                case 'indigo': return 'border-l-indigo-600';
+                case 'amber': return 'border-l-amber-600';
+                case 'emerald': return 'border-l-emerald-600';
+                default: return 'border-l-slate-600';
+            }
+        }
+
+        function renderTasks() {
+            const container = document.getElementById('checklist-container');
+            const hideCompleted = document.getElementById('toggle-completed').checked;
+            container.innerHTML = '';
+
+            let filteredSections = tasksData;
+            if (currentFilter !== 'all') {
+                filteredSections = tasksData.filter(s => s.phase === currentFilter);
+            }
+
+            filteredSections.forEach(section => {
+                const visibleTasks = section.tasks.filter(t => !hideCompleted || !completedTasks[t.id]);
+                if (visibleTasks.length === 0) return;
+
+                const sectionEl = document.createElement('div');
+                sectionEl.className = "bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden card-shadow";
+
+                let monthHeaderBg = "bg-slate-800 text-white";
+                if (section.phase === "p1") monthHeaderBg = "bg-blue-900 text-white";
+                if (section.phase === "p2") monthHeaderBg = "bg-indigo-900 text-white";
+                if (section.phase === "p3") monthHeaderBg = "bg-amber-900 text-white";
+                if (section.phase === "p4") monthHeaderBg = "bg-emerald-900 text-white";
+
+                sectionEl.innerHTML = `
+                    <div class="${monthHeaderBg} px-5 py-3 flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-white/20 uppercase tracking-wider">${section.month}</span>
+                            <h3 class="text-base font-bold">${section.title}</h3>
+                        </div>
+                        <span class="text-xs opacity-80">${section.phaseTitle}</span>
+                    </div>
+                    <div class="p-4 sm:p-5 space-y-3">
+                        ${visibleTasks.map(task => {
+                            const isDone = completedTasks[task.id] || false;
+                            return `
+                                <div id="card-${task.id}" class="p-3.5 rounded-lg border border-slate-200 border-l-4 ${getPhaseColorBorder(section.phaseColor)} ${isDone ? 'bg-slate-50 opacity-75' : 'bg-white hover:border-slate-300'} transition shadow-2xs">
+                                    <div class="flex items-start gap-3">
+                                        <div class="pt-0.5">
+                                            <input type="checkbox" id="chk-${task.id}" ${isDone ? 'checked' : ''} onchange="toggleTask('${task.id}')" class="w-5 h-5 text-blue-600 rounded border-slate-300 focus:ring-blue-500 cursor-pointer">
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex flex-wrap items-center gap-2 mb-1">
+                                                <span class="text-[10px] px-2 py-0.5 rounded border ${getTagStyle(task.tag)}">${task.tag}</span>
+                                                <span class="text-xs text-slate-500 font-medium"><i class="fa-solid fa-building-user text-slate-400 mr-1"></i> ${task.target}</span>
+                                            </div>
+                                            <label for="chk-${task.id}" class="text-sm font-bold text-slate-800 cursor-pointer ${isDone ? 'line-through text-slate-500' : ''}">
+                                                ${task.text}
+                                            </label>
+                                            <p class="text-xs text-slate-500 mt-1.5 bg-slate-50 p-2 rounded border border-slate-100 details-content">
+                                                <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> ${task.detail}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+                container.appendChild(sectionEl);
+            });
+
+            if (container.children.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-xl p-12 text-center border border-slate-200">
+                        <i class="fa-solid fa-circle-check text-4xl text-emerald-500 mb-3"></i>
+                        <h3 class="text-base font-bold text-slate-700">条件に該当する未完了タスクはありません</h3>
+                        <p class="text-xs text-slate-500 mt-1">選択中のフィルターですべてのタスクが完了しているか、表示条件を変更してください。</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Initial Load Execution
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTasks();
+            updateDashboard();
+        });
+    </script>
+</body>
+</html>
