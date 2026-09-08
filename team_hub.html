@@ -89,6 +89,9 @@
                     <i class="fa-solid fa-file-invoice-dollar text-emerald-400"></i> 収支サマリー
                 </a>
                 <div class="h-5 w-px bg-slate-700 mx-1 hidden sm:block"></div>
+                <button onclick="copyHubURL()" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-medium shadow-sm transition flex items-center gap-1.5" title="チーム共有用固定URLをコピー">
+                    <i class="fa-solid fa-link text-emerald-200"></i> URL共有
+                </button>
                 <button onclick="exportData()" class="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-medium shadow-sm transition flex items-center gap-1.5" title="最新データを保存（JSON）">
                     <i class="fa-solid fa-download"></i> 保存
                 </button>
@@ -2031,8 +2034,17 @@
                 }
             });
 
-            txt += `\n詳細・編集はチームハブにて確認してください。\n`;
+            txt += `\n🔗 チーム進捗ハブ（常時アクセス可能）：\nhttps://yuru-re-academia.github.io/yuru-re-academia/team_hub.html\n`;
             document.getElementById('shareTextPreview').value = txt;
+        }
+
+        function copyHubURL() {
+            const url = "https://yuru-re-academia.github.io/yuru-re-academia/team_hub.html";
+            navigator.clipboard.writeText(url).then(() => {
+                alert("チームハブの固定共有URLをクリップボードにコピーしました！\n" + url);
+            }).catch(() => {
+                prompt("以下のURLをコピーしてチームに共有してください：", url);
+            });
         }
 
         function copyShareText() {
@@ -2067,6 +2079,8 @@
                     txt += `・[${name}] ${t.title} (${status})\n`;
                 });
             }
+
+            txt += `\n🔗 チーム進捗ハブ：\nhttps://yuru-re-academia.github.io/yuru-re-academia/team_hub.html\n`;
 
             navigator.clipboard.writeText(txt).then(() => {
                 alert(`「${mtg.title}」の内容をコピーしました！`);
