@@ -348,23 +348,59 @@
         <!-- TAB 3: 専門ナレッジ ＆ 情報バンク (Knowledge Bank) -->
         <!-- ======================================================== -->
         <section id="tab-knowledge" class="hidden space-y-6">
+            <!-- アカデミア超親和性インサイト・注目アラートバナー -->
+            <div class="bg-gradient-to-r from-amber-500 via-rose-500 to-indigo-600 rounded-2xl p-4 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center text-xl shrink-0">
+                        🔥
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-black text-sm tracking-wide">アカデミア直結の最重要インサイト（親和性★★★）</span>
+                            <span class="px-2 py-0.5 rounded-full bg-white text-rose-600 font-bold text-[10px] animate-pulse">注目</span>
+                        </div>
+                        <p class="text-xs text-amber-100 mt-0.5">
+                            鳥取県ケアプランデータ連携DX、米子市軽度者64%在宅課題、中海スマホ実店舗など、当事業所の強力な武器となる最新情報を厳選ストック。
+                        </p>
+                    </div>
+                </div>
+                <button onclick="openAffinityModal()" class="px-4 py-2 bg-white text-slate-900 hover:bg-amber-50 font-bold text-xs rounded-xl shadow transition flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                    <i class="fa-solid fa-bolt text-amber-500"></i> 注目インサイトを一括ポップアップ
+                </button>
+            </div>
+
             <!-- Top Controls -->
             <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
                         <i class="fa-solid fa-lightbulb text-amber-500"></i> 専門ナレッジ ＆ インサイト共有バンク
                     </h2>
-                    <p class="text-xs text-slate-500 mt-1">AI調査知見、現役デイサービスの現場インサイト、行政協議情報をストック・共有します。</p>
+                    <p class="text-xs text-slate-500 mt-1">山陰（米子市・鳥取・島根）の介護最新動向、公的データ、AI知見、中海連携をストック・共有します。</p>
                 </div>
-                <div class="flex items-center gap-2 w-full sm:w-auto">
-                    <select id="knowledgeCategoryFilter" onchange="renderKnowledge()" class="text-xs bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-500">
+                <div class="flex items-center gap-2 w-full sm:w-auto flex-wrap">
+                    <!-- Area Filter -->
+                    <select id="knowledgeAreaFilter" onchange="renderKnowledge()" class="text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-2 focus:ring-2 focus:ring-indigo-500 font-medium">
+                        <option value="all">📍 全エリア</option>
+                        <option value="米子市">米子市</option>
+                        <option value="鳥取県">鳥取県全域</option>
+                        <option value="島根県">島根県</option>
+                        <option value="国・制度">国・厚労省</option>
+                    </select>
+                    <!-- Affinity Filter -->
+                    <select id="knowledgeAffinityFilter" onchange="renderKnowledge()" class="text-xs bg-amber-50 border border-amber-200 rounded-lg px-2.5 py-2 focus:ring-2 focus:ring-amber-500 font-bold text-amber-900">
+                        <option value="all">⭐ 全ナレッジ</option>
+                        <option value="high">🔥 親和性★★★ のみ</option>
+                        <option value="medium">✨ 親和性★★ 以上</option>
+                    </select>
+                    <!-- Category Filter -->
+                    <select id="knowledgeCategoryFilter" onchange="renderKnowledge()" class="text-xs bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-2 focus:ring-2 focus:ring-indigo-500">
                         <option value="all">すべてのカテゴリ</option>
                         <option value="AI・テック知見">🤖 AI・テック知見</option>
-                        <option value="介護現場のリアル・制度">🩺 介護現場のリアル・制度</option>
+                        <option value="介護現場のリアル・制度">🩺 介護現場・制度</option>
                         <option value="行政・提携情報">🏛️ 行政・提携情報</option>
                         <option value="アイデア・企画">💡 アイデア・企画</option>
                     </select>
-                    <button onclick="openKnowledgeModal()" class="px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-bold rounded-xl shadow-sm transition flex items-center gap-1.5 whitespace-nowrap">
+                    <button onclick="openKnowledgeModal()" class="px-3.5 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-xl shadow-sm transition flex items-center gap-1.5 whitespace-nowrap">
                         <i class="fa-solid fa-plus"></i> ナレッジ投稿
                     </button>
                 </div>
@@ -440,14 +476,15 @@
                                     <i class="fa-solid fa-robot"></i>
                                 </span>
                                 <div>
-                                    <p class="leading-none font-bold">J（AI・情報収集担当）</p>
-                                    <span class="text-[10px] text-teal-600 font-normal">テクノロジー・リサーチ特化</span>
+                                    <p class="leading-none font-bold">J（AI・情報収集担当 / 外部AI推進チーフ）</p>
+                                    <span class="text-[10px] text-teal-700 font-medium">外部社員型AI推進事業（業務委託：月3〜5万円・基準4万仮）</span>
                                 </div>
                             </div>
                             <ul class="text-xs text-slate-600 space-y-1.5 leading-relaxed mt-3">
-                                <li>・米子市委託スマホ「よろず相談会」知見提供と中海テレビ常設スマホ相談室の連携設計</li>
-                                <li>・所有する福祉車両（スロープ式）の借用・シェアリング条件（Win-Win座組み）の協議</li>
-                                <li>・シニア向け知的好奇心・生成AI・iPad活用ワークショップカリキュラム開発</li>
+                                <li>・J自身の事業として外部社員型AI推進チーフを担当、シニア向け知的探究カリキュラム開発</li>
+                                <li>・社内DX推進（Genspark議事録連携、鳥取県ケアプランデータ連携システム対応等）</li>
+                                <li>・米子市委託スマホ相談の知見提供と中海スマホ常設相談室のデジタル支援ノウハウ連携</li>
+                                <li>・所有する福祉車両（スロープ式）の借用・シェアリング条件（Win-Win対価）の協議</li>
                                 <li>・ダイちゃんのリサーチ（山陰デイサービス事情）のAI効率化サポート</li>
                             </ul>
                         </div>
@@ -509,7 +546,7 @@
                             </span>
                             <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
                         </div>
-                        <p class="text-slate-500 leading-relaxed">初期調達800万円、家賃20万保守見積り、BEP8.0名（53.6%稼働）、米子市データ角度分析。</p>
+                        <p class="text-slate-500 leading-relaxed">初期調達800万円、家賃20万保守＋J AI推進4万、BEP8.4名（55.9%稼働）、米子市データ角度分析。</p>
                     </a>
 
                     <a href="開業時系列チェックリスト.html" class="p-4 rounded-xl border border-slate-200 hover:border-sky-400 hover:shadow-md transition bg-slate-50/50 block group">
@@ -801,14 +838,45 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">参考URLリンク（任意）</label>
-                    <input type="url" id="knowledgeUrl" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">対象エリア</label>
+                        <select id="knowledgeArea" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                            <option value="米子市">米子市</option>
+                            <option value="鳥取県">鳥取県全域</option>
+                            <option value="島根県">島根県</option>
+                            <option value="国・制度">国・厚労省</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">アカデミア親和性</label>
+                        <select id="knowledgeAffinity" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none font-bold text-amber-800">
+                            <option value="high">🔥 超親和性（★★★）</option>
+                            <option value="medium">✨ 参考情報（★★）</option>
+                            <option value="normal">通常ナレッジ</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">情報ソース・公的出典名</label>
+                        <input type="text" id="knowledgeSource" placeholder="例：米子市 第9期介護保険事業計画" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">出典URLリンク（任意）</label>
+                        <input type="url" id="knowledgeUrl" placeholder="https://..." class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                    </div>
                 </div>
 
                 <div>
                     <label class="block font-bold text-slate-700 mb-1">要点・メモ・示唆 <span class="text-rose-500">*</span></label>
                     <textarea id="knowledgeContent" required rows="4" placeholder="収集した情報の内容や、アカデミア事業にどう活かせるかの考察を記入" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">なぜアカデミアに親和性があるか（示唆・武器になる理由）</label>
+                    <input type="text" id="knowledgeAffinityReason" placeholder="例：半日型・自立支援・中海スマホモデルに直結。ケアマネ営業のキラー武器" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-slate-900 focus:ring-2 focus:ring-amber-500 focus:outline-none">
                 </div>
 
                 <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
@@ -817,6 +885,42 @@
                 </div>
             </form>
         </div>
+    </div>
+
+    <!-- 3.5. Affinity Popup Modal (アカデミア超親和性インサイト一括表示) -->
+    <div id="affinityModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 shadow-2xl border border-amber-200 space-y-6 max-h-[92vh] overflow-y-auto">
+            <div class="flex justify-between items-start border-b border-slate-100 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-indigo-600 text-white flex items-center justify-center text-2xl shadow-md">
+                        🔥
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h3 class="text-lg sm:text-xl font-black text-slate-900">
+                                アカデミア直結・山陰介護最重要インサイト
+                            </h3>
+                            <span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-rose-700 font-bold text-xs border border-rose-200">親和性★★★ 厳選</span>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-0.5">米子市・鳥取県・島根県の最新動向のうち、当事業所の設計・営業・制度協議に直結するキラー要素です</p>
+                    </div>
+                </div>
+                <button onclick="closeAffinityModal()" class="text-slate-400 hover:text-slate-700 p-2 text-xl transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body: Cards List -->
+            <div id="affinityCardsContainer" class="space-y-4">
+                <!-- Dynamically populated by JS -->
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500">
+                <span>※各ナレッジの出典・公的URLから一次情報をいつでも確認できます</span>
+                <button onclick="closeAffinityModal()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition">閉じる</button>
+            </div>
+        </div>
+    </div>
     <!-- 4. Genspark / Gmail Import Modal -->
     <div id="gensparkImportModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl max-w-3xl w-full p-6 shadow-2xl border border-slate-200 space-y-4 max-h-[90vh] overflow-y-auto">
@@ -1152,6 +1256,18 @@
                     dueDate: "2026-10-15",
                     meetingId: "mtg-1",
                     createdAt: "2026-09-08"
+                },
+                {
+                    id: "task-19",
+                    title: "【J】AI推進業務委託契約書・業務仕様書（月3〜5万円・カリキュラム/DX/スマホ相談）の策定",
+                    description: "Jが自身の事業（外部社員型AI推進事業）としてアカデミアに参画するための業務委託契約書を締結。月額4.0万円（仮・予算3〜5万円）の対価に応じたシニア向け知的カリキュラム開発、社内DX（Genspark・鳥取県ケアプランデータ連携）、中海スマホ相談支援の仕様を定義する。",
+                    assignee: "けいた",
+                    category: "事業・行政協議",
+                    status: "todo",
+                    priority: "high",
+                    dueDate: "2026-09-30",
+                    meetingId: "mtg-1",
+                    createdAt: "2026-09-08"
                 }
             ],
             meetings: [
@@ -1160,9 +1276,9 @@
                     title: "新規デイサービス事業「シニアアカデミア　YURU-RE：（ゆるり）」の立ち上げ計画と中海ビル賃貸交渉戦略",
                     date: "2026-09-07",
                     attendees: ["けいた", "ダイちゃん"],
-                    decisions: "【Key Decisions】\n・2028年春の事業開始を目指す（今年度中に物件を借りられるかがGO/NO-GO基準、秋の補助金申請と内装工事、ダイちゃんの現職引き継ぎ1年と連動）。\n・プロジェクト名を「ゆるグラ」から「シニアアカデミア　YURU-RE：（ゆるり）」に変更する（「ゆる」＝ゆるダン、「り」＝リエーブルメント）。\n・法人形態を合同会社から「株式会社ユルク」に変更する（読み間違い防止と対外信用力の向上）。\n・毎週月曜日の21時10分から定例オンラインミーティングを実施する。\n・管理者はダイちゃん（月給30万円仮）、送迎車両はJ所有の福祉車両借用を協議検討。\n・家賃は保守的に月20万円で見積もり（目標5万円）、損益分岐点（BEP）は1日8.0名（定員15名中53.6%）。実働3名常駐＋予備スタッフ確保による4〜5名人員プール体制を構築。\n・中海ビル内に「中海スマホ常設相談室」を設置し、ダイちゃん（または専任員）が相談室長を兼ねるWin-Win構想を提案。",
-                    notes: "【Genspark AI Meeting Notes 要約（55 mins）】\n1. 中海ビルの賃貸交渉戦略：現状担当者からは断られているが、営業実力者の森さんにケイタが直接金曜に会い、中海が注力する「スマホ普及」に合わせて「常設スマホ拠点（よろず相談会常設化）」として提案。手前ロビーからの段階的賃貸も視野。\n2. デイサービス市場の勝算：2040年まで高齢者増加。入浴・食事なし半日型で、既存デイが運動メインであることに対し「運動嫌い」な層に向けた選択制プログラム（運動の日・文化活動の日）で差別化。ケイタの多様な講師ネットワークを活用。\n3. 株式会社ユルクの4事業柱：①シニアアカデミア　YURU-RE：（ゆるり）、②ゆるダン（商標取得済ツール）、③コンディ、④ゼロ。ダイちゃんは「ゆるり」管理者に留まらず「ゼロ」「ゆるダン」でも相乗効果を発揮。\n4. ダイちゃんの現職（タイアップ）円満退職計画：物件契約成立後にエリア担当・近藤さんに相談。ケイタも同席サポート可能。後任は近藤さんの奥さんや会社分割に伴う体制変化。\n5. 役割分担：ケイタ＝物件交渉注力、ダイちゃん＝山陰で一番デイサービスに詳しい人になる（Jに相談しつつ調査、融資時の専門家補完）。\n6. リスク管理：中海ビルが不可の場合も代替物件を並行探索しつつ、2028年春開始の目標は死守する。",
-                    actionCount: 18,
+                    decisions: "【Key Decisions】\n・2028年春の事業開始を目指す（今年度中に物件を借りられるかがGO/NO-GO基準、秋の補助金申請と内装工事、ダイちゃんの現職引き継ぎ1年と連動）。\n・プロジェクト名を「ゆるグラ」から「シニアアカデミア　YURU-RE：（ゆるり）」に変更する（「ゆる」＝ゆるダン、「り」＝リエーブルメント）。\n・法人形態を合同会社から「株式会社ユルク」に変更する（読み間違い防止と対外信用力の向上）。\n・毎週月曜日の21時10分から定例オンラインミーティングを実施する。\n・管理者はダイちゃん（月給30万円仮）、送迎車両はJ所有の福祉車両借用を協議検討。\n・Jに対するAI推進報酬（月額3〜5万円・基準4万仮）を収支に正式計上。家賃は保守的に月20万円で見積もり（目標5万円）、損益分岐点（BEP）は1日8.4名（定員15名中55.9% / 家賃5万時なら7.0名）。実働3名常駐＋予備スタッフ確保による4〜5名人員プール体制を構築。\n・中海ビル内に「中海スマホ常設相談室」を設置し、ダイちゃん（または専任員）が相談室長を兼ねるWin-Win構想を提案。",
+                    notes: "【Genspark AI Meeting Notes 要約（55 mins）】\n1. 中海ビルの賃貸交渉戦略：現状担当者からは断られているが、営業実力者の森さんにケイタが直接金曜に会い、中海が注力する「スマホ普及」に合わせて「常設スマホ拠点（よろず相談会常設化）」として提案。手前ロビーからの段階的賃貸も視野。\n2. デイサービス市場の勝算：2040年まで高齢者増加。入浴・食事なし半日型で、既存デイが運動メインであることに対し「運動嫌い」な層に向けた選択制プログラム（運動の日・文化活動の日）で差別化。ケイタの多様な講師ネットワークを活用。\n3. 株式会社ユルクの4事業柱：①シニアアカデミア　YURU-RE：（ゆるり）、②ゆるダン（商標取得済ツール）、③コンディ、④ゼロ。ダイちゃんは「ゆるり」管理者に留まらず「ゼロ」「ゆるダン」でも相乗効果を発揮。\n4. JのAI推進参画：Jの外部社員型AI推進事業として月3〜5万円の予算で契約し、知的カリキュラムと社内DXを牽引。\n5. ダイちゃんの現職（タイアップ）円満退職計画：物件契約成立後にエリア担当・近藤さんに相談。ケイタも同席サポート可能。後任は近藤さんの奥さんや会社分割に伴う体制変化。\n6. 役割分担：ケイタ＝物件交渉注力、ダイちゃん＝山陰で一番デイサービスに詳しい人になる（Jに相談しつつ調査、融資時の専門家補完）。\n7. リスク管理：中海ビルが不可の場合も代替物件を並行探索しつつ、2028年春開始の目標は死守する。",
+                    actionCount: 19,
                     createdAt: "2026-09-07"
                 }
             ],
@@ -1171,6 +1287,10 @@
                     id: "kn-1",
                     title: "山陰・米子市における半日型デイサービスの市場空白（運動嫌い層の受け皿）",
                     category: "介護現場のリアル・制度",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "既存デイが運動特化に偏る中、大人の知的好奇心・文化ゼミ型は完全空白。ケアマネが最も紹介先に困っている層を独占可能",
+                    source: "米子市内ケアマネジャーヒアリング・ケアカフェ調査",
                     author: "ダイちゃん",
                     url: "",
                     content: "ケアカフェ情報によると1日利用を嫌がる高齢者は多く、ケアマネも半日型を勧める傾向にある。しかし既存の半日型サービスの多くが「運動メイン」のため、「運動が嫌いな高齢者」の選択肢が完全に空白となっている。曜日ごとの選択制（運動の日・文化活動の日）でこの層を取り込むことで大きな勝算が見込める。",
@@ -1180,8 +1300,12 @@
                     id: "kn-2",
                     title: "中海テレビ放送の事業戦略（スマホ・電力）と常設スマホ拠点の提案価値",
                     category: "行政・提携情報",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "中海テレビが切望するシニア顧客獲得・相談実店舗の無償提供となり、空きフロア賃貸（家賃5万円目標）を引き出す決定打となる",
+                    source: "中海テレビ放送 重点事業方針・IR・ヒアリング",
                     author: "けいた",
-                    url: "",
+                    url: "https://www.chukai.ne.jp/",
                     content: "中海テレビは現在スマホ・電力事業に注力中。借りる予定のフロアを「常設のスマホ拠点」として提供し、現在Jが米子市委託事業で担当している「よろず相談会」を常設化することで、中海の営業社員が駆り出される負担を軽減しつつシニアの常時接点を創出できる。このシナジーを営業実力者の森さんに提示して内々の賛同を得る。",
                     createdAt: "2026-09-07"
                 },
@@ -1189,6 +1313,10 @@
                     id: "kn-3",
                     title: "株式会社ユルクの4大事業ポートフォリオとシナジー構想",
                     category: "事業・行政協議",
+                    area: "鳥取県",
+                    affinity: "medium",
+                    affinityReason: "アカデミア・ゼロ・ゆるダン・コンディが連動し、福祉・リハビリ・障害雇用の包括ブランドを確立",
+                    source: "株式会社ユルク 中長期事業戦略書",
                     author: "けいた",
                     url: "",
                     content: "法人形態を株式会社ユルクに変更し、①シニアアカデミア　YURU-RE：（ゆるり）（新規半日型デイ）、②ゆるダン（商標取得済みツール）、③コンディ、④ゼロの4本柱を展開。ダイちゃんは「ゆるり」の管理者に留まらず、「ゼロ」のトレーナーや「ゆるダン」領域でも活躍し、事業間の相乗効果を最大化する。",
@@ -1198,6 +1326,10 @@
                     id: "kn-4",
                     title: "J事業所有の福祉車両シェアリング構想（送迎コスト圧縮と事業間シナジー）",
                     category: "事業・行政協議",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "初期の車両購入費（約200万円）をゼロにしつつ、一般リースより安くJへ適正対価を還元するWin-Win体制",
+                    source: "株式会社ユルク × J事業 アライアンス協議",
                     author: "けいた",
                     url: "",
                     content: "デイサービス送迎に不可欠な福祉車両について、Jが既存事業で所有しているスロープ式車両1台を借用する。一般的な法人カーリース（月3〜3.5万円）より経費を圧縮できると同時に、J事業へ適正な使用料を還元するWin-Winな座組み。初期の車両購入費（約180〜220万）も回避でき、手元キャッシュを厚く保護できる。具体的な対価・保険分担をJと協議する。",
@@ -1207,8 +1339,12 @@
                     id: "kn-5",
                     title: "地域密着型通所介護の送迎車両ルール（福祉車両義務なし・自立支援型特化）",
                     category: "介護現場のリアル・制度",
+                    area: "国・制度",
+                    affinity: "medium",
+                    affinityReason: "一般軽スライドドア2台体制でも完全適法。自立志向の軽度シニアにはむしろ低床一般軽が乗り降りしやすい",
+                    source: "厚生労働省 指定居宅サービス等の事業の人員、設備及び運営に関する基準",
                     author: "ダイちゃん",
-                    url: "",
+                    url: "https://www.mhlw.go.jp/",
                     content: "法令上、通所介護の指定基準に福祉車両（リフト/スロープ）保有の義務はなく、一般軽自動車でも適法に送迎可能。当事業所は要支援・軽度要介護の自立支援特化型のため、自力・軽介助で乗れるシニアが多く一般軽（スライドドア）が乗りやすい。ただしケアマネからの多様な受入や車いす利用に応じるため、Jの福祉軽1台＋一般軽1台の計2台体制がベストバランス。",
                     createdAt: "2026-09-08"
                 },
@@ -1216,18 +1352,78 @@
                     id: "kn-6",
                     title: "「中海スマホ常設相談室（相談室長）」構想と中海ビル賃貸交渉戦略",
                     category: "行政・提携情報",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "ダイちゃん相談室長×J委託ノウハウでビル内にシニア実店舗を構築。中海テレビに賃貸メリットを直結させる",
+                    source: "中海テレビ放送 包括アライアンス提案骨子",
                     author: "けいた",
-                    url: "",
+                    url: "https://www.chukai.ne.jp/",
                     content: "中海テレビ放送が推進する「中海スマホ」の対面相談実店舗をアカデミア拠点内に併設し、ダイちゃんが「常設相談室長」としてシニアのデジタル活用を日常支援する。中海テレビにとってはシニア顧客の獲得・解約防止実店舗がビル内にできる決定的な経営メリットとなり、空きフロアの賃貸借（家賃5万〜低廉化）を引き出す最大の武器となる。Jの米子市委託スマホ相談実績と直結。",
                     createdAt: "2026-09-08"
                 },
                 {
                     id: "kn-7",
-                    title: "米子市第9期介護保険事業計画に基づく通所デイ需要と当事業所の達成角度分析",
+                    title: "米子市第9期介護保険事業計画に基づく通所デイ需要と当事業所の達成確度分析",
                     category: "介護現場のリアル・制度",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "軽度層6,000名の巨大市場。月延べ185回（1日8.4名）は市内総利用のわずか【3.2%】で確実に回収可能",
+                    source: "米子市 第9期高齢者保健福祉計画及び介護保険事業計画（令和6〜8年度）",
                     author: "ダイちゃん",
+                    url: "https://www.city.yonago.lg.jp/27986.htm",
+                    content: "米子市の要支援・要介護認定者は約9,000名（要支援1〜要介護2の軽度層が約6,000名で全体の67%）。市内の月間通所型サービス利用枠は約5,700回。当事業所の新BEP（家賃20万＋J AI推進時：月185回＝1日8.4名）は市内総利用のわずか【3.2%】（家賃5万時なら2.7%）。米子市調査では在宅困難高齢者の64%が要介護2以下であり、運動嫌い・文化志向シニア層の受け皿として達成確度は極めて高い。",
+                    createdAt: "2026-09-08"
+                },
+                {
+                    id: "kn-8",
+                    title: "【鳥取県DXモデル】ケアプランデータ連携システム普及加速化とアカデミアの即時対応優位性",
+                    category: "AI・テック知見",
+                    area: "鳥取県",
+                    affinity: "high",
+                    affinityReason: "JのAI推進により当事業所がケアプランデータ連携にいち早く対応することで、米子市内のケアマネから『事務負担が最も軽くて連携しやすいデイ』として指名紹介が殺到する",
+                    source: "鳥取県 福祉保健部「ケアプランデータ連携システム普及加速化モデル事業」公募要領",
+                    author: "J",
+                    url: "https://www.pref.tottori.lg.jp/317316.htm",
+                    content: "鳥取県では介護現場の生産性向上とケアマネジャーの過重負担解消に向け、国保連の「ケアプランデータ連携システム」導入加速化モデル事業を推進中。当事業所はJのAI推進体制により、開業当初からケアプラン・利用実績の完全デジタル送受信に対応。紙やFAXでのやり取りに疲弊している米子市内の居宅介護支援事業所から、圧倒的な業務親和性で優先選択されるポジショニングを確立できる。",
+                    createdAt: "2026-09-08"
+                },
+                {
+                    id: "kn-9",
+                    title: "鳥取県西部広域医療・介護連携ガイド「れんCARE」の活用と地域包括支援センター網",
+                    category: "行政・提携情報",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "鳥取県西部の全ケアマネ・医療ソーシャルワーカーが利用する共通インフラ。アカデミアの自立支援プログラムを掲載し、信頼性と集客導線を一挙に獲得",
+                    source: "鳥取県西部医師会・米子市・境港市「れんCARE（鳥取県西部広域医療介護連携ガイド）」",
+                    author: "ダイちゃん",
+                    url: "https://rencare.jp/",
+                    content: "鳥取県西部（米子市・境港市・日吉津村・大山町・南部町・伯耆町）の医療機関・介護事業所をつなぐ広域連携データベース「れんCARE」。当事業所の特色（半日型・知的好奇心・ゆるダン・中海スマホ常設相談室）を詳細登録することで、米子市内8か所の地域包括支援センターや病院退院調整看護師からのダイレクト相談を誘発できる。",
+                    createdAt: "2026-09-08"
+                },
+                {
+                    id: "kn-10",
+                    title: "島根県（松江・出雲）における短時間型リハビリデイ動向と文化・リカレント型空白",
+                    category: "介護現場のリアル・制度",
+                    area: "島根県",
+                    affinity: "medium",
+                    affinityReason: "山陰全域でパワーリハビリマシン中心の半日デイが普及する中、リカレント教育・大人の学び舎型は皆無。島根エリアからの広域評価・先進モデル化も視野",
+                    source: "島根県 高齢者福祉計画・介護保険事業計画・事業者情報",
+                    author: "ダイちゃん",
+                    url: "https://www.pref.shimane.lg.jp/",
+                    content: "島根県（松江市・出雲市など）においても要支援・要軽度者向けに3〜4時間の短時間型通所介護が多数開設されているが、その9割以上がマシンリハビリや機能訓練指導員による体操に特化している。文化活動・生成AI・探究ゼミを取り入れた「大人の学び舎」モデルは山陰両県を通じてオンリーワンの存在であり、ケアマネの紹介先の引き出しを広げる強力な訴求点になる。",
+                    createdAt: "2026-09-08"
+                },
+                {
+                    id: "kn-11",
+                    title: "【J事業アライアンス】外部AI推進チーフ契約（月3〜5万）とアカデミア社内DX推進構想",
+                    category: "AI・テック知見",
+                    area: "米子市",
+                    affinity: "high",
+                    affinityReason: "Jが外部社員として参画することで、シニア向けAIカリキュラム開発、Genspark自動議事録、ケアマネ連携DXを一挙に内製推進",
+                    source: "株式会社ユルク × J事業 DX業務委託基本合意（予算3〜5万円・基準4万仮）",
+                    author: "J",
                     url: "",
-                    content: "米子市の要支援・要介護認定者は約9,000名（要支援1〜要介護2の軽度層が約6,000名で全体の67%）。市内の月間通所型サービス利用枠は約5,700回。当事業所のBEP（家賃20万時：月177回＝1日8.0名）は市内総利用のわずか【3.1%】（家賃5万時なら2.6%）。米子市調査では在宅困難高齢者の64%が要介護2以下であり、運動嫌い・文化志向シニア層の受け皿として達成確度（角度）は極めて高い。",
+                    content: "Jが手掛ける「外部社員型AI推進事業」としてアカデミアに参画。月額4.0万円（仮・予算3.0万〜5.0万円）の委託費を設定し、①シニア向け知的探究カリキュラム（AI・スマホ・脳トレ・探究）の企画、②社内DX（Genspark議事録連携、鳥取県ケアプランデータ連携）、③中海スマホ常設相談室のデジタル教材・ノウハウ提供、④ダイちゃんの現場調査AI活用支援を強力に推進する。",
                     createdAt: "2026-09-08"
                 }
             ]
@@ -1236,7 +1432,7 @@
         // ----------------------------------------------------
         // STATE STORAGE & INITIALIZATION
         // ----------------------------------------------------
-        const STORAGE_KEY = "academia_team_hub_data_v5";
+        const STORAGE_KEY = "academia_team_hub_data_v6";
         let appData = null;
         let currentRoleFilter = "all";
         let currentViewMode = "kanban";
@@ -1896,21 +2092,34 @@
         }
 
         // ----------------------------------------------------
-        // KNOWLEDGE & INSIGHT LOGIC
+        // KNOWLEDGE & INSIGHT LOGIC (山陰最新介護データ ＆ 親和性ポップアップ)
         // ----------------------------------------------------
         function renderKnowledge() {
-            const filterCat = document.getElementById('knowledgeCategoryFilter').value;
+            const filterCat = document.getElementById('knowledgeCategoryFilter') ? document.getElementById('knowledgeCategoryFilter').value : 'all';
+            const filterArea = document.getElementById('knowledgeAreaFilter') ? document.getElementById('knowledgeAreaFilter').value : 'all';
+            const filterAffinity = document.getElementById('knowledgeAffinityFilter') ? document.getElementById('knowledgeAffinityFilter').value : 'all';
             const container = document.getElementById('knowledgeGrid');
+            if (!container) return;
             container.innerHTML = '';
             document.getElementById('badge-knowledge-count').innerText = appData.knowledge.length;
 
-            const filtered = appData.knowledge.filter(k => filterCat === 'all' || k.category === filterCat);
+            const filtered = appData.knowledge.filter(k => {
+                const matchCat = filterCat === 'all' || k.category === filterCat;
+                const matchArea = filterArea === 'all' || k.area === filterArea;
+                let matchAffinity = true;
+                if (filterAffinity === 'high') {
+                    matchAffinity = k.affinity === 'high';
+                } else if (filterAffinity === 'medium') {
+                    matchAffinity = k.affinity === 'high' || k.affinity === 'medium';
+                }
+                return matchCat && matchArea && matchAffinity;
+            });
 
             if (filtered.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-full bg-white rounded-2xl p-10 text-center border border-slate-200 text-slate-400">
                         <i class="fa-regular fa-lightbulb text-3xl mb-2"></i>
-                        <p class="text-sm">該当するナレッジ情報がありません。</p>
+                        <p class="text-sm">条件に一致するナレッジ情報がありません。</p>
                     </div>
                 `;
                 return;
@@ -1920,37 +2129,144 @@
                 let catBadge = '';
                 switch(k.category) {
                     case 'AI・テック知見':
-                        catBadge = `<span class="bg-teal-100 text-teal-800 border border-teal-200 px-2 py-0.5 rounded text-[11px] font-bold">🤖 AI・テック</span>`;
+                        catBadge = `<span class="bg-teal-100 text-teal-800 border border-teal-200 px-2 py-0.5 rounded text-[10px] font-bold">🤖 AI・テック</span>`;
                         break;
                     case '介護現場のリアル・制度':
-                        catBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[11px] font-bold">🩺 介護現場のリアル</span>`;
+                        catBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-200 px-2 py-0.5 rounded text-[10px] font-bold">🩺 介護現場・制度</span>`;
                         break;
                     case '行政・提携情報':
-                        catBadge = `<span class="bg-indigo-100 text-indigo-800 border border-indigo-200 px-2 py-0.5 rounded text-[11px] font-bold">🏛️ 行政・提携</span>`;
+                        catBadge = `<span class="bg-indigo-100 text-indigo-800 border border-indigo-200 px-2 py-0.5 rounded text-[10px] font-bold">🏛️ 行政・提携</span>`;
                         break;
                     default:
-                        catBadge = `<span class="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[11px] font-bold">💡 アイデア</span>`;
+                        catBadge = `<span class="bg-slate-100 text-slate-700 border border-slate-200 px-2 py-0.5 rounded text-[10px] font-bold">💡 アイデア</span>`;
+                }
+
+                // Area badge
+                const areaBadge = k.area ? `<span class="bg-slate-100 text-slate-700 border border-slate-200 px-1.5 py-0.5 rounded text-[10px] font-medium"><i class="fa-solid fa-location-dot text-slate-400"></i> ${k.area}</span>` : '';
+
+                // Affinity Badge
+                let affinityBadge = '';
+                let borderClass = 'border-slate-200 bg-white';
+                if (k.affinity === 'high') {
+                    affinityBadge = `<span class="bg-gradient-to-r from-rose-500 to-amber-500 text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold shadow-sm flex items-center gap-1"><i class="fa-solid fa-fire"></i> 親和性★★★</span>`;
+                    borderClass = 'border-amber-300 ring-1 ring-amber-400/40 bg-gradient-to-b from-amber-50/30 to-white';
+                } else if (k.affinity === 'medium') {
+                    affinityBadge = `<span class="bg-amber-100 text-amber-800 border border-amber-300 px-1.5 py-0.5 rounded-full text-[10px] font-bold">✨ 親和性★★</span>`;
                 }
 
                 const card = document.createElement('div');
-                card.className = "bg-white rounded-2xl p-5 shadow-sm border border-slate-200 flex flex-col justify-between space-y-3 hover:shadow-md transition";
+                card.className = `rounded-2xl p-5 shadow-sm border ${borderClass} flex flex-col justify-between space-y-3 hover:shadow-md transition`;
                 card.innerHTML = `
                     <div class="space-y-2">
-                        <div class="flex items-center justify-between gap-2">
-                            ${catBadge}
-                            <button onclick="deleteKnowledge('${k.id}')" class="text-slate-300 hover:text-rose-500 p-1 transition" title="削除">
+                        <div class="flex items-center justify-between gap-1.5 flex-wrap">
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                ${catBadge}
+                                ${areaBadge}
+                                ${affinityBadge}
+                            </div>
+                            <button onclick="deleteKnowledge('${k.id}')" class="text-slate-300 hover:text-rose-500 p-1 transition ml-auto" title="削除">
                                 <i class="fa-solid fa-trash text-xs"></i>
                             </button>
                         </div>
                         <h4 class="font-bold text-slate-900 text-sm leading-snug">${k.title}</h4>
                         <p class="text-xs text-slate-600 leading-relaxed whitespace-pre-line">${k.content}</p>
+
+                        ${k.affinityReason ? `
+                            <div class="bg-amber-50/70 border border-amber-200/80 rounded-xl p-2.5 text-[11px] text-amber-950 leading-relaxed">
+                                <strong class="text-amber-800 font-bold block mb-0.5 flex items-center gap-1">
+                                    <i class="fa-solid fa-bullseye text-amber-600"></i> アカデミア事業への示唆・武器：
+                                </strong>
+                                ${k.affinityReason}
+                            </div>
+                        ` : ''}
                     </div>
 
-                    <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-                        <span class="text-slate-400 text-[11px]">提供: <strong>${k.author}</strong></span>
+                    <div class="pt-3 border-t border-slate-100 flex flex-col gap-1 text-xs">
+                        ${k.source ? `
+                            <div class="text-[11px] text-slate-500 flex items-center gap-1 truncate">
+                                <i class="fa-solid fa-book-bookmark text-slate-400"></i>
+                                <span class="truncate">出典: <strong>${k.source}</strong></span>
+                            </div>
+                        ` : ''}
+                        <div class="flex items-center justify-between text-[11px] text-slate-400 mt-0.5">
+                            <span>提供: <strong>${k.author}</strong> (${k.createdAt || '2026-09'})</span>
+                            ${k.url ? `
+                                <a href="${k.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 font-semibold flex items-center gap-1 text-[11px]">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i> 一次資料リンク
+                                </a>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Affinity Pop-up Modal Logic
+        function openAffinityModal() {
+            renderAffinityModal();
+            document.getElementById('affinityModal').classList.remove('hidden');
+        }
+
+        function closeAffinityModal() {
+            document.getElementById('affinityModal').classList.add('hidden');
+        }
+
+        function renderAffinityModal() {
+            const container = document.getElementById('affinityCardsContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const highAffinityList = appData.knowledge.filter(k => k.affinity === 'high');
+
+            if (highAffinityList.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-slate-50 rounded-2xl p-8 text-center text-slate-400">
+                        <p class="text-xs">現在登録されている超親和性ナレッジはありません。</p>
+                    </div>
+                `;
+                return;
+            }
+
+            highAffinityList.forEach(k => {
+                const card = document.createElement('div');
+                card.className = "p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber-50/60 via-white to-orange-50/40 border-2 border-amber-300 shadow-sm space-y-3";
+                card.innerHTML = `
+                    <div class="flex items-start justify-between gap-3">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="bg-gradient-to-r from-rose-500 to-amber-500 text-white px-2 py-0.5 rounded-full text-[10px] font-extrabold flex items-center gap-1">
+                                    <i class="fa-solid fa-fire"></i> 親和性★★★
+                                </span>
+                                <span class="bg-slate-800 text-white px-2 py-0.5 rounded text-[10px] font-bold">
+                                    ${k.area || '山陰'}
+                                </span>
+                                <span class="text-slate-400 text-xs font-medium">カテゴリ: ${k.category}</span>
+                            </div>
+                            <h4 class="font-black text-slate-900 text-base leading-snug">${k.title}</h4>
+                        </div>
+                    </div>
+
+                    <p class="text-xs sm:text-sm text-slate-700 leading-relaxed bg-white/80 p-3 rounded-xl border border-amber-100">
+                        ${k.content}
+                    </p>
+
+                    ${k.affinityReason ? `
+                        <div class="bg-amber-100/70 border border-amber-300 rounded-xl p-3 text-xs text-amber-950 font-medium leading-relaxed">
+                            <strong class="text-amber-900 font-bold block mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-star text-amber-600"></i> なぜアカデミアの決定的な武器になるのか：
+                            </strong>
+                            ${k.affinityReason}
+                        </div>
+                    ` : ''}
+
+                    <div class="pt-2 border-t border-amber-200/50 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                        <span class="flex items-center gap-1 text-[11px]">
+                            <i class="fa-solid fa-book-bookmark text-slate-400"></i> 出典: <strong>${k.source || '公的資料・関係者ヒアリング'}</strong>
+                        </span>
                         ${k.url ? `
-                            <a href="${k.url}" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-700 font-semibold flex items-center gap-1 text-[11px]">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> 参考リンク
+                            <a href="${k.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-white hover:bg-slate-50 text-indigo-600 font-bold rounded-lg border border-indigo-200 shadow-sm flex items-center gap-1.5 text-[11px] transition">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> 一次公的ソースを開く
                             </a>
                         ` : ''}
                     </div>
@@ -1983,9 +2299,13 @@
                 id: 'kn-' + Date.now(),
                 title: document.getElementById('knowledgeTitle').value.trim(),
                 category: document.getElementById('knowledgeCategory').value,
-                author: document.getElementById('knowledgeAuthor').value,
+                area: document.getElementById('knowledgeArea').value,
+                affinity: document.getElementById('knowledgeAffinity').value,
+                source: document.getElementById('knowledgeSource').value.trim(),
                 url: document.getElementById('knowledgeUrl').value.trim(),
+                author: document.getElementById('knowledgeAuthor').value,
                 content: document.getElementById('knowledgeContent').value.trim(),
+                affinityReason: document.getElementById('knowledgeAffinityReason').value.trim(),
                 createdAt: new Date().toISOString().slice(0, 10)
             };
 
@@ -1993,6 +2313,7 @@
             saveData();
             renderKnowledge();
             closeKnowledgeModal();
+            alert("ナレッジを登録しました！");
         }
 
         // ----------------------------------------------------
