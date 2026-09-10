@@ -54,7 +54,7 @@
                     <h1 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
                         「シニアアカデミア　YURU-RE：（ゆるり）」開業時系列チェックリスト
                     </h1>
-                    <p class="text-xs text-slate-400 mt-1">ターゲット開業日：2028年4月1日（鳥取県米子市 / 地域密着型通所介護 / 株式会社ユルク）</p>
+                    <p class="text-xs text-slate-400 mt-1">ターゲット開業日：2028年4月1日（鳥取県米子市 / 地域密着型通所介護 / 株式会社ユルク / 密着委員会 2028年2月審査）</p>
                 </div>
                 
                 <div class="flex items-center gap-2 no-print flex-wrap">
@@ -107,22 +107,22 @@
             <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4 pt-4 border-t border-slate-100 text-xs">
                 <div class="flex items-center gap-2 p-2 rounded bg-blue-50/50">
                     <span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>
-                    <span class="font-medium text-slate-700">Phase 1 (提携&枠確定)</span>
+                    <span class="font-medium text-slate-700">Phase 1 (希望調査&提携)</span>
                     <span id="phase1-ratio" class="ml-auto font-bold text-blue-700">0/0</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 rounded bg-indigo-50/50">
                     <span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span>
-                    <span class="font-medium text-slate-700">Phase 2 (資金&契約)</span>
+                    <span class="font-medium text-slate-700">Phase 2 (予算成立&契約)</span>
                     <span id="phase2-ratio" class="ml-auto font-bold text-indigo-700">0/0</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 rounded bg-amber-50/50">
                     <span class="w-2.5 h-2.5 rounded-full bg-amber-600 inline-block"></span>
-                    <span class="font-medium text-slate-700">Phase 3 (施工&申請)</span>
+                    <span class="font-medium text-slate-700">Phase 3 (施工&書類完成)</span>
                     <span id="phase3-ratio" class="ml-auto font-bold text-amber-700">0/0</span>
                 </div>
                 <div class="flex items-center gap-2 p-2 rounded bg-emerald-50/50">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 inline-block"></span>
-                    <span class="font-medium text-slate-700">Phase 4 (営業&開業)</span>
+                    <span class="font-medium text-slate-700">Phase 4 (密着委員会&開業)</span>
                     <span id="phase4-ratio" class="ml-auto font-bold text-emerald-700">0/0</span>
                 </div>
             </div>
@@ -131,10 +131,10 @@
         <div class="flex flex-wrap items-center justify-between gap-3 mb-6 no-print">
             <div class="flex flex-wrap gap-1.5">
                 <button onclick="filterPhase('all')" class="filter-btn active px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-slate-800 text-white shadow-sm transition">全期間表示</button>
-                <button onclick="filterPhase('p1')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 1 (26.9-11)</button>
-                <button onclick="filterPhase('p2')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 2 (26.12-27.3)</button>
-                <button onclick="filterPhase('p3')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 3 (27.4-7)</button>
-                <button onclick="filterPhase('p4')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 4 (27.8-10)</button>
+                <button onclick="filterPhase('p1')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 1 (26.9-12 補助金希望&提携)</button>
+                <button onclick="filterPhase('p2')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 2 (27.1-6 予算成立&契約)</button>
+                <button onclick="filterPhase('p3')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 3 (27.7-12 施工&書類整備)</button>
+                <button onclick="filterPhase('p4')" class="filter-btn px-3.5 py-1.5 text-xs font-medium rounded-lg bg-white text-slate-600 hover:bg-slate-200 border border-slate-200 transition">Phase 4 (28.1-4 密着委員会&開業)</button>
             </div>
             
             <div class="flex items-center gap-2">
@@ -146,7 +146,62 @@
             </div>
         </div>
 
+        
+        <!-- 米子市公式 行政資料＆チェックリスト クイックアクセスバナー -->
+        <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-5 mb-6 shadow-md border border-blue-800">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3 pb-3 border-b border-blue-700/60">
+                <div>
+                    <div class="flex items-center gap-2 text-xs font-bold text-blue-300 uppercase tracking-wider mb-1">
+                        <i class="fa-solid fa-folder-open"></i> 米子市長寿社会課 公式資料・チェックリスト一式（配備完了）
+                    </div>
+                    <h3 class="text-lg font-bold flex items-center gap-2">
+                        米子市役所 担当・永戸様協議反映：行政提出書類 ＆ 作成目途
+                    </h3>
+                </div>
+                <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2.5 py-1 rounded bg-rose-600/90 text-white text-xs font-black shadow-xs">
+                        <i class="fa-solid fa-clock"></i> 今月9/30締切：補助金希望申出
+                    </span>
+                    <span class="px-2.5 py-1 rounded bg-emerald-600/90 text-white text-xs font-black shadow-xs">
+                        <i class="fa-solid fa-gavel"></i> 2028年2月：密着委員会 審議
+                    </span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 text-xs">
+                <a href="▶︎米子市/00_米子市長寿社会課_指定申請チェックリストと行政手続ガイド.md" target="_blank" class="p-2.5 rounded-lg bg-blue-800/60 hover:bg-blue-700/80 border border-blue-600/50 transition flex items-start gap-2 text-slate-100">
+                    <i class="fa-solid fa-book-open text-blue-300 mt-0.5"></i>
+                    <div>
+                        <span class="font-bold block text-white">指定申請手続ガイド</span>
+                        <span class="text-[10px] text-blue-200">全手続・密着委員会解説MD</span>
+                    </div>
+                </a>
+                <a href="▶︎米子市/04_添付書類チェックリスト_地域密着型通所介護.xlsx" target="_blank" class="p-2.5 rounded-lg bg-blue-800/60 hover:bg-blue-700/80 border border-blue-600/50 transition flex items-start gap-2 text-slate-100">
+                    <i class="fa-solid fa-file-excel text-emerald-400 mt-0.5"></i>
+                    <div>
+                        <span class="font-bold block text-white">添付書類チェックリスト</span>
+                        <span class="text-[10px] text-blue-200">地域密着型通所介護（米子市公式）</span>
+                    </div>
+                </a>
+                <a href="▶︎米子市/03_新規指定申請時チェックポイント_申請書以外.xlsx" target="_blank" class="p-2.5 rounded-lg bg-blue-800/60 hover:bg-blue-700/80 border border-blue-600/50 transition flex items-start gap-2 text-slate-100">
+                    <i class="fa-solid fa-shield-halved text-amber-300 mt-0.5"></i>
+                    <div>
+                        <span class="font-bold block text-white">法令チェックポイント</span>
+                        <span class="text-[10px] text-blue-200">建築・消防・条例・電子申請（公式）</span>
+                    </div>
+                </a>
+                <a href="▶︎米子市/令和9年度高齢者施設整備補助金_希望調査一式/" target="_blank" class="p-2.5 rounded-lg bg-blue-800/60 hover:bg-blue-700/80 border border-blue-600/50 transition flex items-start gap-2 text-slate-100">
+                    <i class="fa-solid fa-hand-holding-dollar text-rose-300 mt-0.5"></i>
+                    <div>
+                        <span class="font-bold block text-white">9/30締切 補助金希望調査</span>
+                        <span class="text-[10px] text-blue-200">事前申出書・調査票一式</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
         <div id="checklist-container" class="space-y-8">
+
             <!-- Dynamic Content Injected via JS -->
         </div>
 
@@ -154,173 +209,246 @@
 
     <script>
         // Master Task Dataset mapped directly to Roadmap Timeline
+        // Master Task Dataset: 2026.9 〜 2028.4 (米子市行政手続・密着委員会完全準拠)
         const tasksData = [
-            // PHASE 01: 提携 & 枠確定期 (2026.9 - 11)
+            // PHASE 01: 構想・補助金事前希望 ＆ 包括提携期 (2026.9 - 12)
             {
                 phase: "p1",
-                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseTitle: "Phase 01：構想・補助金事前希望 ＆ 包括提携期（2026.9 〜 2026.12）",
                 phaseColor: "blue",
                 month: "2026年 9月",
-                title: "行政事前協議【最優先センターピン1】",
+                title: "【最優先センターピン】米子市補助金事前希望提出（9/30締切）",
                 tasks: [
-                    { id: "t9-1", tag: "最優先", target: "米子市長寿社会課", text: "令和9年度（2027年度）地域密着型通所介護の指定枠（総量規制・公募の有無）の最新状況確認", detail: "窓口訪問または電話で確認。「10月1日オープンに向けた枠があるか」を明確にする。" },
-                    { id: "t9-2", tag: "厳守", target: "米子市長寿社会課", text: "指定申請スケジュール（10/1指定に向けた提出締切日：通常開所2〜3ヶ月前）の確定", detail: "6月末が本申請締め切りであることを口頭および要領紙面で確認。" },
-                    { id: "t9-3", tag: "最優先", target: "米子市長寿社会課", text: "地域医療介護総合確保基金（施設整備）令和9年度予算要望の事前希望申出書の提出打診", detail: "手元の申出書様式の提出期限および要件を担当官へ確認。" },
-                    { id: "t9-4", tag: "標準", target: "不動産 / 自社", text: "機能訓練室「専用面積45㎡以上（15名×3.0㎡）」および同一フロア共用車椅子トイレの要件整理", detail: "静養室、相談室、手洗い施設、共用バリアフリートイレの行政適合要件リスト化。" }
+                    { id: "t26-09-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "令和9年度地域医療介護総合確保基金「補助事業事前希望申出書」の提出（9/30必着）", detail: "米子市長寿社会課・永戸様窓口へEメール（choju@city.yonago.lg.jp）提出。来年度当初予算要求の基礎資料として提出し、改修費補助枠を確保。" },
+                    { id: "t26-09-2", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "「調査票（地域医療介護総合確保基金）」の記入・提出", detail: "内装改修工事、スプリンクラー等の概算見積希望額を記載。※期日を過ぎた場合、令和9年度の増額要望不可。" },
+                    { id: "t26-09-3", tag: "最優先", target: "米子市長寿社会課", text: "地域密着型通所介護の指定枠（第9期介護保険事業計画・公募なし随時受付）の適合確認", detail: "定員15名、半日型自立支援リハ＆知的探究プログラム、同一フロア共用車椅子トイレの適合性を担当官へ確認。" }
                 ]
             },
             {
                 phase: "p1",
-                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseTitle: "Phase 01：構想・補助金事前希望 ＆ 包括提携期（2026.9 〜 2026.12）",
                 phaseColor: "blue",
                 month: "2026年 10月",
-                title: "Chukai包括提案【最優先センターピン2】",
+                title: "Chukai包括提案【最優先センターピン2】＆ 物件実測",
                 tasks: [
-                    { id: "t10-1", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送（Chukai）向け「シニアアカデミア YURU-RE: 提携提案書」のプレゼン実施", detail: "単なる賃貸ではなく、大人の学び舎・リカレント教育・100祭舞台連動などシニア事業シナジーを強調。" },
-                    { id: "t10-2", tag: "最優先", target: "Chukai物件現場", text: "候補物件の現地調査（内法寸法・同一フロア共用車椅子トイレ寸法・段差なし動線確認）", detail: "内法実測で専用45㎡以上、トイレ有効開口幅80cm以上、回転スペースを確認し内装費350万円プランを確定。" },
-                    { id: "t10-3", tag: "標準", target: "中海テレビ放送", text: "賃貸条件（家賃15万円目安・駐車場共用条件・午前利用範囲）の交渉", detail: "午後の自費カルチャースタジオ按分利用を見越した賃貸交渉を実施。" }
+                    { id: "t26-10-1", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送（森様）向け「シニアアカデミア×中海スマホ常設相談室」提携プレゼン", detail: "表紙副題「中海テレビ放送センタービル1階 事務所と受付窓口の利活用に関して」を明記し、健康フラッグシップ共鳴と地域共生シナジーを提示。" },
+                    { id: "t26-10-2", tag: "最優先", target: "中海ビル現場", text: "中海ビル1階（旧事務所フロア）の現地実測調査", detail: "機能訓練室専用面積45㎡以上（15名×3.0㎡）、同一フロア共用車椅子トイレ有効開口80cm以上、回転スペース、段差なし動線を実測確認。" },
+                    { id: "t26-10-3", tag: "標準", target: "中海テレビ放送", text: "賃貸条件の事前交渉（家賃目標5.0万円〜保守20.0万円、午前利用、駐車場共用等）", detail: "中海スマホ常設相談室（室長：ダイちゃん）設置による中海テレビへの契約メリットを提示しWin-Win条件を協議。" }
                 ]
             },
             {
                 phase: "p1",
-                phaseTitle: "Phase 01：提携 ＆ 枠確定期（2026.9 〜 2026.11）",
+                phaseTitle: "Phase 01：構想・補助金事前希望 ＆ 包括提携期（2026.9 〜 2026.12）",
                 phaseColor: "blue",
                 month: "2026年 11月",
-                title: "図面確定 ＆ 消防・建築課事前照会",
+                title: "図面確定 ＆ 消防・建築課・条例事前照会",
                 tasks: [
-                    { id: "t11-1", tag: "厳守", target: "内装施工業者", text: "内装レイアウト平面図（案）の作成（機能訓練室45㎡以上・簡易間仕切り動線設計）", detail: "静養室（ベッド配置）、プライバシー相談室、既存共用車椅子トイレへの安全動線を決定。" },
-                    { id: "t11-2", tag: "厳守", target: "米子市消防局", text: "消防局への事前相談（自動火災報知設備・誘導灯・消火器・避難経路確認）", detail: "デイサービス用途に必要な消防設備の追加設置要件を見積書に反映させる。" },
-                    { id: "t11-3", tag: "標準", target: "米子市建築指導課", text: "建築基準法に基づく用途変更の要否確認（200㎡以下か、建築物用途確認）", detail: "デイサービスへの用途変更手続きが不要または簡易に済むことを確認。" }
+                    { id: "t26-11-1", tag: "厳守", target: "米子市建設相談課", text: "建築基準法用途変更の要否確認 ＆「鳥取県福祉のまちづくり条例」適合基準の確認", detail: "床面積200㎡以下による確認申請不要範囲かの確認、および福祉のまちづくり条例（スロープ・手すり・トイレ）基準の確認。" },
+                    { id: "t26-11-2", tag: "厳守", target: "米子消防署", text: "消防署事前相談（令別表第一 6項ハ、自動火災報知設備・誘導灯・消火器要件確認）", detail: "デイサービス用途に必要な消防用設備の追加要件を確認し、施工見積・補助金申請に反映。" },
+                    { id: "t26-11-3", tag: "標準", target: "内装施工業者", text: "内装レイアウト平面図（案）の確定（機能訓練室45㎡以上・静養室・相談室）", detail: "標準様式3（平面図）および求積図のベースとなる内装設計図面を確定。" }
+                ]
+            },
+            {
+                phase: "p1",
+                phaseTitle: "Phase 01：構想・補助金事前希望 ＆ 包括提携期（2026.9 〜 2026.12）",
+                phaseColor: "blue",
+                month: "2026年 12月",
+                title: "資金調達事前相談 ＆ 収支計画精緻化",
+                tasks: [
+                    { id: "t26-12-1", tag: "最優先", target: "公庫 / ごうぎん / 米信", text: "日本政策金融公庫・地域金融機関への創業融資・設備資金の事前相談", detail: "総所要資金850万円（内装350万、車両30万、備品90万、初期運転資金350万、諸経費30万 / 融資750万＋自己資金100万）の相談開始。" },
+                    { id: "t26-12-2", tag: "標準", target: "自社財務", text: "損益分岐点（BEP 8.4名・家賃20万基準 / 家賃5万時 7.0名）の収支モデル精緻化", detail: "実働3名常駐＋外部AI推進チーフ（J：月額4万）＋予備2名の4〜5名人員プール体制を反映した資金繰り表の作成。" }
                 ]
             },
 
-            // PHASE 02: 資金調達 & 本契約・設計期 (2026.12 - 2027.3)
+            // PHASE 02: 予算成立 ＆ 資金調達・本契約・設計期 (2027.1 - 6)
             {
                 phase: "p2",
-                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
-                phaseColor: "indigo",
-                month: "2026年 12月",
-                title: "一括融資申請（公庫 ＆ 地銀/信金協調調達）",
-                tasks: [
-                    { id: "t12-1", tag: "最優先", target: "公庫 / ごうぎん / 米信", text: "一括融資申込（目標：750万〜850万円）の事業計画書・資金繰り表の完成", detail: "内装工事費350万、車両リース頭金30万、備品90万、初期運転資金350万、諸経費30万の総額850万（自己資金100万＋融資750万）で申請。" },
-                    { id: "t12-2", tag: "最優先", target: "日本政策金融公庫", text: "公庫（新創業融資/新規事業枠）への融資申請書類提出 ＆ 面談予約", detail: "米子支店へ事業計画書、見積書一式、履歴事項全部証明書を持参し提出。" },
-                    { id: "t12-3", tag: "標準", target: "山陰合同銀行 / 米子信金", text: "地銀・信金窓口への制度融資（信用保証協会付き）協調融資打診", detail: "公庫との協調融資の形で進め、地域金融機関との深い口座取引関係を構築。" }
-                ]
-            },
-            {
-                phase: "p2",
-                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
                 phaseColor: "indigo",
                 month: "2027年 1月",
-                title: "協定・業務提携覚書締結 ＆ 法人定款変更",
+                title: "法人定款目的変更 ＆ 包括業務提携覚書",
                 tasks: [
-                    { id: "t1-1", tag: "厳守", target: "法務局（YURU'Q合同会社）", text: "法人定款目的に「介護保険法に基づく地域密着型通所介護事業」等の追加登記", detail: "法務局で定款変更登記申請を行い、履歴事項全部証明書を更新。" },
-                    { id: "t1-2", tag: "最優先", target: "中海テレビ放送", text: "Chukaiとの「包括業務提携に関する基本合意（覚書）」の正式締結", detail: "コムコムスクエア講師の出張頻度（週2-3回）、謝金単価、広報連動の基本契約書。" }
+                    { id: "t27-01-1", tag: "厳守", target: "法務局（株式会社ユルク）", text: "定款目的に「介護保険法に基づく地域密着型通所介護事業」等の追加登記", detail: "添付書類チェックリストNo.1（登記事項証明書）に適合するため、定款変更および登記を完了。" },
+                    { id: "t27-01-2", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送との「包括業務提携に関する基本合意（覚書）」正式締結", detail: "ビル1階の利活用、中海スマホ常設相談室の設置、広報・番組連携の基本合意書を取り交わす。" }
                 ]
             },
             {
                 phase: "p2",
-                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
                 phaseColor: "indigo",
                 month: "2027年 2月",
-                title: "資金調達内諾 ＆ 物件賃貸借本契約",
+                title: "賃貸借覚書締結 ＆ 送迎車両体制確定",
                 tasks: [
-                    { id: "t2-1", tag: "最優先", target: "金融機関", text: "公庫 ＆ 金融機関からの融資内諾（満額決裁）の受領", detail: "金利条件・返済期間（据置期間6ヶ月〜1年設定）を確認し契約取り交わし。" },
-                    { id: "t2-2", tag: "最優先", target: "中海テレビ放送", text: "Chukai所有物件の「建物賃貸借本契約」の締結", detail: "引渡し日、フリーレント期間（工事期間中）、賃料発生開始日を最終合意。" }
+                    { id: "t27-02-1", tag: "最優先", target: "中海テレビ放送", text: "中海ビル賃貸借覚書の締結（賃貸条件・工事開始日の合意）", detail: "家賃月額（目標5万〜保守20万）、フリーレント期間、保証金、契約開始日の覚書締結。" },
+                    { id: "t27-02-2", tag: "標準", target: "J事業所 / ディーラー", text: "送迎車両体制の確定（J福祉スロープ車1台借用合意＋一般軽1台リース候補選定）", detail: "JとのWin-Win対価（月額適正使用料）による借用契約内容の合意、および一般軽ワゴン（低床スライドドア）の手配。" }
                 ]
             },
             {
                 phase: "p2",
-                phaseTitle: "Phase 02：資金調達 ＆ 本契約・設計期（2026.12 〜 2027.3）",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
                 phaseColor: "indigo",
                 month: "2027年 3月",
-                title: "施工契約・介護ソフト ＆ 送迎車両選定",
+                title: "【最重要マイルストーン】米子市予算成立 ＆ 融資内諾受領",
                 tasks: [
-                    { id: "t3-1", tag: "厳守", target: "内装施工業者", text: "内装バリアフリー工事請負契約の締結（着工日の確定）", detail: "工事日程を水回り工事不要のためスリム工期（5月着工〜6月上旬完了・約3〜4週間）に設定。" },
-                    { id: "t3-2", tag: "標準", target: "カイポケ等", text: "介護請求・計画書作成ソフト（カイポケ等）の選定・仮申し込み", detail: "国保連伝送機能、国保連入金ファクタリング・給与計算連携の確認。" },
-                    { id: "t3-3", tag: "標準", target: "自動車ディーラー", text: "送迎用車輌（軽ワゴン1台・中古カーリース頭金のみ）の選定・契約手配", detail: "初期は軽1台で運行開始し、登録10名突破時に2台目を月額追加リース。" }
+                    { id: "t27-03-1", tag: "最重要マイルストーン", target: "米子市議会 / 永戸様", text: "米子市議会にて令和9年度当初予算成立（補助金予算枠の確定・採択内定通知受領）", detail: "地域医療介護総合確保基金の令和9年度予算成立に伴い、補助金採択枠の内定を確認。" },
+                    { id: "t27-03-2", tag: "最優先", target: "金融機関", text: "日本政策金融公庫・地域金融機関からの融資内諾（満額決裁）の受領", detail: "融資実行条件・返済据置期間（6ヶ月〜1年）を確認し契約取り交わし。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
+                phaseColor: "indigo",
+                month: "2027年 4月",
+                title: "補助金本申請 ＆ 中海ビル賃貸借本契約",
+                tasks: [
+                    { id: "t27-04-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "令和9年度地域医療介護総合確保基金「補助金交付申請書」の正式提出", detail: "米子市長寿社会課へ正式提出。※注意：交付決定前の着工は全額不支給となるため絶対厳禁。" },
+                    { id: "t27-04-2", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送センタービル1階「建物賃貸借本契約」の締結", detail: "引渡し日、賃料発生日、共用部車椅子トイレ利用条項を含めた本契約の締結。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
+                phaseColor: "indigo",
+                month: "2027年 5月",
+                title: "補助金交付決定通知受領 ＆ 施工契約締結",
+                tasks: [
+                    { id: "t27-05-1", tag: "最優先", target: "米子市長寿社会課", text: "米子市より「補助金交付決定通知書」の受領（工事着工許可トリガー）", detail: "交付決定番号・交付決定額を確認。これをもって正式な工事発注・着工が可能となる。" },
+                    { id: "t27-05-2", tag: "厳守", target: "内装施工業者", text: "内装バリアフリー工事請負契約の締結（防滑床・手すり・簡易間仕切り）", detail: "工期：7月上旬着工〜9月上旬完了（約8週間）で契約締結。水回り配管工事不要のコストセーブ工法。" }
+                ]
+            },
+            {
+                phase: "p2",
+                phaseTitle: "Phase 02：予算成立 ＆ 資金調達・本契約・設計期（2027.1 〜 2027.6）",
+                phaseColor: "indigo",
+                month: "2027年 6月",
+                title: "電子申請アカウント取得 ＆ 介護ソフト仮申込",
+                tasks: [
+                    { id: "t27-06-1", tag: "最優先", target: "デジタル庁 / 厚労省", text: "「GビズIDプライム」アカウントの取得（米子市電子申請届出システム利用準備）", detail: "米子市条例・運用方針（令和7年10月〜電子申請開始、原則オンライン申請）に対応するため事前に取得。" },
+                    { id: "t27-06-2", tag: "標準", target: "カイポケ / 国保連", text: "介護請求ソフト（カイポケ等）の選定・仮申込み（国保連伝送テスト準備）", detail: "国保連伝送、通所介護計画書作成、タブレット記録連携、ファクタリング機能の確認。" }
                 ]
             },
 
-            // PHASE 03: 施工 & 行政指定申請期 (2027.4 - 7)
+            // PHASE 03: 施工 ＆ 指定申請書類完全整備期 (2027.7 - 12)
             {
                 phase: "p3",
-                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
-                phaseColor: "amber",
-                month: "2027年 4月",
-                title: "内装着工 ＆ 求人募集開始",
-                tasks: [
-                    { id: "t4-1", tag: "標準", target: "現場", text: "内装バリアフリー施工の着工（床防滑クッション化・手すり・簡易間仕切り）", detail: "共用部車椅子トイレ活用により配管工事なし。現場打合せにて床仕上げと動線を確認。" },
-                    { id: "t4-2", tag: "最優先", target: "求人媒体 / ハローワーク", text: "オープニングスタッフ（パート介護福祉士 1名）の求人募集開始", detail: "時給1,100円前後、午前4時間勤務（8:30-12:30）の好条件でターゲット採用。" }
-                ]
-            },
-            {
-                phase: "p3",
-                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
-                phaseColor: "amber",
-                month: "2027年 5月",
-                title: "人員内定 ＆ 消防・エアコン等機器設置",
-                tasks: [
-                    { id: "t5-1", tag: "最優先", target: "採用品候補者", text: "パート介護福祉士の面接・内定決定（雇用契約書の交わし）", detail: "介護福祉士資格証の原本確認・氏名本籍の一致を点検。" },
-                    { id: "t5-2", tag: "厳守", target: "施工業者 / 消防", text: "自動火災報知設備・業務用エアコン・事務機材の搬入・設置完了", detail: "消防機器の点検・設置完了報告書の控えを取得。" }
-                ]
-            },
-            {
-                phase: "p3",
-                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
-                phaseColor: "amber",
-                month: "2027年 6月",
-                title: "米子市指定申請提出【超重要・期日厳守】",
-                tasks: [
-                    { id: "t6-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "「地域密着型通所介護」事業者指定申請書一式の提出（6月末締切）", detail: "申請書、運営規程、役員名簿、資格証写し、シフト表、事業計画、平面図等の一式提出。" },
-                    { id: "t6-2", tag: "厳守", target: "損害保険会社", text: "通所介護事業者賠償責任保険への加入手続き", detail: "送迎中事故、フロア内転倒事故をカバーする賠償保険に加入。" }
-                ]
-            },
-            {
-                phase: "p3",
-                phaseTitle: "Phase 03：施工 ＆ 行政指定申請期（2027.4 〜 2027.7）",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
                 phaseColor: "amber",
                 month: "2027年 7月",
-                title: "竣工検査 ＆ 送迎車納車完了",
+                title: "米子市事前確認届提出 ＆ 内装改修工事着工",
                 tasks: [
-                    { id: "t7-1", tag: "標準", target: "施工業者 / 自社", text: "内装施工の完成・引き渡し・竣工検査（バリアフリーチェック）", detail: "手すり高さ、ドア開口幅、床段差ゼロ確認、看板設置。" },
-                    { id: "t7-2", tag: "標準", target: "ディーラー / 保険", text: "送迎車両（軽ワゴン1台）の納車・任意保険手続き完了", detail: "全スタッフが運転できるよう対人・対物無制限保険加入。" }
+                    { id: "t27-07-1", tag: "最優先", target: "米子市長寿社会課", text: "「地域密着型サービス指定事前確認届出書」の提出（公式card2.docx）", detail: "米子市指定申請ガイドブック手順②に基づき提出。事前協議・指導助言プロセスを正式スタート。" },
+                    { id: "t27-07-2", tag: "厳守", target: "現場施工", text: "補助金を活用した内装改修工事の着工（床防滑工事・間仕切り・中海スマホ相談ブース）", detail: "中海ビル1階の現場施工開始。施工中の写真記録（補助金実績報告用）を徹底保管。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
+                phaseColor: "amber",
+                month: "2027年 8月",
+                title: "人員プール体制確定 ＆ 送迎車両納車",
+                tasks: [
+                    { id: "t27-08-1", tag: "最優先", target: "採用候補者", text: "4〜5名人員プール体制（専従ダイちゃん＋看護パート1＋介護パート1＋AIチーフJ＋予備2）の確定", detail: "雇用契約書の締結、資格証原本（看護師免許・介護福祉士登録証）の確認。突発欠勤に対応するシャドースタッフ体制を確立。" },
+                    { id: "t27-08-2", tag: "標準", target: "保険会社 / ディーラー", text: "送迎車両（福祉スロープ車＋一般軽）の納車・任意自動車保険（無制限）加入", detail: "全スタッフが運転可能な対人・対物無制限保険への加入完了。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
+                phaseColor: "amber",
+                month: "2027年 9月",
+                title: "内装竣工 ＆ 消防検査・補助金実績報告",
+                tasks: [
+                    { id: "t27-09-1", tag: "厳守", target: "米子消防署 / 施工業者", text: "消防用設備等の検査受検 ＆ 点検・設置完了報告書の控え取得", detail: "自動火災報知設備、誘導灯、消火器の配置検査を完了させ、米子消防署の確認書を受領。" },
+                    { id: "t27-09-2", tag: "厳守", target: "米子市長寿社会課", text: "令和9年度高齢者施設整備補助金の実績報告書・完了検査書類の提出", detail: "工事写真、契約書、領収書、図面等を添付して実績報告を提出。精算交付手続きへ。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
+                phaseColor: "amber",
+                month: "2027年 10月",
+                title: "【書類作成着手】指定申請書・平面図・勤務形態表作成",
+                tasks: [
+                    { id: "t27-10-1", tag: "最優先", target: "ダイちゃん / けいた", text: "指定申請書（別紙様式第二号（一））および付表第二号（三）の起草", detail: "事業所名称「シニアアカデミア　YURU-RE：（ゆるり）」、定員15名、提供時間（午前半日型3-4h）を記入。" },
+                    { id: "t27-10-2", tag: "厳守", target: "ダイちゃん", text: "「管理者経歴書（標準様式2）」「設備・備品等一覧表（標準様式4）」の作成", detail: "ダイちゃんの介護現場実績・管理者要件を記載。訓練器具、鍵付き書庫、消毒衛生設備をリスト化。" },
+                    { id: "t27-10-3", tag: "厳守", target: "ダイちゃん", text: "「従業者の勤務体制及び勤務形態一覧表（標準様式1）」の月間シフト作成", detail: "管理者（専従・ダイちゃん）、看護師（時給1,500円/日4h）、介護職（時給1,100円/日4h）の人員基準充足を証明。" },
+                    { id: "t27-10-4", tag: "標準", target: "けいた / 内装業者", text: "「平面図（標準様式3）」および求積図の清書（専用面積45㎡・内法寸法明記）", detail: "機能訓練室45㎡以上、静養室（ベッド）、相談室、共用バリアフリートイレへの安全動線を明記。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
+                phaseColor: "amber",
+                month: "2027年 11月",
+                title: "運営規程（5年保存） ＆ 地域・医療機関連携合意",
+                tasks: [
+                    { id: "t27-11-1", tag: "厳守", target: "ダイちゃん / けいた", text: "「運営規程」の作成（米子市介護保険条例基準：記録保存期間「5年間」の明記）", detail: "国基準（2年）ではなく米子市独自基準である『保存期間5年』を明記。苦情処理・事故報告体制を網羅。" },
+                    { id: "t27-11-2", tag: "最優先", target: "近隣自治会 / 地域包括", text: "地元自治会・町内会への事前説明・開所合意形成 ＆「運営推進会議」協力依頼", detail: "チェックポイント記載事項：地元合意、民生児童委員、地域包括支援センターへの良好な関係性構築。" },
+                    { id: "t27-11-3", tag: "最優先", target: "近隣医療機関", text: "近隣協力医療機関との協力協定（緊急搬送・健康管理連携）の覚書締結", detail: "緊急医療処置連携体制を確立し、覚書の控えを取得。" },
+                    { id: "t27-11-4", tag: "厳守", target: "ダイちゃん / けいた", text: "「苦情処理概要（標準様式5）」「役員誓約書（標準様式6）」の作成", detail: "苦情解決フロー、個人情報保護方針、役員全員の誓約書を作成。" }
+                ]
+            },
+            {
+                phase: "p3",
+                phaseTitle: "Phase 03：施工 ＆ 指定申請書類完全整備期（2027.7 〜 2027.12）",
+                phaseColor: "amber",
+                month: "2027年 12月",
+                title: "【完成目途】添付書類チェックリスト完全整備 ＆ 事前点検",
+                tasks: [
+                    { id: "t27-12-1", tag: "最優先・完成目途", target: "米子市公式チェックリスト", text: "米子市公式「添付書類チェックリスト（地域密着型通所介護）」全9項目の添付漏れゼロ点検", detail: "登記事項証明書、勤務形態一覧表、平面図、運営規程、苦情措置、誓約書、自己点検シート、チェックポイント、体制届出書。" },
+                    { id: "t27-12-2", tag: "最優先・完成目途", target: "米子市公式チェックポイント", text: "「新規指定申請時チェックポイント（申請書以外）」全項目のクリアランス最終確認", detail: "建築・消防・老人福祉法届出・地元合意・協力医療・収支計画・賠償保険・国保連接続の適合確認。" },
+                    { id: "t27-12-3", tag: "厳守", target: "ダイちゃん", text: "米子市総合事業（通所型サービス）指定申請書類一式の同時完成", detail: "要支援1・2および事業対象者受入れのため、総合事業通所型サービスの指定申請書一式を同時整備。" },
+                    { id: "t27-12-4", tag: "厳守", target: "損害保険会社", text: "通所介護事業者賠償責任保険（送迎・フロア内転倒担保）の加入手続き完了", detail: "対人・対物賠償責任保険の加入証明書を取得し、申請書類に添付。" },
+                    { id: "t27-12-5", tag: "最優先", target: "米子市長寿社会課 永戸様", text: "米子市長寿社会課へ申請前ドラフトの事前チェック打診（不備ゼロの確認）", detail: "1月4日の本申請締め切りに向けて、ドラフト一式の事前確認を依頼し指摘事項を解消。" }
                 ]
             },
 
-            // PHASE 04: 営業 & 開業期 (2027.8 - 10)
+            // PHASE 04: 行政審査（密着委員会） ＆ 開業期 (2028.1 - 4)
             {
                 phase: "p4",
-                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseTitle: "Phase 04：行政審査（密着委員会） ＆ 開業期（2028.1 〜 2028.4）",
                 phaseColor: "emerald",
-                month: "2027年 8月",
-                title: "現地検査 ＆ 事業者指定取得",
+                month: "2028年 1月 4日",
+                title: "【超重要・期日厳守】指定申請書一式提出（電子申請システム）",
                 tasks: [
-                    { id: "t8-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "米子市担当官による「現地立ち入り確認検査」の受検", detail: "図面通りの設備配置、鍵付き書類庫、消毒液、非常口を現地確認。" },
-                    { id: "t8-2", tag: "最優先", target: "米子市", text: "「介護事業者指定通知書（介護事業所番号）」の受領", detail: "指定番号確定後、パンフレットや名刺に事業者番号を印字。" }
+                    { id: "t28-01-1", tag: "超重要・期日厳守", target: "米子市長寿社会課", text: "米子市「電子申請届出システム」にて指定申請書一式を正式提出（1月4日開庁日〆切）", detail: "2月の地域密着型サービス運営委員会で諮られるための必須提出期日（4/1指定希望）。地域密着型通所介護＋総合事業の申請データ送信。" },
+                    { id: "t28-01-2", tag: "標準", target: "国保連 / カイポケ", text: "介護給付費算定に係る体制等状況一覧表（加算届出）の提出 ＆ 国保連伝送テスト", detail: "運動器機能向上加算、個別機能訓練加算、ベースアップ評価加算等の体制届出書を提出。" }
                 ]
             },
             {
                 phase: "p4",
-                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseTitle: "Phase 04：行政審査（密着委員会） ＆ 開業期（2028.1 〜 2028.4）",
                 phaseColor: "emerald",
-                month: "2027年 9月",
-                title: "ケアマネ営業 ＆ 共同プレ内覧会",
+                month: "2028年 2月中",
+                title: "【最重要公的関門】米子市「密着委員会」審議 ＆ ケアマネ先行広報",
                 tasks: [
-                    { id: "t9b-1", tag: "最優先", target: "居宅 / 地域包括", text: "米子市内居宅介護支援事業所・地域包括への挨拶回り（ケアマネ営業）", detail: "「大人の学び舎・リカレント教育×身体調律」の差別化チラシを持参し体験利用を促進。" },
-                    { id: "t9b-2", tag: "最優先", target: "Chukai / 地域住民", text: "Chukai共同プレ内覧会・無料健康体験イベントの開催", detail: "体験送迎・機能訓練体験・ダンス体験を実施し、初期見込み客を獲得。" },
-                    { id: "t9b-3", tag: "厳守", target: "利用契約者", text: "初期オープン利用者のアセスメント・契約・通所介護計画書の作成", detail: "10月1日スタート時の初期目標利用枠（1日4〜6名以上）を確定させる。" }
+                    { id: "t28-02-1", tag: "最重要公的関門", target: "米子市密着委員会", text: "米子市「地域密着型サービス運営委員会（密着委員会）」による審査・意見聴取", detail: "新設地域密着型デイの適格性、事業計画の健全性、地域ニーズが審議・承認される（※事業者の委員会出席は不要）。" },
+                    { id: "t28-02-2", tag: "最優先", target: "居宅介護 / 地域包括", text: "米子市内居宅介護支援事業所・ケアマネジャーへの先行広報・挨拶回り開始", detail: "ダイちゃん・けいたが市内ケアマネ約100名へアプローチ。「自立支援×大人の知的アカデミア×ゆるダン®」の差別化を訴求。" },
+                    { id: "t28-02-3", tag: "最優先", target: "中海テレビ放送", text: "中海テレビ放送との共同プレスリリース・「中海スマホ常設相談室」地域告知", detail: "中海テレビの番組内告知・折込等で「シニアアカデミア開校 ＆ スマホ無料相談所」を米子市民へPR。" }
                 ]
             },
             {
                 phase: "p4",
-                phaseTitle: "Phase 04：営業 ＆ 開業期（2027.8 〜 2027.10）",
+                phaseTitle: "Phase 04：行政審査（密着委員会） ＆ 開業期（2028.1 〜 2028.4）",
                 phaseColor: "emerald",
-                month: "2027年 10月 1日",
-                title: "★ 2027年10月1日 GRAND OPEN",
+                month: "2028年 3月",
+                title: "現地立入検査 ＆ 指定通知書受領 ＆ プレ内覧会",
                 tasks: [
-                    { id: "t10b-1", tag: "最優先", target: "自社サービス", text: "「シニアアカデミア YURU-RE:（ユルリ）」提供開始・安全運行", detail: "送迎ルートの確認、午前提供、バイタルチェック、安全第一でスタート。" },
-                    { id: "t10b-2", tag: "目標達成", target: "経営ターゲット", text: "開業3ヶ月以内（12月まで）に登録16名（1日6名 / BEP達成）の確立", detail: "ケアマネへの月次実績報告、機能改善の「成果」をタイムリーに報告。" }
+                    { id: "t28-03-1", tag: "最優先・期日厳守", target: "米子市長寿社会課", text: "米子市担当官による「現地立ち入り確認検査」の受検", detail: "中海ビル1階拠点にて、図面通りの設備配置、専用面積45㎡、鍵付き書類庫、消毒液、非常口、段差なし動線を現地確認。" },
+                    { id: "t28-03-2", tag: "最優先", target: "米子市", text: "「介護保険事業者指定通知書（事業所番号交付）」の受領", detail: "米子市長名による指定通知書を受領。正式な介護事業所番号が確定し、国保連本登録・契約書に反映。" },
+                    { id: "t28-03-3", tag: "最優先", target: "ケアマネ / 地域シニア", text: "ケアマネ内覧会 ＆ プレ無料体験会（知的探究ゼミ＋ゆるダン®リズム体験）の実施", detail: "ケアマネ・相談員向け内覧会を開催し、実際の午前プログラム・送迎体験を実施。初期見込み客を直接獲得。" },
+                    { id: "t28-03-4", tag: "厳守", target: "初期利用希望者", text: "初期利用者のアセスメント・利用契約・通所介護計画書の作成完了", detail: "初期登録目標15名（1日稼働6名以上）の契約手続きを完了させ、4月1日からの安全運行準備を完了。" }
+                ]
+            },
+            {
+                phase: "p4",
+                phaseTitle: "Phase 04：行政審査（密着委員会） ＆ 開業期（2028.1 〜 2028.4）",
+                phaseColor: "emerald",
+                month: "2028年 4月 1日",
+                title: "★ 2028年4月1日 GRAND OPEN（グランドオープン）",
+                tasks: [
+                    { id: "t28-04-1", tag: "目標達成", target: "株式会社ユルク", text: "「シニアアカデミア　YURU-RE：（ゆるり）」正式開業・午前サービス提供開始！", detail: "専従管理者ダイちゃん出港、中海スマホ常設相談室長稼働、安全送迎・知的リハビリ提供の開始。" },
+                    { id: "t28-04-2", tag: "目標達成", target: "経営ターゲット", text: "開業3ヶ月以内（2028年6月末）に損益分岐点（1日8.4名 / 家賃5万時7.0名）の早期達成", detail: "稼働率55.9%（月延べ185回・月売上92.5万円）を早期に超え、持続的黒字経営を確立する。" }
                 ]
             }
         ];
