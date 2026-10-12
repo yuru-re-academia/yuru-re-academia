@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳥取大学 × YURU'Q</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 8mm 12mm;
+            }
+            body {
+                background-color: #ffffff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-4 sm:py-6 flex justify-center">
+
+    <!-- Print Button (Screen Only) -->
+    <div class="fixed top-4 right-4 z-50 no-print">
+        <button onclick="window.print()" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2 px-4 rounded-lg shadow-lg flex items-center gap-2 transition cursor-pointer">
+            <i class="fa-solid fa-print"></i> A4印刷 / PDF保存
+        </button>
+    </div>
+
+    <!-- A4 Single Page Container -->
+    <main class="a4-container w-full max-w-[210mm] bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-8 text-slate-800 flex flex-col justify-between" style="min-height: 297mm; box-sizing: border-box;">
+
+        <div>
+            <!-- Header -->
+            <header class="border-b-2 border-slate-900 pb-3 mb-3.5 flex justify-between items-end">
+                <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2.5">
+                    <span>鳥取大学</span>
+                    <span class="text-slate-300 font-light">×</span>
+                    <span class="text-indigo-900">YURU'Q</span>
+                </h1>
+                <span class="text-[11px] font-bold text-slate-500">産学官・地域包括連携 構想メモ</span>
+            </header>
+
+            <!-- Premise: 自社デイサービスの特徴 -->
+            <section class="border-2 border-indigo-100 rounded-xl p-3 bg-gradient-to-r from-indigo-50/50 to-slate-50 mb-3.5">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-indigo-900 text-white font-black text-[10px] tracking-wider">前提</span>
+                        <h2 class="text-xs sm:text-sm font-bold text-indigo-950">
+                            自社デイサービスの特徴（2028年 春 開校予定）
+                        </h2>
+                    </div>
+                    <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded">
+                        拠点：中海ビル1階
+                    </span>
+                </div>
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-1.5 text-[11px] text-slate-700">
+                    <div class="bg-white p-2 rounded border border-indigo-100/70">
+                        <strong class="block text-[9px] text-slate-400 font-bold">形態・時間</strong>
+                        <span class="font-bold text-slate-900">半日型（平日午前）</span>
+                        <p class="text-[9px] text-slate-500">食事・入浴なし特化</p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-indigo-100/70">
+                        <strong class="block text-[9px] text-slate-400 font-bold">コンセプト</strong>
+                        <span class="font-bold text-indigo-900">大人の知的学び舎</span>
+                        <p class="text-[9px] text-indigo-700 font-bold">「最終学歴の更新」</p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-indigo-100/70">
+                        <strong class="block text-[9px] text-slate-400 font-bold">独自ツール①</strong>
+                        <span class="font-bold text-emerald-800">ゆるダン®</span>
+                        <p class="text-[9px] text-slate-500">リズム運動（商標取得済）</p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-indigo-100/70">
+                        <strong class="block text-[9px] text-slate-400 font-bold">独自ツール②</strong>
+                        <span class="font-bold text-amber-800">カルチャースクール連携</span>
+                        <p class="text-[9px] text-slate-500">多彩な知的文化講座</p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-indigo-100/70 col-span-2 sm:col-span-1">
+                        <strong class="block text-[9px] text-slate-400 font-bold">中海テレビ放送</strong>
+                        <span class="font-bold text-slate-900">スマホ常設相談室</span>
+                        <p class="text-[9px] text-slate-500">デジタル活用支援</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4 Core Pillars -->
+            <div class="space-y-3">
+
+                <!-- 1. とっとり方式 × ゆるダン® -->
+                <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/60">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">1</span>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+                                「とっとり方式」×「ゆるダン®」の実践と改善効果の研究
+                            </h3>
+                        </div>
+                        <span class="text-[10px] font-bold text-indigo-900 bg-indigo-100/70 px-2 py-0.5 rounded">
+                            連携希望：医学部 浦上克哉 教授
+                        </span>
+                    </div>
+                    <ul class="pl-7 space-y-1 text-xs text-slate-700 list-disc">
+                        <li>
+                            すでに実績のある<strong>「とっとり方式」と、自社の「ゆるダン®」を掛け合わせ</strong>て、新しい取り組みができないか。
+                        </li>
+                        <li>
+                            新しく開校する自社のデイサービス現場で実際に「とっとり方式」を取り入れることで利用者の改善を図り、<strong>その経過や効果を共同研究できないか</strong>。
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. 看護実習の受け入れ -->
+                <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/60">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">2</span>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+                                最先端の地域看護フィールドとしての「実習生受け入れ」
+                            </h3>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-900 bg-emerald-100/70 px-2 py-0.5 rounded">
+                            医学部 保健学科（米子キャンパス至近）
+                        </span>
+                    </div>
+                    <ul class="pl-7 space-y-1 text-xs text-slate-700 list-disc">
+                        <li>
+                            平日午前のデイサービス現場において、鳥取大学の<strong>看護実習生を受け入れ</strong>ます。
+                        </li>
+                        <li>
+                            新設するデイサービスが地域にしっかりと溶け込むため、<strong>最先端の地域看護フィールドとして地域人材（大学生）を受け入れ</strong>、将来の人材輩出・採用につなげます。
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. 中海テレビとの共同提案 -->
+                <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/60">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">3</span>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+                                中海テレビ × 鳥取大学CoRE × YURU'Q の3者包括アライアンス共同提案
+                            </h3>
+                        </div>
+                        <span class="text-[10px] font-bold text-sky-900 bg-sky-100/70 px-2 py-0.5 rounded">
+                            地域価値創造研究教育機構（CoRE）
+                        </span>
+                    </div>
+                    <ul class="pl-7 space-y-1 text-xs text-slate-700 list-disc">
+                        <li>
+                            鳥取大学の産学連携窓口である<strong>「地域価値創造研究教育機構（CoRE）」</strong>の枠組みを活用し、<strong>鳥取大学 × 中海テレビ × YURU'Q の3者包括アライアンス</strong>として共同提案。
+                        </li>
+                        <li>
+                            デイサービスを作るにあたり、中海テレビと共同で地域課題を解決するモデル拠点を構築し、<strong>多世代で協働するプロジェクト</strong>を一緒に推進できないか。
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. 大人の学び舎 ＆ 多世代協働 -->
+                <div class="border border-slate-200 rounded-xl p-3.5 bg-slate-50/60">
+                    <div class="flex items-center justify-between mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="w-5 h-5 rounded-full bg-slate-900 text-white font-black text-xs flex items-center justify-center">4</span>
+                            <h3 class="text-sm sm:text-base font-bold text-slate-900">
+                                「大人の学び舎」共同カリキュラム開発 ＆ 多世代協働プロジェクト
+                            </h3>
+                        </div>
+                        <span class="text-[10px] font-bold text-purple-900 bg-purple-100/70 px-2 py-0.5 rounded">
+                            地域学部 竹川教授（地域福祉・地域学科）
+                        </span>
+                    </div>
+                    <ul class="pl-7 space-y-1 text-xs text-slate-700 list-disc">
+                        <li>
+                            地域福祉・地域学科の知見を活かし、シニアの知的好奇心を満たす<strong>「大人の学び舎」としての共同カリキュラム開発</strong>を推進。
+                        </li>
+                        <li>
+                            大学生と地域の長老シニアが交流し、<strong>お互いの知恵とエネルギーを交わし合う「多世代協働プロジェクト」</strong>を創出できないか。
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

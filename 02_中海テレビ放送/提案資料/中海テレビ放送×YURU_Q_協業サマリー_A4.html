@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中海テレビ放送 × YURU'Q 協業サマリー（A4版）</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .font-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 6mm 10mm;
+            }
+            body {
+                background-color: #ffffff;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .a4-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body class="py-4 sm:py-6 flex justify-center">
+
+    <!-- Print Button (Screen Only) -->
+    <div class="fixed top-4 right-4 z-50 no-print flex gap-2">
+        <a href="中海テレビ放送×YURU_Q_協業シナジー提案書.html" class="bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs py-2 px-3 rounded-lg shadow-lg flex items-center gap-1.5 transition">
+            <i class="fa-solid fa-desktop"></i> スライド版
+        </a>
+        <button onclick="window.print()" class="bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs py-2 px-4 rounded-lg shadow-lg flex items-center gap-1.5 transition cursor-pointer">
+            <i class="fa-solid fa-print"></i> A4印刷 / PDF保存
+        </button>
+    </div>
+
+    <!-- A4 Single Page Container -->
+    <main class="a4-container w-full max-w-[210mm] bg-white rounded-2xl shadow-xl border border-slate-200 p-6 sm:p-7 text-slate-800 flex flex-col justify-between" style="min-height: 297mm; box-sizing: border-box;">
+
+        <div>
+            <!-- Header -->
+            <header class="border-b-2 border-slate-900 pb-2.5 mb-2.5 flex justify-between items-end">
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>中海テレビ放送</span>
+                        <span class="text-slate-300 font-light">×</span>
+                        <span class="text-indigo-900">YURU'Q</span>
+                    </h1>
+                    <p class="text-[11px] font-bold text-slate-600 mt-0.5">
+                        chukaiスマホ「1万回線達成」牽引 ＆ 包括アライアンス協業構想サマリー
+                    </p>
+                </div>
+                <div class="text-right">
+                    <span class="text-[10px] font-bold text-sky-800 bg-sky-100 px-2 py-0.5 rounded block mb-0.5">協業協議用メモ</span>
+                    <span class="font-num text-[10px] text-slate-400 font-bold">2026.10 | YURU'Q合同会社</span>
+                </div>
+            </header>
+
+            <!-- Premise: 自社デイサービスの特徴 -->
+            <section class="border-2 border-indigo-100 rounded-xl p-2.5 bg-gradient-to-r from-indigo-50/50 to-slate-50 mb-2.5">
+                <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-indigo-900 text-white font-black text-[9px] tracking-wider">前提</span>
+                        <h2 class="text-xs font-bold text-indigo-950">
+                            自社デイサービスの特徴（2028年 春 開校予定）
+                        </h2>
+                    </div>
+                    <span class="text-[9px] font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded">
+                        拠点：中海ビル1階（旧事務所フロア／貸室A 72㎡ ＋ 受付）
+                    </span>
+                </div>
+                <div class="grid grid-cols-5 gap-1.5 text-[10px] text-slate-700">
+                    <div class="bg-white p-1.5 rounded border border-indigo-100/70">
+                        <strong class="block text-[8px] text-slate-400 font-bold">形態・時間</strong>
+                        <span class="font-bold text-slate-900">半日型（平日午前）</span>
+                        <p class="text-[8px] text-slate-500">食事・入浴なし特化</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-indigo-100/70">
+                        <strong class="block text-[8px] text-slate-400 font-bold">コンセプト</strong>
+                        <span class="font-bold text-indigo-900">大人の知的学び舎</span>
+                        <p class="text-[8px] text-indigo-700 font-bold">「最終学歴の更新」</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-indigo-100/70">
+                        <strong class="block text-[8px] text-slate-400 font-bold">独自ツール①</strong>
+                        <span class="font-bold text-emerald-800">ゆるダン®︎</span>
+                        <p class="text-[8px] text-slate-500">心と体を動かすリズム運動</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-indigo-100/70">
+                        <strong class="block text-[8px] text-slate-400 font-bold">独自ツール②</strong>
+                        <span class="font-bold text-amber-800">カルチャースクール連携</span>
+                        <p class="text-[8px] text-slate-500">知的好奇心刺激講座</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-indigo-100/70">
+                        <strong class="block text-[8px] text-slate-400 font-bold">地域連携 ＆ 根拠</strong>
+                        <span class="font-bold text-sky-800">中海テレビ常設窓口</span>
+                        <p class="text-[8px] text-purple-700 font-bold">鳥大連携（とっとり方式等検討）</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 1. Direct Problem-Solution Match -->
+            <section class="border border-slate-200 rounded-xl p-2.5 bg-slate-50/60 mb-2.5">
+                <div class="flex items-center gap-1.5 mb-1.5">
+                    <span class="w-4 h-4 rounded-full bg-slate-900 text-white font-black text-[10px] flex items-center justify-center">1</span>
+                    <h3 class="text-xs font-bold text-slate-900">中海スマホの「3大ボトルネック」をYURU'Qが直接解消</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-1.5 text-[10px]">
+                    <div class="bg-white p-2 rounded-lg border border-slate-200">
+                        <span class="text-[8px] font-bold text-rose-600 block">課題① 1万回線への新たな柱</span>
+                        <p class="text-slate-600 text-[9px] mb-1">施工・代理店以外で月+50件増の能動チャネルが必要</p>
+                        <div class="border-t border-slate-100 pt-1 text-sky-900 font-bold text-[9px]">
+                            ➔ 全公民館委託網 ＆ 年1万人リアル動員から能動的送客
+                        </div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-slate-200">
+                        <span class="text-[8px] font-bold text-rose-600 block">課題② サポート手数増で逼迫</span>
+                        <p class="text-slate-600 text-[9px] mb-1">訪問対応は店頭の2倍の時間。増員も限界</p>
+                        <div class="border-t border-slate-100 pt-1 text-sky-900 font-bold text-[9px]">
+                            ➔ センビル常設窓口での一次対応巻き取り（訪問工数激減）
+                        </div>
+                    </div>
+                    <div class="bg-white p-2 rounded-lg border border-slate-200">
+                        <span class="text-[8px] font-bold text-rose-600 block">課題③ 気軽に相談できる場所不足</span>
+                        <p class="text-slate-600 text-[9px] mb-1">よろず相談会は常に予約満席で受け皿不足</p>
+                        <div class="border-t border-slate-100 pt-1 text-sky-900 font-bold text-[9px]">
+                            ➔ 学び舎併設の常設相談室で365日対応（解約防止・LTV向上）
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Overwhelming Assets -->
+            <section class="border border-slate-200 rounded-xl p-2.5 bg-slate-50/60 mb-2.5">
+                <div class="flex items-center gap-1.5 mb-1.5">
+                    <span class="w-4 h-4 rounded-full bg-slate-900 text-white font-black text-[10px] flex items-center justify-center">2</span>
+                    <h3 class="text-xs font-bold text-slate-900">YURU'Qが誇る圧倒的アセット（リアル動員力 ＆ 全国区SNS発信力）</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <!-- Asset A -->
+                    <div class="bg-white p-2.5 rounded-lg border border-emerald-100">
+                        <div class="flex items-center justify-between mb-1">
+                            <strong class="text-emerald-950 font-bold text-[11px]">米子市全公民館網羅 ＆ 年延べ1万人動員</strong>
+                            <span class="text-[8px] font-bold px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded">行政委託2年目</span>
+                        </div>
+                        <ul class="text-[9px] text-slate-600 space-y-0.5 list-disc pl-3">
+                            <li>2025街中エリアから拡大し、2026年度は<strong>米子市内全域・すべての公民館</strong>で健康推進講座を受託。2027年度も委託継続見込み。</li>
+                            <li>「ゆるダン®︎」を通じ<strong>年間延べ10,000人以上</strong>のシニアと対面・指導。</li>
+                            <li>鳥取県西部（国府町等）を含め<strong>毎月定期イベントを開催</strong>。中海テレビの「町村サポートキャラバン」の共同先として即連動可能。</li>
+                        </ul>
+                    </div>
+                    <!-- Asset B -->
+                    <div class="bg-white p-2.5 rounded-lg border border-pink-100">
+                        <div class="flex items-center justify-between mb-1">
+                            <strong class="text-pink-950 font-bold text-[11px]">総フォロワー15万近傍 ＆ 83歳DJ ＆ ダンスチーム</strong>
+                            <span class="text-[8px] font-bold px-1.5 py-0.2 bg-pink-100 text-pink-800 rounded">全国最多1億再生</span>
+                        </div>
+                        <ul class="text-[9px] text-slate-600 space-y-0.5 list-disc pl-3">
+                            <li>83歳男性と協働する自社SNSが全国規模のスクールで<strong>最多再生回数（1動画で1億再生）</strong>を記録。</li>
+                            <li>地元ラジオ出演、新聞特集。<strong>10/24「ねんりんフェスタ2026」にてDJ出演決定！</strong></li>
+                            <li>自社プロデュースの<strong>シニアダンスチーム（YURU-GOLD等）</strong>が、イベント・CM・番組の「生きた広告塔」として躍動可能。</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Academia Concept & Synergy -->
+            <section class="border border-slate-200 rounded-xl p-2.5 bg-slate-50/60 mb-2.5">
+                <div class="flex items-center gap-1.5 mb-1.5">
+                    <span class="w-4 h-4 rounded-full bg-slate-900 text-white font-black text-[10px] flex items-center justify-center">3</span>
+                    <h3 class="text-xs font-bold text-slate-900">「大人の知的学び舎」×「中海スマホ常設相談室」の相乗効果</h3>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-indigo-100 text-[10px] text-slate-700 leading-relaxed">
+                    従来の「預かり型デイ」ではなく、知的好奇心を刺激する<strong>「大人の知的学び舎」</strong>として展開。カルチャースクールで教養・芸術を学び、日常的な写真撮影や調べ物、活動共有にスマホを活用。エントランスの「中海スマホ常設相談室」で操作不安や料金見直しを対面解消できるため、<strong>日常的な利用定着と高い満足度（解約防止・LTV向上）</strong>を生み出します。
+                </div>
+            </section>
+
+            <!-- 4. Strategic Alternatives & Execution Power -->
+            <section class="border-2 border-rose-100 rounded-xl p-2.5 bg-rose-50/40 mb-2.5">
+                <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-4 h-4 rounded-full bg-rose-700 text-white font-black text-[10px] flex items-center justify-center">4</span>
+                        <h3 class="text-xs font-bold text-rose-950">他社アライアンスネットワーク（オルタナティブ） ＆ 「俺らは絶対やり抜く」覚悟</h3>
+                    </div>
+                    <span class="text-[9px] font-bold text-rose-800 bg-rose-200/60 px-2 py-0.5 rounded">
+                        独占機会の損失防止（もったいない）
+                    </span>
+                </div>
+                <div class="grid grid-cols-3 gap-1.5 text-[10px] mb-1.5">
+                    <div class="bg-white p-2 rounded border border-rose-200">
+                        <strong class="text-slate-900 text-[10px] block font-bold">山陰酸素工業 様</strong>
+                        <p class="text-[9px] text-slate-600">
+                            高齢者事業アドバイザー参画中。センビル代替案としてハウジング事業や空き家・古民家改修で地域インフラを共同展開するレールを保持。
+                        </p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-rose-200">
+                        <strong class="text-slate-900 text-[10px] block font-bold">リージョンデザインHD 様</strong>
+                        <p class="text-[9px] text-slate-600">
+                            山陰39〜40拠点の介護福祉最大手グループとガッチリ連携。デイ運営基盤・送客・人材面でのバックボーンを確立。
+                        </p>
+                    </div>
+                    <div class="bg-white p-2 rounded border border-rose-200">
+                        <strong class="text-slate-900 text-[10px] block font-bold">鳥取大学 様（連携検討）</strong>
+                        <p class="text-[9px] text-slate-600">
+                            浦上教授の「とっとり方式」等の導入検討、保健学科看護学生の実習受入れ、CoRE（地域価値創造研究教育機構）との連携構想。
+                        </p>
+                    </div>
+                </div>
+                <p class="text-[9px] text-rose-900 font-bold leading-tight">
+                    ※YURU'Qはどの場所・どのレールでも2028年春に確実にやり抜きます。だからこそ、シニアDXの独占的パートナーシップを中海テレビ様と最優先で結びたいと考えています。
+                </p>
+            </section>
+
+            <!-- 5. Schedule & Roadmap -->
+            <section class="border border-slate-200 rounded-xl p-2.5 bg-slate-50/60">
+                <div class="flex items-center justify-between mb-1.5">
+                    <div class="flex items-center gap-1.5">
+                        <span class="w-4 h-4 rounded-full bg-slate-900 text-white font-black text-[10px] flex items-center justify-center">5</span>
+                        <h3 class="text-xs font-bold text-slate-900">実現ロードマップ（中海テレビ様 20261006企画書と完全連動）</h3>
+                    </div>
+                    <span class="text-[9px] font-bold text-sky-800">2026年10月〜12月の社内承認を全力伴走</span>
+                </div>
+                <div class="grid grid-cols-4 gap-1.5 text-[9px] text-slate-700">
+                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                        <strong class="text-slate-900 font-bold block text-[10px]">2026年10〜12月</strong>
+                        <p class="text-slate-500">森常務説明・事業創造会議付議の伴走、賃貸・区画・消防等の実務確認</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                        <strong class="text-sky-900 font-bold block text-[10px]">2027年3〜4月</strong>
+                        <p class="text-slate-500">【第1フェーズ】合同キャラバン実施、受付業務移管、常設スマホ窓口開設</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-slate-200">
+                        <strong class="text-indigo-900 font-bold block text-[10px]">2027年度中</strong>
+                        <p class="text-slate-500">貸室A（72㎡）区画整理・内装整備、賃貸借契約締結（家賃20万前後）</p>
+                    </div>
+                    <div class="bg-white p-1.5 rounded border border-indigo-200 bg-indigo-50/50">
+                        <strong class="text-indigo-950 font-bold block text-[10px]">2028年4月</strong>
+                        <p class="text-indigo-900 font-bold">【第2フェーズ】デイサービス開校、「大人の知的学び舎」本格稼働</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Strategic Closing Note -->
+        <footer class="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500">
+            <span class="font-bold text-slate-800">
+                「これまで最もお世話になった中海テレビ様とだからこそ、米子のシニアの未来を切り拓きたい。」
+            </span>
+            <span class="font-bold text-sky-700">YURU'Q合同会社 代表 けいた</span>
+        </footer>
+
+    </main>
+
+</body>
+</html>

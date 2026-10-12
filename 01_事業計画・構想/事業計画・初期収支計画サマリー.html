@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シニアアカデミア YURU-RE: 事業構想・初期収支計画サマリー</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @media print {
+            body { background: white !important; font-size: 9.5pt; color: #0f172a; padding: 0 !important; }
+            .no-print { display: none !important; }
+            .page-container { box-shadow: none !important; border: none !important; max-width: 100% !important; padding: 0 !important; }
+            @page { margin: 10mm 12mm 10mm 12mm; size: A4 portrait; }
+        }
+        body { font-family: 'Noto Sans JP', sans-serif; }
+        .font-num { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen py-6 antialiased">
+
+    <!-- Control Bar (No Print) -->
+    <aside aria-label="ナビゲーション" class="max-w-4xl mx-auto px-4 mb-4 flex flex-wrap justify-between items-center gap-3 no-print bg-slate-900 text-white p-3 rounded-xl shadow-md">
+        <div class="flex items-center gap-2">
+            <a href="../03_米子市/事前相談書.html" class="text-xs text-slate-400 hover:text-white transition flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i> ポータルへ
+            </a>
+            <span class="text-slate-600">|</span>
+            <span class="text-xs font-bold text-emerald-400">事業計画・初期収支計画サマリー（最新版）</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="../team_hub.html" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded border border-indigo-500 shadow-sm transition">
+                <i class="fa-solid fa-users"></i> チームハブ
+            </a>
+            <a href="開業ロードマップ.html" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded border border-slate-700 transition">
+                <i class="fa-solid fa-timeline"></i> 開業ロードマップ
+            </a>
+            <a href="構想/アカデミア構想vol.3%202026:08:28.html" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded border border-slate-700 transition">
+                <i class="fa-solid fa-chart-pie"></i> 構想ダッシュボード
+            </a>
+            <button onclick="window.print()" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded shadow transition flex items-center gap-1">
+                <i class="fa-solid fa-print"></i> A4印刷 / PDF保存
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto bg-white p-6 sm:p-10 shadow-lg rounded-xl border border-slate-200 page-container">
+
+        <!-- Document Header -->
+        <header class="bg-slate-900 text-white p-5 rounded-lg mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+            <div>
+                <div class="flex items-center gap-2 mb-1">
+                    <span class="px-2 py-0.5 bg-emerald-500 text-white text-[10px] font-extrabold rounded">最新改訂版</span>
+                    <span class="text-xs text-slate-300">地域密着型通所介護（半日特化型・卒業型リエイブルメントデイ）/ 鳥取県米子市</span>
+                </div>
+                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
+                    シニアアカデミア　YURU-RE：（ゆるり）事業構想・初期収支計画サマリー
+                </h1>
+            </div>
+            <div class="text-left sm:text-right text-xs text-slate-300">
+                <p class="font-bold text-white">株式会社ユルク（けいた）</p>
+                <p>2028年春 開業目標</p>
+            </div>
+        </header>
+
+        <!-- Section 1: Business Overview -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center gap-2">
+                <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">1</span>
+                <span>事業概要・基本スペック</span>
+            </h2>
+            <div class="border border-slate-200 rounded-lg overflow-hidden text-xs shadow-sm">
+                <table class="w-full text-left border-collapse">
+                    <tbody class="divide-y divide-slate-200">
+                        <tr>
+                            <th class="py-2 px-3 bg-slate-50 font-bold text-slate-700 w-1/4 border-r border-slate-200">■ 形態・規模</th>
+                            <td class="py-2 px-3 text-slate-800">地域密着型通所介護（米子市指定） / 定員15名（平日午前のみ・月22日営業・3〜4時間）</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2 px-3 bg-slate-50 font-bold text-slate-700 border-r border-slate-200">■ コンセプト</th>
+                            <td class="py-2 px-3 text-slate-800">「大人の好奇心が満たされる学び舎（リカレント教育）」。預かり型から脱却した「卒業型リエイブルメントデイ」</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2 px-3 bg-slate-50 font-bold text-slate-700 border-r border-slate-200">■ ターゲット</th>
+                            <td class="py-2 px-3 text-slate-800">要支援1〜2、要介護1〜2（知的好奇心・自立支援・社会参加意欲のあるアクティブシニア層）</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2 px-3 bg-slate-50 font-bold text-slate-700 border-r border-slate-200">■ 独自強み</th>
+                            <td class="py-2 px-3 text-slate-800">中海テレビ放送（chukaiコムコムスクエア）連携（カルチャー・知の探究） ＋ 併設ダンススタジオ（午後自費移行）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 2: Staffing Plan -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">2</span>
+                    <span>人員体制（実働3名常駐シフト ＋ 予備1〜2名確保による「4〜5名人員プール体制」）</span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 bg-emerald-100 text-emerald-800 font-bold rounded">人員基準欠如減算リスク ゼロ化</span>
+            </h2>
+            <div class="border border-slate-200 rounded-lg p-3 bg-slate-50 text-xs space-y-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div class="bg-white p-2.5 rounded border border-slate-200">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-bold text-slate-900 text-xs">■ 管理者（ダイちゃん）</span>
+                            <span class="px-1.5 py-0.2 bg-amber-100 text-amber-800 text-[10px] font-bold rounded">常勤専従</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 mb-1">常勤専従（月160h〜） / 給与：<strong class="text-slate-900 font-num">月額30.0万円（仮・総支給額）</strong></p>
+                        <p class="text-[10px] text-slate-500 bg-slate-50 p-1 rounded">【午前】送迎・フロア統括・現場運営<br>【午後】中海スマホ相談室長・ケアマネ営業・個別計画</p>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-slate-200">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-bold text-slate-900 text-xs">■ 看護職員・機能訓練</span>
+                            <span class="px-1.5 py-0.2 bg-teal-100 text-teal-800 text-[10px] font-bold rounded">パート</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 mb-1">パート（看護師） / 時給1,500円<br>午前4h × 22日（月88h） / <strong class="text-slate-900 font-num">月約13.2万円</strong></p>
+                        <p class="text-[10px] text-slate-500 bg-slate-50 p-1 rounded">個別機能訓練計画の立案・バイタル確認・健康管理</p>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-slate-200">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="font-bold text-slate-900 text-xs">■ 生活相談員・介護職員</span>
+                            <span class="px-1.5 py-0.2 bg-indigo-100 text-indigo-800 text-[10px] font-bold rounded">パート</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 mb-1">パート（介護福祉士） / 時給1,100円<br>午前4h × 22日（月88h） / <strong class="text-slate-900 font-num">月約9.7万円</strong></p>
+                        <p class="text-[10px] text-slate-500 bg-slate-50 p-1 rounded">相談業務・利用契約・フロア介助サポート</p>
+                    </div>
+                </div>
+
+                <!-- 予備スタッフ確保ボックス（4〜5名プール体制） -->
+                <div class="bg-amber-50/70 border border-amber-200 rounded p-2 text-[11px] text-amber-900">
+                    <strong class="flex items-center gap-1 font-bold mb-1">
+                        <i class="fa-solid fa-user-shield text-amber-600"></i> 【4〜5名の人員プール確保構想（安定運航の防波堤）】
+                    </strong>
+                    <p class="text-slate-700 leading-relaxed">
+                        日々の実働シフトは「3名常駐」で法令人員基準を充足しますが、突発的な急病・有給取得・忌引き等による基準欠如減算（所定単位数30%減算＝経営致命傷）を完全に防ぐため、<strong>予備登録スタッフ（シャドースタッフ：非常勤看護師1名・介護職1名）を常時メンバーに確保した計4〜5名体制</strong>を構築します。実働人件費は月約52.9万円で維持しつつ、急な欠員時にも即日バックアップ可能な鉄壁の運営体制を整えます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Vehicle Strategy & Cost Structure -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center gap-2">
+                <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">3</span>
+                <span>送迎車両モデル ＆ 月間コスト構造（家賃20万保守見積り・人件費・経費）</span>
+            </h2>
+
+            <!-- 送迎車両モデル検証ボックス -->
+            <div class="border border-blue-200 rounded-lg p-3 bg-blue-50/40 text-xs mb-3 space-y-2">
+                <div class="flex justify-between items-center flex-wrap gap-1">
+                    <span class="font-bold text-blue-950 flex items-center gap-1.5">
+                        <i class="fa-solid fa-van-shuttle text-blue-600"></i> 送迎車両調達モデルの検証（福祉車両ルール ＆ J事業アライアンス）
+                    </span>
+                    <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-semibold text-[10px]">法令基準：福祉車両義務なし</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-[11px] text-slate-700">
+                    <div class="bg-white p-2.5 rounded border border-blue-100">
+                        <strong class="text-blue-900 block mb-1">【車両①：J事業所有の福祉車両を借用（Win-Win構想）】</strong>
+                        <p class="text-slate-600 leading-relaxed">
+                            現在Jが既存事業で所有する福祉車両（スロープ式）1台をレンタル/借用。一般カーリース（月3〜3.5万）よりもコストを抑えつつ、J事業へ適正な使用料（例: 月1.5〜2.5万円程度・Jと要協議）を支払うことで双方にメリットを創出。
+                        </p>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-blue-100">
+                        <strong class="text-blue-900 block mb-1">【車両②：トヨタ 新型シエンタ（欧州風デザイン・超低床・公式ラッピング）】</strong>
+                        <p class="text-slate-600 leading-relaxed">
+                            ダサい介護車感を完全払拭した欧州風ミニバン。地上高33cmの超低床と両側電動スライドドアで転倒防止・乗降安全性を極大化。初期費用で公式スタイリッシュラッピング（20万円）を施工し街中のブランドアイコン化。法人リース/オートローン（月約3.5万円）採用。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <!-- 人件費・AI推進報酬 -->
+                <div class="border border-slate-200 rounded-lg p-3 bg-white">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-1.5 mb-2">
+                        <span class="font-bold text-slate-800">【人件費・専門報酬合計】（実働3名＋AI推進）</span>
+                        <span class="font-num font-bold text-slate-900 text-sm">約 56.9 万円 / 月</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-600 text-[11px]">
+                        <li class="flex justify-between"><span>・管理者（ダイちゃん）：</span><span class="font-num font-semibold text-slate-900">30.0 万円（仮）</span></li>
+                        <li class="flex justify-between"><span>・看護職員パート（看護師）：</span><span class="font-num">約 13.2 万円</span></li>
+                        <li class="flex justify-between"><span>・介護福祉士パート：</span><span class="font-num">約 9.7 万円</span></li>
+                        <li class="flex justify-between bg-teal-50 px-1 py-0.5 rounded border border-teal-200 text-teal-900">
+                            <span class="font-bold">・AI・DX推進チーフ（J）：</span>
+                            <span class="font-num font-bold text-teal-800">4.0 万円（仮・外注）</span>
+                        </li>
+                        <li class="text-[10px] text-slate-500 pl-2">
+                            （※J外部AI社員事業アライアンス。予算3〜5万円・貢献度連動。カリキュラム/DX/スマホ連携）
+                        </li>
+                        <li class="pt-1 border-t border-slate-100 text-slate-500 text-[10px]">
+                            ※4〜5名プール体制（予備スタッフ待機）により人員基準欠如減算を防止
+                        </li>
+                    </ul>
+                </div>
+                <!-- 運営経費 -->
+                <div class="border border-slate-200 rounded-lg p-3 bg-white">
+                    <div class="flex justify-between items-center border-b border-slate-200 pb-1.5 mb-2">
+                        <span class="font-bold text-slate-800">【運営経費合計】（家賃20万保守見積り）</span>
+                        <span class="font-num font-bold text-red-600 text-sm">約 37.1 万円 / 月</span>
+                    </div>
+                    <ul class="space-y-1 text-slate-600 text-[11px]">
+                        <li class="flex justify-between bg-amber-50 px-1 rounded">
+                            <span class="font-bold text-slate-900">・家賃・共益費按分（多めの保守見積り）：</span>
+                            <span class="font-num font-bold text-red-700">20.0 万円</span>
+                        </li>
+                        <li class="text-[10px] text-slate-500 pl-2">
+                            （※中海ビル交渉目標は5.0万円。最悪を想定し20.0万円で安全設計）
+                        </li>
+                        <li class="flex justify-between"><span>・水道光熱費（半日・入浴無）：</span><span class="font-num">1.5 万円</span></li>
+                        <li class="flex justify-between bg-blue-50/60 px-1 rounded">
+                            <span>・送迎車両関連費（シエンタ＋J福祉車）：</span>
+                            <span class="font-num font-bold text-blue-900">10.0 万円</span>
+                        </li>
+                        <li class="text-[10px] text-slate-500 pl-2">
+                            （シエンタ調達約3.5万 + J福祉車借用約2.0万 + ガソリン約1.9万 + 任意保険・メンテ約2.6万）
+                        </li>
+                        <li class="flex justify-between"><span>・介護ソフト・通信（カイポケ＋回線）：</span><span class="font-num">2.0 万円</span></li>
+                        <li class="flex justify-between"><span>・chukai講師謝金・賠償保険・消耗品：</span><span class="font-num">3.6 万円</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-2 p-2.5 bg-slate-900 text-white rounded-lg text-xs flex flex-wrap justify-between items-center px-4 font-medium gap-2">
+                <span>月間総支出（ダイちゃん給与30万（仮）＋J AI推進4万（仮）＋家賃20万保守＋シエンタ送迎体制）：</span>
+                <div class="flex items-baseline gap-2">
+                    <span class="text-xs text-slate-400">（家賃5万時: 約79.0万）</span>
+                    <span class="font-num text-base sm:text-lg font-black text-emerald-400">約 94.0 万円 / 月</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: BEP & Simulation Table -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">4</span>
+                    <span>損益分岐点（BEP）稼働シミュレーション ＆ 家賃感度分析</span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 bg-blue-100 text-blue-800 font-bold rounded">単価5,000円 / 月22日稼働</span>
+            </h2>
+
+            <!-- 感度分析比較バー -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2 text-xs">
+                <div class="p-2.5 rounded-lg border-2 border-emerald-500 bg-emerald-50/50">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-emerald-950 text-xs">【基準シナリオ：家賃20万円（保守的）】</span>
+                        <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">BEP 8.5名/日</span>
+                    </div>
+                    <p class="text-[11px] text-slate-700 mt-1">
+                        月間総支出 <strong>94.0万円</strong> ➔ 必要利用 <strong>月188回</strong>（稼働率 <strong>57.0%</strong> / 登録約24名）で全コスト完全回収。
+                    </p>
+                </div>
+                <div class="p-2.5 rounded-lg border border-blue-300 bg-blue-50/50">
+                    <div class="flex justify-between items-center">
+                        <span class="font-bold text-blue-950 text-xs">【目標シナリオ：家賃5万円（中海交渉妥結）】</span>
+                        <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-bold rounded">BEP 7.2名/日</span>
+                    </div>
+                    <p class="text-[11px] text-slate-700 mt-1">
+                        月間総支出 <strong>79.0万円</strong> ➔ 必要利用 <strong>月158回</strong>（稼働率 <strong>47.9%</strong> / 登録約20名）で全コスト完全回収。
+                    </p>
+                </div>
+            </div>
+
+            <!-- メインシミュレーションテーブル（家賃20万基準） -->
+            <div class="border border-slate-200 rounded-lg overflow-hidden text-xs shadow-sm">
+                <table class="w-full text-center border-collapse">
+                    <thead class="bg-slate-800 text-white text-[11px]">
+                        <tr>
+                            <th class="py-2 px-2">稼働段階</th>
+                            <th class="py-2 px-2">1日平均</th>
+                            <th class="py-2 px-2">登録者数</th>
+                            <th class="py-2 px-2">月延べ回数</th>
+                            <th class="py-2 px-2">月間売上</th>
+                            <th class="py-2 px-2">月間収支（支出94.0万）</th>
+                            <th class="py-2 px-2 text-left">状態・経営判断</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-700">
+                        <tr class="bg-amber-50/60">
+                            <td class="py-2 px-2 font-bold text-amber-900">経費回収ライン</td>
+                            <td class="py-2 px-2 font-num font-bold">約 5.8 名</td>
+                            <td class="py-2 px-2 font-num">約 16 名</td>
+                            <td class="py-2 px-2 font-num">128 回</td>
+                            <td class="py-2 px-2 font-num font-bold">64.0 万円</td>
+                            <td class="py-2 px-2 font-num text-amber-700">▲ 30.0 万円</td>
+                            <td class="py-2 px-2 text-left text-[11px]">家賃20万含む運営経費（37.1万）＋パート・外注費（26.9万）を全額回収</td>
+                        </tr>
+                        <tr class="bg-emerald-50 font-bold border-2 border-emerald-500">
+                            <td class="py-2 px-2 text-emerald-900 flex items-center justify-center gap-1">
+                                <span class="px-1.5 py-0.5 bg-emerald-600 text-white text-[9px] rounded">BEP</span>
+                                損益分岐点
+                            </td>
+                            <td class="py-2 px-2 font-num text-emerald-800 text-sm">約 8.5 名</td>
+                            <td class="py-2 px-2 font-num text-emerald-800">約 24 名</td>
+                            <td class="py-2 px-2 font-num text-emerald-800">188 回</td>
+                            <td class="py-2 px-2 font-num text-emerald-800 text-sm">94.0 万円</td>
+                            <td class="py-2 px-2 font-num text-emerald-700 font-bold">± 0 万円</td>
+                            <td class="py-2 px-2 text-left text-[11px] text-emerald-900">家賃20万＋シエンタ送迎＋ダイちゃん30万＋J AI推進4万を含む全コスト完全回収</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-2 font-medium">安定黒字ライン</td>
+                            <td class="py-2 px-2 font-num font-semibold">10 名</td>
+                            <td class="py-2 px-2 font-num">約 28 名</td>
+                            <td class="py-2 px-2 font-num">220 回</td>
+                            <td class="py-2 px-2 font-num font-bold">110.0 万円</td>
+                            <td class="py-2 px-2 font-num text-blue-700 font-bold">+ 16.0 万円</td>
+                            <td class="py-2 px-2 text-left text-[11px]">安定黒字・予備人員の賞与積立・追加設備投資可能</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-2 font-medium">高収益ライン</td>
+                            <td class="py-2 px-2 font-num font-semibold">12 名</td>
+                            <td class="py-2 px-2 font-num">約 33 名</td>
+                            <td class="py-2 px-2 font-num">264 回</td>
+                            <td class="py-2 px-2 font-num font-bold">132.0 万円</td>
+                            <td class="py-2 px-2 font-num text-blue-700 font-bold">+ 38.0 万円</td>
+                            <td class="py-2 px-2 text-left text-[11px]">午後スタジオ・中海スマホ相談事業・ゼロ展開への再投資</td>
+                        </tr>
+                        <tr class="bg-slate-50">
+                            <td class="py-2 px-2 font-bold text-slate-900">満席（100%）</td>
+                            <td class="py-2 px-2 font-num font-bold">15 名</td>
+                            <td class="py-2 px-2 font-num">約 41 名</td>
+                            <td class="py-2 px-2 font-num">330 回</td>
+                            <td class="py-2 px-2 font-num font-bold">165.0 万円</td>
+                            <td class="py-2 px-2 font-num text-emerald-600 font-black">+ 71.0 万円</td>
+                            <td class="py-2 px-2 text-left text-[11px] text-slate-900">午前枠最大利益（月利 約71.0万円達成 / 家賃5万時は月利+86.0万）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-[10px] text-slate-500 mt-1">※家賃を保守的に20万円、シエンタ送迎費（月10万）、JのAI推進報酬（月4万仮）を見積もっても、損益分岐点稼働率は57.0%（1日8.5名）。既存デイ（一般に65〜70%）を下回る高い安全性を堅持。</p>
+        </section>
+
+        <!-- Section 5: Public Data & Feasibility Analysis -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">5</span>
+                    <span>鳥取県・米子市公的データに基づく「達成角度（確度）」の定量的検証</span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 bg-indigo-100 text-indigo-800 font-bold rounded">米子市第9期計画データ分析</span>
+            </h2>
+            <div class="border border-indigo-200 rounded-lg p-3.5 bg-indigo-50/30 text-xs space-y-3">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-[11px]">
+                    <div class="bg-white p-2.5 rounded border border-indigo-100">
+                        <span class="text-slate-500 block text-[10px]">米子市の高齢者・認定者動向</span>
+                        <strong class="text-indigo-900 text-xs font-bold block mt-0.5">軽度認定者 約6,000名</strong>
+                        <p class="text-slate-600 text-[10px] mt-1">
+                            米子市の要支援・要介護認定者8,953名（R5）のうち、要支援1〜2および要介護1〜2が<strong>約67%（約6,000名）</strong>。2030年には10,044名へ拡大。
+                        </p>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-indigo-100">
+                        <span class="text-slate-500 block text-[10px]">市内の通所サービス総利用量</span>
+                        <strong class="text-indigo-900 text-xs font-bold block mt-0.5">月間 約5,700回 / 年6.8万回</strong>
+                        <p class="text-slate-600 text-[10px] mt-1">
+                            総合事業通所型サービス延べ利用回数は年68,500回（月約5,700回）。地域密着型通所給付費は約4億円/年規模で推移。
+                        </p>
+                    </div>
+                    <div class="bg-white p-2.5 rounded border border-indigo-100">
+                        <span class="text-slate-500 block text-[10px]">当事業所のBEP必要シェア</span>
+                        <strong class="text-emerald-600 text-xs font-bold block mt-0.5">市内需要のわずか 3.2%</strong>
+                        <p class="text-slate-600 text-[10px] mt-1">
+                            家賃20万＋J AI推進時のBEP（月188回）は米子市内総利用回数の<strong>わずか3.3%</strong>（家賃5万時なら2.8%）。極めて実現性の高い数値。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-3 rounded-lg border border-slate-200 text-[11px] text-slate-700 leading-relaxed space-y-2">
+                    <strong class="text-slate-900 block font-bold text-xs flex items-center gap-1.5">
+                        <i class="fa-solid fa-chart-line text-indigo-600"></i> 【なぜこの人数（1日8.5名・登録約24名）が確実に達成できるのか（角度の根拠）】
+                    </strong>
+                    <p>
+                        <strong>① 米子市「在宅生活改善調査」の顕在課題に合致:</strong><br>
+                        米子市の公的調査において、在宅生活の継続が困難化している高齢者のうち<strong>64%が要介護2以下の軽度者</strong>であり、「より適切な在宅・通所サービス」への転換が強く求められています。従来の1日型・身体介助型デイでは満たされない自立支援ニーズが市内に大量に滞留しています。
+                    </p>
+                    <p>
+                        <strong>② ケアマネジャーが切望する「運動嫌い・自立志向シニア」の受け皿:</strong><br>
+                        米子市内のケアカフェやケアマネヒアリングにおいて、「お遊戯的なレクリエーションを嫌がるプライドの高い男性高齢者」や「マシン運動が苦手なシニア」が通える半日型デイが存在せず、引きこもり・フレイル化する課題が指摘されています。当事業所の「大人の学び舎・文化ゼミ」は競合が存在しないブルーオーシャンです。
+                    </p>
+                    <p>
+                        <strong>③ 米子市フレイル対策推進課との施策連動:</strong><br>
+                        米子市は全国に先駆けて「フレイル対策推進課」を新設し、フレイル度チェックや民間連携を進めています。当事業所の「ゆるダン®」による身体調律とリカレント教育は、米子市の健康寿命延伸方針と100%合致し、包括支援センターからの紹介導線が極めて太くなります。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Chukai Smartphone Alliance -->
+        <section class="mb-5">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">6</span>
+                    <span>中海テレビ包括アライアンス「中海スマホ常設相談室（相談室長）」構想</span>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 bg-amber-100 text-amber-800 font-bold rounded">賃貸交渉の最重要キラーカード</span>
+            </h2>
+            <div class="border border-amber-200 rounded-lg p-3.5 bg-amber-50/40 text-xs space-y-2.5">
+                <div class="flex items-start gap-2 text-[11px] text-slate-700">
+                    <div class="bg-white p-3 rounded-lg border border-amber-200 flex-1 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <strong class="text-amber-950 font-bold text-xs flex items-center gap-1">
+                                <i class="fa-solid fa-mobile-screen-button text-amber-600"></i> 中海スマホ常設相談所 ＆ 常設相談室長ポストの設置
+                            </strong>
+                            <div class="flex items-center gap-1.5">
+                                <a href="../02_中海テレビ放送/旧事務所フロア利活用×chukaiスマホ連携事業のご提案.html" target="_blank" class="px-2.5 py-1 bg-sky-600 hover:bg-sky-500 text-white text-[10px] font-bold rounded shadow-sm transition flex items-center gap-1">
+                                    <i class="fa-solid fa-play"></i> 提案スライドを開く
+                                </a>
+                                <a href="../02_中海テレビ放送/旧事務所フロア利活用×chukaiスマホ連携事業のご提案.pdf" target="_blank" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 text-white text-[10px] font-bold rounded transition flex items-center gap-1">
+                                    <i class="fa-solid fa-file-pdf text-rose-400"></i> PDF
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Subtitle & Vision Badge -->
+                        <div class="p-2 rounded bg-sky-50 border border-sky-200 text-sky-950 text-[11px] leading-relaxed">
+                            <span class="font-bold text-sky-800 block text-xs mb-0.5">
+                                📌 提案書副題：『中海テレビ放送センタービル1階 事務所と受付窓口の利活用に関して』
+                            </span>
+                            「この町の健康づくり」という中海テレビの地域フラッグシップ目標と、ユルクが担う「健康・生きがい」の自立支援デイが完全合致。中海ビルの顔である1階を「町の健康とデジタル共生のシンボル拠点」へ共創します。
+                        </div>
+
+                        <p class="leading-relaxed">
+                            中海テレビ放送が最重点戦略として推進する「中海スマホ（MVNO事業）」および電力事業と完全連動。アカデミア拠点内に地域シニア向けの<strong>「中海スマホ常設相談室」</strong>を開設し、ダイちゃん（または専任相談員）が<strong>「常設相談室長」</strong>として機能します。
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-amber-100">
+                            <div class="bg-slate-50 p-2 rounded">
+                                <strong class="text-slate-900 text-[11px] block">【中海テレビ側の絶大なメリット】</strong>
+                                <p class="text-slate-600 text-[10px] mt-0.5">
+                                    ・センタービル1階に、シニア顧客が日常的に集まる「スマホ対面販売・相談の実店舗」が誕生。<br>
+                                    ・営業担当者の現場拘束を解消し、成約直結トスアップと解約防止（LTV向上）を同時に達成（格安でフロアを貸す強力な経営動機）。
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded">
+                                <strong class="text-slate-900 text-[11px] block">【アカデミア側のメリット ＆ Jの知見】</strong>
+                                <p class="text-slate-600 text-[10px] mt-0.5">
+                                    ・Jが米子市委託事業で実施する「スマホよろず相談会」の知見をそのまま常設化。<br>
+                                    ・通所シニアのデジタルデバイド解消・リカレント教育として生活機能訓練に直結。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Capital & Investment -->
+        <section class="mb-4">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-slate-800 px-3 py-1.5 rounded-r mb-2 flex items-center gap-2">
+                <span class="w-4 h-4 rounded-full bg-slate-800 text-white text-[10px] flex items-center justify-center font-bold">7</span>
+                <span>初期投資内訳と資金調達計画（キャッシュ温存型モデル）</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                <div class="border border-slate-200 rounded p-2.5 bg-slate-50">
+                    <span class="font-bold text-slate-800 block text-xs">内装バリアフリー工事</span>
+                    <span class="font-num text-sm font-bold text-blue-700 block">350 万円</span>
+                    <p class="text-[10px] text-slate-500 mt-1">既存事務所の床防滑化、車椅子トイレ、手すり、静養室、空調（※地域医療介護総合確保基金の補助金申請対象）</p>
+                </div>
+                <div class="border border-slate-200 rounded p-2.5 bg-slate-50">
+                    <span class="font-bold text-slate-800 block text-xs">設備・什器・車両ラッピング費</span>
+                    <span class="font-num text-sm font-bold text-blue-700 block">140 万円</span>
+                    <p class="text-[10px] text-slate-500 mt-1">機能訓練機材、カイポケ介護ソフト、事務PC・タブレット、看板、備品、<strong>シエンタ公式スタイリッシュラッピング施工費（20万円）</strong></p>
+                </div>
+                <div class="border border-slate-200 rounded p-2.5 bg-slate-50">
+                    <span class="font-bold text-slate-800 block text-xs">初期運転資金（手元現預金）</span>
+                    <span class="font-num text-sm font-bold text-blue-700 block">330 万円</span>
+                    <p class="text-[10px] text-slate-500 mt-1">国保連入金2ヶ月タイムラグ対応、立ち上がり期の固定費防護資金（約3.8〜4.5ヶ月分）</p>
+                </div>
+            </div>
+            <div class="mt-2 text-[11px] text-slate-600 bg-slate-50 p-2 rounded border border-slate-200 flex flex-wrap justify-between items-center gap-2">
+                <span><strong>【資金調達モデル】</strong> 自己資金 100万円 ＋ 日本政策金融公庫・地域金融機関協調融資 720万円</span>
+                <span class="text-emerald-700 font-bold">総調達額：820 万円（※補助金採択時は自己負担さらに低減）</span>
+            </div>
+        </section>
+
+        
+        <!-- Section 8: Administrative Schedule & Yonago City Clearance -->
+        <section class="mb-4">
+            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-indigo-800 px-3 py-1.5 rounded-r mb-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-indigo-800 text-white text-[10px] flex items-center justify-center font-bold">8</span>
+                    <span>米子市行政許認可 ＆ 補助金・密着委員会マスター工程（2026.9〜2028.4）</span>
+                </div>
+                <span class="text-[10px] text-indigo-700 font-bold">米子市長寿社会課（永戸様窓口）協議反映</span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-2.5 text-xs">
+                <div class="border border-rose-200 rounded p-2.5 bg-rose-50/50">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="px-1.5 py-0.5 bg-rose-600 text-white text-[9px] font-black rounded">今月9/30締切</span>
+                        <span class="text-[10px] font-bold text-rose-800 font-num">2026.9</span>
+                    </div>
+                    <strong class="block text-xs text-slate-900 mb-0.5">補助金事前希望提出</strong>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        令和9年度地域医療介護総合確保基金（内装改修助成）の事前希望申出書を米子市へ提出。予算要求枠を確保。
+                    </p>
+                </div>
+                <div class="border border-blue-200 rounded p-2.5 bg-blue-50/50">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="px-1.5 py-0.5 bg-blue-600 text-white text-[9px] font-black rounded">市議会可決</span>
+                        <span class="text-[10px] font-bold text-blue-800 font-num">2027.3</span>
+                    </div>
+                    <strong class="block text-xs text-slate-900 mb-0.5">米子市予算成立・内示</strong>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        市議会で当初予算が成立し補助金枠内定。4〜5月の本申請・交付決定を経て6月以降に安全着工。
+                    </p>
+                </div>
+                <div class="border border-amber-200 rounded p-2.5 bg-amber-50/50">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="px-1.5 py-0.5 bg-amber-600 text-white text-[9px] font-black rounded">書類完成目途</span>
+                        <span class="text-[10px] font-bold text-amber-800 font-num">2027.12</span>
+                    </div>
+                    <strong class="block text-xs text-slate-900 mb-0.5">指定申請添付書類完備</strong>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        米子市公式チェックリスト全9項目（運営規程5年保存・平面図45㎡・管理者経歴等）を完備。1/4電子申請提出。
+                    </p>
+                </div>
+                <div class="border border-emerald-200 rounded p-2.5 bg-emerald-50/50">
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="px-1.5 py-0.5 bg-emerald-600 text-white text-[9px] font-black rounded">法定関門</span>
+                        <span class="text-[10px] font-bold text-emerald-800 font-num">2028.2</span>
+                    </div>
+                    <strong class="block text-xs text-slate-900 mb-0.5">密着委員会審議・承認</strong>
+                    <p class="text-[10px] text-slate-600 leading-relaxed">
+                        米子市地域密着型サービス運営委員会での意見聴取・承認（出席不要）を経て、4月1日指定認可開業。
+                    </p>
+                </div>
+            </div>
+            <div class="mt-2 bg-slate-50 p-2 rounded border border-slate-200 flex flex-wrap justify-between items-center text-[10px] text-slate-600">
+                <span><i class="fa-solid fa-folder-open text-indigo-600 mr-1"></i> 米子市公式指定申請ガイドブック・チェックリスト等21点は <code>▶︎米子市/</code> フォルダに配備済み</span>
+                <a href="開業時系列チェックリスト.html" class="text-indigo-700 font-bold hover:underline">時系列チェックリスト（全53タスク）を確認する →</a>
+            </div>
+        </section>
+
+        <!-- Document Footer Notes -->
+        <footer class="pt-3 border-t border-slate-200 text-[10px] text-slate-500 leading-relaxed space-y-1">
+            <p>※1 介護報酬単価：米子市（7級地：10.14円/単位）の地域密着型通所介護（3〜4時間）において、個別機能訓練加算（Ⅰロ）、科学的介護推進体制加算（LIFE）、入浴なし等を加味した1回あたり平均推計値（約5,000円/回）。</p>
+            <p>※2 人件費単価：管理者ダイちゃん月額30.0万円（仮・総支給額）、看護師パート時給1,500円、介護福祉士パート時給1,100円に基づき試算。予備スタッフ2名確保。</p>
+            <p>※3 送迎車両：J事業保有の福祉車両1台借用（Jと協議の上、Win-Winとなる適正対価設定）＋トヨタ 新型シエンタ1台（欧州風デザイン・超低床ミニバン・公式スタイリッシュラッピング施工・法人リース/オートローン）を想定。</p>
+            <p>※4 家賃設定：中海テレビとの交渉目標は月額5.0万円だが、計画上の財務安全性と融資審査対策のため、保守的最大見積りとして月額20.0万円を基準に試算。</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

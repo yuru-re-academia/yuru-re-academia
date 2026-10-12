@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "name": "ゆるダン® 公式ブログ・Web運用",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.exclude": {
+            "**/.git": true,
+            "**/.DS_Store": true
+        }
+    }
+}
