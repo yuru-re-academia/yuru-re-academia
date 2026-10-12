@@ -129,8 +129,8 @@
                         <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-900/80 text-sky-200 border border-sky-700">中海テレビ放送</span>
                         <span class="text-[11px] font-bold text-amber-300 font-mono">10/19 (月) 13:30〜</span>
                     </div>
-                    <strong class="text-xs font-bold text-white block">センビル利活用 ＆ ビル管理受託 協議</strong>
-                    <p class="text-[10px] text-slate-300 mt-0.5">参加: 中海職員（小林様等） × 佐々木、けいた</p>
+                    <strong class="text-xs font-bold text-white block">共同事業化 ＆ センビル交渉（連続戦略協議）</strong>
+                    <p class="text-[10px] text-slate-300 mt-0.5">参加: 中海複数担当者 × 佐々木、けいた（社長直接提案を策定）</p>
                 </div>
 
                 <!-- Event 2: LOOP -->
@@ -179,7 +179,7 @@
                             <strong class="text-xs sm:text-sm font-bold text-sky-950">中海テレビ放送（千日前 センビル）</strong>
                         </div>
                         <p class="text-[11px] text-sky-800 leading-snug">
-                            ★<strong>2027年 ビル管理受託</strong>（関係構築） ➔ <strong>2028年春 1Fデイ開校</strong> ｜ chukaiスマホ常設相談窓口 ｜ 訪問サポート巻き取り ｜ 番組放映
+                            ★<strong>10/19戦略協議：共同事業化・トップダウン提案推進</strong>（第1候補：千日前センビル ｜ 部分賃貸条件交渉中 / <strong>代替案：山陰酸素連携×高島屋周辺物件</strong>並行検討）
                         </p>
                     </div>
                     <div class="flex justify-center my-1 text-sky-400 text-sm">
@@ -215,8 +215,8 @@
                         </p>
                         <div class="grid grid-cols-2 gap-2 text-[10px] text-left pt-2 border-t border-indigo-800">
                             <div class="bg-indigo-900/60 p-2 rounded-lg border border-indigo-700/60">
-                                <strong class="text-amber-300 block">■ 午前・午後 半日型</strong>
-                                <span>自立支援・定員18名・中海センビル1F</span>
+                                <strong class="text-amber-300 block">■ 午前（保険）＋ 午後（自費）</strong>
+                                <span>二部制ハイブリッド（固定費回収＋成長原資）</span>
                             </div>
                             <div class="bg-indigo-900/60 p-2 rounded-lg border border-indigo-700/60">
                                 <strong class="text-emerald-300 block">■ 知的講義 × ゆるダン®︎</strong>
@@ -650,6 +650,9 @@
                         </h4>
                         <ul class="text-xs text-slate-600 space-y-2">
                             <li class="pb-1.5 border-b border-slate-100">
+                                <span class="font-semibold text-slate-700">10/12:</span> 中海テレビ共同事業化交渉計画、午前（保険）午後（自費）二部制モデル合意、センビル代替案（山陰酸素連携）確保、ダイちゃん学長就任・組織マネジメント方針確定。
+                            </li>
+                            <li class="pb-1.5 border-b border-slate-100">
                                 <span class="font-semibold text-slate-700">10/09:</span> フォルダ構造を主要5フォルダ＋自動整理機構に再編完了。株式会社組織変更ロードマップ作成。
                             </li>
                             <li class="pb-1.5 border-b border-slate-100">
@@ -769,63 +772,83 @@
     <!-- 6. JAVASCRIPT LOGIC (DATA & STATE MANAGEMENT)             -->
     <!-- ======================================================== -->
     <script>
-        const STORAGE_KEY = "yuru_re_war_room_v2";
+        const STORAGE_KEY = "yuru_re_war_room_v3";
 
-        // 初期標準データ（最新版）
+                // 初期標準データ（2026/10/12 定例MTG最新版）
         const defaultState = {
             members: {
-                keita: { status: "good", note: "10/19中海テレビMTG（センビル利活用・ビル管理受託打診）および11/28鳥大プレゼン準備推進中。" },
-                j: { status: "good", note: "11/28鳥取大学連携プレゼンスライド（全6S）作成完了。カルチャーコマ割り案を策定中。" },
-                daichan: { status: "good", note: "10/29 LOOP様MTG（現場ヒアリング）準備中。センビル1階間取りの介護基準適合確認中。" }
+                keita: { 
+                    status: "warn", 
+                    note: "10/19中海テレビ複数担当者と連続戦略協議（共同事業化・社長トップダウン提案策定）。センビル全体賃貸（月90万）リスクに対し、山陰酸素連携（高島屋近辺）を代替案として並行調査。" 
+                },
+                j: { 
+                    status: "good", 
+                    note: "10/29 LOOP様ヒアリング同席準備。午前（介護保険デイ）＋午後（自費特化）のハイブリッド収支モデルおよび知的カリキュラムの自費マネタイズ設計を支援。" 
+                },
+                daichan: { 
+                    status: "warn", 
+                    note: "将来のアカデミア学長・現場責任者として地域ニーズ収集。午前（保険）＋午後（自費）の運営設計、買い物支援終了背景の調査（フォーカス等）、送迎エリア絞り込み、委任・完了基準の整理。" 
+                }
             },
             agendas: [
                 {
                     id: "ag-1",
-                    title: "【最重要】10/19 (月) 13:30〜 中海テレビ放送 職員協議（佐々木・けいた参加）",
+                    title: "【最重要】中海テレビ共同事業化交渉 ＆ センビル賃料リスク（月約90万）と代替案（山陰酸素連携）",
                     presenter: "けいた ➔ 全員",
                     priority: "urgent",
-                    detail: "千日前センビル1階活用と、2027年度の「ビル管理業務受託」による日常的信頼関係構築を提示。",
-                    conclusion: "提案書（全7S）およびA4サマリーを持参し、小林様・職員と合意形成を図る。",
+                    detail: "10/19に中海テレビ複数担当者と連続協議。社長への直接提案によるトップダウン共同事業化を推進。部分賃貸不可・全体約90万の場合は負担過大なため条件交渉を継続。並行して山陰酸素連携による高島屋近辺物件改装を第2案として確保。",
+                    conclusion: "中海テレビとの連携・共同事業化を最優先。年内判断をめどに代替案（山陰酸素連携）も具体調査を進める。",
                     done: false
                 },
                 {
                     id: "ag-2",
-                    title: "10/29 (木) 10:00〜11:00 デイサービス「LOOP」様 視察・ヒアリング準備",
+                    title: "【運営モデル】午前（介護保険デイ）＋午後（自費特化）の二部制ハイブリッド設計 ＆ 買い物支援・送迎の整理",
                     presenter: "ダイちゃん ➔ けいた・J",
                     priority: "discuss",
-                    detail: "先進デイサービスLOOP様と現場オペレーション・人員体制・集客動線のヒアリングを実施。",
-                    conclusion: "ダイちゃんが現場ヒアリング質問リストを作成し、けいたと同席。",
+                    detail: "固定費を午前の介護保険デイで回収し、午後の自費サービスを成長原資とする。地域既存デイの買い物支援終了の背景をフォーカス等にヒアリング。送迎は初期エリアを絞り段階的に車両増設する設計。",
+                    conclusion: "二部制ハイブリッドモデルを採用。ダイちゃんが買い物支援ニーズ背景と自費×保険の送迎制度ルールを確認。",
                     done: false
                 },
                 {
                     id: "ag-3",
-                    title: "11/28 (金) 鳥取市での大学連携プレゼン（全6S）の最終確認",
-                    presenter: "けいた ➔ 全員",
+                    title: "【組織・マネジメント】「放任」と「責任ある委任」の徹底 ＆ 透明な経営・報酬設計（利益還元）",
+                    presenter: "けいた ＆ ダイちゃん",
                     priority: "discuss",
-                    detail: "鳥取市へ赴き鳥取大学（医学部・CoRE）へ向けた産学官包括連携の公式プレゼンテーション。",
-                    conclusion: "プレゼンスライド完成済み。11月中旬にリハーサルを実施予定。",
+                    detail: "過去の立ち上げ反省（前提未確認による負担増）を踏まえ、ゴール基準と権限範囲を明確化。月次での収支全体共有と、コスト削減・業務改善提案による利益還元でスタッフが経営感覚を持てる組織づくり。",
+                    conclusion: "ダイちゃんを学長・現場責任者へ。率直な対話を継続し、判断権限の線引きと成果還元ルールを明文化。",
+                    done: false
+                },
+                {
+                    id: "ag-4",
+                    title: "【タイムライン】中海判断後のクラファン構想（2027秋開始） ＆ ダイちゃんの退職時期前倒し調整",
+                    presenter: "けいた ➔ ダイちゃん",
+                    priority: "consult",
+                    detail: "年内に施設利用可否を確定後、3ヶ月でクラファン構想設計。立ち上げ準備の工数増大を踏まえ、ダイちゃんの退職時期を3月に固定せず前倒しも柔軟に検討。",
+                    conclusion: "準備の進捗に応じて退職時期の前倒しを可能とする方針を確認。",
                     done: false
                 }
             ],
             tasks: {
                 keita: [
-                    { id: "tk-1", title: "10/19 (月) 13:30〜 中海テレビ放送 職員MTG（佐々木氏と同席）", dueDate: "10/19 (月)", done: false },
-                    { id: "tk-2", title: "10/29 (木) 10:00〜 LOOP様MTG（ダイちゃんと同席）", dueDate: "10/29 (木)", done: false },
-                    { id: "tk-3", title: "11/28 鳥取市 鳥取大学連携プレゼン発表練習", dueDate: "11/20 (金)", done: false }
+                    { id: "tk-1", title: "10/19 (月) 13:30〜 中海テレビ連続戦略協議（社長直接提案・共同事業化・センビル条件交渉）", dueDate: "10/19 (月)", done: false },
+                    { id: "tk-2", title: "センタービル代替案（山陰酸素連携・高島屋周辺物件）の初期情報収集", dueDate: "10/24 (土)", done: false },
+                    { id: "tk-3", title: "10/29 LOOP様ヒアリングの事前論点整理（ダイちゃんと共有）", dueDate: "10/27 (火)", done: false },
+                    { id: "tk-4", title: "11/28 鳥取大学連携プレゼン発表準備・リハーサル", dueDate: "11/20 (金)", done: false }
                 ],
                 j: [
-                    { id: "tk-4", title: "鳥大プレゼンスライド（全6S）のスマホ・PC表示最終点検", dueDate: "10/16 (金)", done: true },
-                    { id: "tk-5", title: "10/29 LOOP様MTGへの参加調整（任意）", dueDate: "10/25 (日)", done: false },
-                    { id: "tk-6", title: "知的カリキュラム（スマホ・カルチャー）の具体コマ割り案作成", dueDate: "10/30 (金)", done: false }
+                    { id: "tk-5", title: "午前（保険）＋午後（自費）ハイブリッド収支シミュレーションの作成支援", dueDate: "10/21 (水)", done: false },
+                    { id: "tk-6", title: "10/29 (木) 10:00〜 LOOP様MTGへの参加調整（任意）", dueDate: "10/25 (日)", done: false },
+                    { id: "tk-7", title: "知的カリキュラム（大学連携・教養・スマホ）の自費特化プログラム化検討", dueDate: "10/30 (金)", done: false }
                 ],
                 daichan: [
-                    { id: "tk-7", title: "10/29 (木) 10:00〜 LOOP様MTGの事前ヒアリング質問票の作成", dueDate: "10/27 (火)", done: false },
-                    { id: "tk-8", title: "センビル1階フロア間取り図（静養室・事務室・動線）の点検", dueDate: "10/20 (火)", done: false },
-                    { id: "tk-9", title: "米子市指定申請の添付書類ドラフト最終点検", dueDate: "10/31 (土)", done: false }
+                    { id: "tk-8", title: "フォーカス等の地域関係者へ買い物支援デイ終了の背景ヒアリング", dueDate: "10/23 (金)", done: false },
+                    { id: "tk-9", title: "介護保険と自費サービスをまたぐ送迎の費用・運用ルール（制度的整理）確認", dueDate: "10/26 (月)", done: false },
+                    { id: "tk-10", title: "10/29 (木) 10:00〜 LOOP様MTGの事前ヒアリング質問票の作成", dueDate: "10/27 (火)", done: false },
+                    { id: "tk-11", title: "学長・現場責任者として地域ニーズ・相談内容・利用者像の継続収集", dueDate: "随時", done: false }
                 ]
             },
-            nextMeeting: "2026/10/19 (月) 13:30〜（中海テレビMTG）",
-            weeklyDecisions: "・10/19 13:30〜 中海テレビ職員×佐々木・けいた MTG実施（2027年ビル管理受託打診）。\n・10/29 10:00〜 LOOP様とダイちゃん・けいたでMTG実施。\n・11/28 鳥取市にて鳥大連携プレゼン本番。全6Sスライド完成。\n・アカデミア概要ポータルを新設し、間取り・施設情報を一元化。"
+            nextMeeting: "2026/10/19 (月) 13:30〜（中海テレビ戦略協議 ＆ 社長提案検討）",
+            weeklyDecisions: "【2026/10/12 定例MTG決定事項】\n・【最優先】中海テレビとの共同事業化を最優先とし、10/19戦略協議で社長トップダウン提案を推進。\n・【プランB】センビル部分賃貸不可（全体約90万）リスクに備え、山陰酸素連携による高島屋周辺物件改装を代替案として並行検討。\n・【運営形態】午前：介護保険デイ（固定費回収）＋午後：自費特化サービス（成長原資）の二部制ハイブリッドモデルを採用。\n・【買い物支援・送迎】既存デイ終了の背景をダイちゃんが調査。送迎エリアは初期は絞り込み、車両も段階的導入。\n・【組織・委任】「放任」と「責任ある委任」を区別し、完了基準・権限範囲を明確化。ダイちゃんを学長・現場責任者へ。月次収支共有・コスト削減還元制度を設計。\n・【スケジュール】年内に施設判断 ➔ 3ヶ月でクラファン構想 ➔ 2027秋クラファン開始。ダイちゃんの退職時期は準備進捗に応じて前倒し可能。"
         };
 
         let state = {};
