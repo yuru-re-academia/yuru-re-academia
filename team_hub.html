@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <title>シニアアカデミア YURU-RE: ｜ Weekly War Room（チーム共創ハブ）</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,6 +30,11 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
             letter-spacing: -0.01em;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Tap target optimization */
+        button, a, input, select, textarea {
+            touch-action: manipulation;
         }
         .custom-scrollbar::-webkit-scrollbar {
             width: 5px;
@@ -49,6 +54,13 @@
         .step-number {
             font-feature-settings: "tnum";
         }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-modal-in {
+            animation: fadeIn 0.15s ease-out forwards;
+        }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 min-h-screen flex flex-col antialiased">
@@ -56,46 +68,58 @@
     <!-- ======================================================== -->
     <!-- 1. TOP GLOBAL HEADER                                     -->
     <!-- ======================================================== -->
-    <header class="bg-slate-900 text-white sticky top-0 z-50 shadow-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+    <header class="bg-slate-900 text-white sticky top-0 z-40 shadow-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3">
             <!-- Brand & Purpose -->
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white font-black text-xl shadow-md">
+            <div class="flex items-center gap-2.5 sm:gap-3">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center text-white font-black text-lg sm:text-xl shadow-md shrink-0">
                     Y
                 </div>
                 <div>
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <span class="font-bold text-base tracking-tight text-white">シニアアカデミア YURU-RE：（ゆるり）</span>
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">Weekly War Room</span>
-                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">定例MTG特化版</span>
+                    <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
+                        <span class="font-bold text-sm sm:text-base tracking-tight text-white">シニアアカデミア YURU-RE：</span>
+                        <span class="px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">Weekly War Room</span>
+                        <span class="px-1.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">定例MTG特化版</span>
                     </div>
-                    <p class="text-[11px] text-slate-400 mt-0.5">大人の知的学び舎 ── 最終学歴の更新（けいた × J × ダイちゃん）</p>
+                    <p class="text-[10px] sm:text-[11px] text-slate-400 mt-0.5">大人の知的学び舎 ── 最終学歴の更新（けいた × J × ダイちゃん）</p>
                 </div>
             </div>
 
             <!-- Countdown & Actions -->
-            <div class="flex items-center gap-2.5 sm:gap-4 flex-wrap">
+            <div class="flex items-center gap-1.5 sm:gap-2.5 flex-wrap ml-auto">
                 <!-- Countdown Pill -->
-                <div class="bg-slate-800/90 border border-slate-700 px-3 py-1.5 rounded-xl flex items-center gap-2 shadow-inner">
-                    <i class="fa-solid fa-flag-checkered text-pink-400 text-xs"></i>
-                    <span class="text-xs text-slate-300 font-medium">2028春開校まで:</span>
-                    <span id="countdownDays" class="text-sm font-black text-amber-300 tracking-tight">計算中...</span>
+                <div class="bg-slate-800/90 border border-slate-700 px-2 sm:px-3 py-1 sm:py-1.5 rounded-xl flex items-center gap-1.5 shadow-inner">
+                    <i class="fa-solid fa-flag-checkered text-pink-400 text-[10px] sm:text-xs"></i>
+                    <span class="text-[10px] sm:text-xs text-slate-300 font-medium hidden xs:inline">開校まで:</span>
+                    <span id="countdownDays" class="text-xs sm:text-sm font-black text-amber-300 tracking-tight">計算中...</span>
                 </div>
 
+                <!-- 1-Click 10/12 Minutes Button (Top Priority) -->
+                <button onclick="openTodayMeetingModal()" class="px-2.5 py-1.5 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 active:scale-95 text-slate-950 rounded-xl text-xs font-black shadow-sm transition flex items-center gap-1.5 border border-amber-300">
+                    <i class="fa-solid fa-bolt-lightning text-slate-950 text-xs"></i>
+                    <span class="inline">10/12議事録</span>
+                </button>
+
+                <!-- URL Share Button (One-click team sharing) -->
+                <button onclick="shareTeamHub()" class="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white rounded-xl text-xs font-bold shadow-sm transition flex items-center gap-1.5" title="チーム共有URLをコピー/共有">
+                    <i class="fa-solid fa-share-nodes text-xs"></i>
+                    <span class="hidden sm:inline">共有URL</span>
+                </button>
+
                 <!-- Auto Save Status -->
-                <div id="saveIndicator" class="text-[11px] text-emerald-400 flex items-center gap-1 font-medium bg-emerald-950/50 px-2 py-1 rounded-lg border border-emerald-800/50">
+                <div id="saveIndicator" class="text-[10px] sm:text-[11px] text-emerald-400 hidden md:flex items-center gap-1 font-medium bg-emerald-950/50 px-2 py-1 rounded-lg border border-emerald-800/50">
                     <i class="fa-solid fa-circle-check"></i> 保存済
                 </div>
 
                 <!-- Utilities -->
-                <div class="flex items-center gap-1.5">
-                    <button onclick="openShareModal()" class="px-2.5 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold shadow-sm transition flex items-center gap-1.5" title="MTGサマリーをLINE/Slack用にコピー">
-                        <i class="fa-solid fa-share-nodes"></i> <span class="hidden sm:inline">共有文出力</span>
+                <div class="flex items-center gap-1">
+                    <button onclick="openShareModal()" class="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition" title="MTGサマリーをLINE/Slack用にコピー">
+                        <i class="fa-regular fa-clipboard"></i>
                     </button>
-                    <button onclick="exportData()" class="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition" title="データをJSONでバックアップ">
+                    <button onclick="exportData()" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition" title="データをJSONでバックアップ">
                         <i class="fa-solid fa-download"></i>
                     </button>
-                    <button onclick="document.getElementById('importFileInput').click()" class="px-2 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition" title="データをJSONから復元">
+                    <button onclick="document.getElementById('importFileInput').click()" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition" title="データをJSONから復元">
                         <i class="fa-solid fa-upload"></i>
                     </button>
                     <input type="file" id="importFileInput" class="hidden" accept=".json" onchange="importData(event)">
@@ -107,7 +131,47 @@
     <!-- ======================================================== -->
     <!-- MAIN WRAPPER                                             -->
     <!-- ======================================================== -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3 py-4 sm:px-6 sm:py-6 space-y-4 sm:space-y-6">
+
+        <!-- ======================================================== -->
+        <!-- 📢 10/12 定例MTG決定事項 ＆ 詳細議事録 クイックバナー (ワンクリック) -->
+        <!-- ======================================================== -->
+        <section class="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-4 sm:p-5 shadow-lg border-2 border-amber-400/70 text-white relative overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3.5 relative z-10">
+                <div class="flex items-start sm:items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 flex items-center justify-center font-black text-xl shrink-0 shadow-md">
+                        📢
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-400 text-slate-950 tracking-wide uppercase">
+                                本日 10/12 定例MTG完了
+                            </span>
+                            <span class="text-[11px] text-amber-200/90 font-medium">
+                                けいた × ダイちゃん（記録：J）
+                            </span>
+                        </div>
+                        <h2 class="text-sm sm:text-base font-extrabold text-white mt-1 tracking-tight">
+                            中海共同事業化 ＆ 午前保険・午後自費ハイブリッドモデル合意
+                        </h2>
+                        <p class="text-[11px] text-slate-300 mt-0.5">
+                            決定事項6選 ｜ センビル月約90万リスクと山陰酸素代替案 ｜ ダイちゃん学長就任 ｜ 責任ある委任方針
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0 w-full md:w-auto pt-2 md:pt-0 border-t border-slate-800 md:border-0">
+                    <button onclick="openTodayMeetingModal()" class="flex-1 md:flex-none px-4 py-2.5 bg-gradient-to-r from-amber-400 to-amber-300 hover:from-amber-300 hover:to-amber-200 active:scale-95 text-slate-950 font-black rounded-xl text-xs sm:text-sm shadow-md transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-bolt-lightning text-slate-950"></i>
+                        <span>決定事項・議事録を開く</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                    <button onclick="shareTeamHub()" class="px-3 py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 text-white font-semibold rounded-xl text-xs border border-slate-700 transition flex items-center justify-center gap-1.5" title="チーム共有URLをコピー/共有">
+                        <i class="fa-solid fa-share-nodes text-xs"></i>
+                        <span class="inline">共有URL</span>
+                    </button>
+                </div>
+            </div>
+        </section>
 
         <!-- ======================================================== -->
         <!-- 2. UPCOMING CALENDAR & IMPORTANT ANNOUNCEMENTS (直近予定)   -->
@@ -769,10 +833,462 @@
     </div>
 
     <!-- ======================================================== -->
+    <!-- Modal: Today's Meeting Minutes (10/12 定例MTG詳細議事録)   -->
+    <!-- ======================================================== -->
+    <div id="todayMeetingModal" class="fixed inset-0 bg-slate-950/75 z-50 flex items-center justify-center p-2 sm:p-4 hidden backdrop-blur-xs">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden animate-modal-in">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white px-4 sm:px-6 py-3.5 flex items-center justify-between shrink-0 border-b border-slate-800">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="w-8 h-8 rounded-lg bg-amber-400 text-slate-950 font-black flex items-center justify-center text-sm shadow shrink-0">
+                        📢
+                    </span>
+                    <div class="min-w-0">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h3 class="font-bold text-sm sm:text-base text-white tracking-tight truncate">10/12 (月) 定例MTG 決定事項 ＆ 詳細議事録</h3>
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-amber-400 text-slate-950">最新</span>
+                        </div>
+                        <p class="text-[11px] text-slate-400 mt-0.5">参加: けいた、ダイちゃん（記録・反映：J） ｜ 即時同期済</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <button onclick="copyMeetingMinutesText()" class="hidden sm:flex px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold items-center gap-1.5 border border-slate-700 transition" title="議事録全文をコピー">
+                        <i class="fa-regular fa-copy"></i> テキストコピー
+                    </button>
+                    <button onclick="closeTodayMeetingModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition" aria-label="閉じる">
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tab Navigation (Mobile horizontal scrollable) -->
+            <div class="bg-slate-100 border-b border-slate-200 px-3 sm:px-6 flex items-center gap-1 overflow-x-auto custom-scrollbar shrink-0 py-1.5">
+                <button onclick="switchMeetingTab('decisions')" id="tab-btn-decisions" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-white text-indigo-700 shadow-xs border border-slate-200">
+                    <i class="fa-solid fa-check-double text-emerald-500"></i> 本日の決定事項（6選）
+                </button>
+                <button onclick="switchMeetingTab('issues')" id="tab-btn-issues" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> 課題 ＆ 対応方針（7項目）
+                </button>
+                <button onclick="switchMeetingTab('retrospective')" id="tab-btn-retrospective" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-comments text-amber-500"></i> 振り返り ＆ 組織方針
+                </button>
+                <button onclick="switchMeetingTab('tasks')" id="tab-btn-tasks" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-list-check text-blue-500"></i> 次回までの宿題
+                </button>
+                <button onclick="switchMeetingTab('raw')" id="tab-btn-raw" class="px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-file-lines text-slate-500"></i> 全文テキスト
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-4 sm:p-6 overflow-y-auto flex-1 custom-scrollbar text-slate-800 space-y-4">
+
+                <!-- PANE 1: 本日の決定事項 (6大項目) -->
+                <div id="meeting-pane-decisions" class="space-y-3">
+                    <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-3 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                            <span class="text-xs font-bold text-indigo-950">2026年10月12日 定例MTG 合意事項一覧</span>
+                        </div>
+                        <span class="text-[10px] text-indigo-700 font-bold">全6項目 合意完了</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <!-- Decision 1 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-indigo-200 hover:border-indigo-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-indigo-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">1</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">中海テレビ共同事業化最優先 ＆ 社長直接提案</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                共同事業としてセンタービルを活用する可能性を追求。10月19日の戦略協議で社長トップダウン提案の進め方を詰める。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-800">10/19 戦略協議</span>
+                        </div>
+
+                        <!-- Decision 2 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-purple-200 hover:border-purple-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-purple-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">2</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">プランBとして山陰酸素連携を並行確保</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                センビル部分賃貸不可（全体約90万）リスクに備え、山陰酸素との連携による高島屋近辺物件の改装・活用を代替案として確保。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-purple-100 text-purple-800">リスクヘッジ済</span>
+                        </div>
+
+                        <!-- Decision 3 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-emerald-200 hover:border-emerald-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-emerald-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">3</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">午前保険・午後自費の二部制ハイブリッド採用</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                固定費を午前の介護保険デイ（半日型）で賄い、午後の自費特化サービスを成長原資・上積み利益とする収益構造を確定。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">収益モデル確定</span>
+                        </div>
+
+                        <!-- Decision 4 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-amber-200 hover:border-amber-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-amber-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">4</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">判断権限の線引きによる「責任ある委任」</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                過去の立ち上げ反省を踏まえ、曖昧な放任を排除。ゴール基準と完了水準、現場裁量と責任者判断の境界を明文化。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800">組織マネジメント</span>
+                        </div>
+
+                        <!-- Decision 5 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-teal-200 hover:border-teal-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-teal-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">5</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">ダイちゃん「将来の学長・現場責任者」就任</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                ダイちゃんを将来のアカデミア学長・専従管理者へ。現場ニーズ・相談内容・利用者像の継続収集と組織づくりを牽引。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-teal-100 text-teal-800">体制強化</span>
+                        </div>
+
+                        <!-- Decision 6 -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border-2 border-rose-200 hover:border-rose-400 transition">
+                            <div class="flex items-center gap-2 mb-1.5">
+                                <span class="w-5 h-5 rounded-full bg-rose-600 text-white text-[10px] font-black flex items-center justify-center shrink-0">6</span>
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900">ダイちゃん退職時期の前倒しを柔軟化</strong>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                開業準備・クラファン・折衝工数の進捗に応じ、退職時期を3月に固定せず前倒しも可能とする方針を合意。
+                            </p>
+                            <span class="inline-block mt-2 px-2 py-0.5 rounded text-[10px] font-bold bg-rose-100 text-rose-800">タイムライン柔軟化</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANE 2: 課題と対応方針 (7項目) -->
+                <div id="meeting-pane-issues" class="space-y-3 hidden">
+                    <div class="bg-rose-50 border border-rose-200 rounded-xl p-3 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-rose-600"></span>
+                            <span class="text-xs font-bold text-rose-950">特定された課題（ボトルネック）と対応方針（全7件）</span>
+                        </div>
+                        <span class="text-[10px] text-rose-700 font-bold">担当割当済</span>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        <!-- Issue 1 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">1</span>
+                                    センビル部分賃貸不可（全体約90万）リスク
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700 self-start sm:self-auto">担当: けいた</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> 中海テレビとの共同事業化・条件交渉を最優先。代替案として山陰酸素連携による高島屋近辺物件改装を並行検討。
+                            </p>
+                        </div>
+
+                        <!-- Issue 2 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">2</span>
+                                    買い物支援既存デイの終了理由・需要未確認
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 self-start sm:self-auto">担当: ダイちゃん</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> フォーカス等の地域関係者に確認し、終了背景を把握して同様の失敗を回避。
+                            </p>
+                        </div>
+
+                        <!-- Issue 3 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">3</span>
+                                    介護保険と自費サービスを跨ぐ送迎ルールの曖昧さ
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800 self-start sm:self-auto">担当: ダイちゃん</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> 自費で送迎費を別途徴収しない前提で、自宅送り届け運用の可否・制度的整理を確認。
+                            </p>
+                        </div>
+
+                        <!-- Issue 4 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">4</span>
+                                    広域送迎による車両・運転人員コストの増大
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 self-start sm:self-auto">担当: ダイちゃん・けいた</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> 開業当初は複数台用意せず、対象エリアを絞り込み、利用者増に応じて段階的に増車。
+                            </p>
+                        </div>
+
+                        <!-- Issue 5 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">5</span>
+                                    曖昧な指示による業務やり直し・認識齟齬
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-700 self-start sm:self-auto">担当: けいた・ダイちゃん</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> ゴールまでの手順・完了基準・判断権限の範囲を明確に定義して委任。
+                            </p>
+                        </div>
+
+                        <!-- Issue 6 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">6</span>
+                                    コスト意識・経営数値の自分事化不足
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-100 text-indigo-700 self-start sm:self-auto">担当: けいた</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> チーム全体で月次収支を確認し、コスト削減・改善提案の成果を報酬へ還元する仕組みを設計。
+                            </p>
+                        </div>
+
+                        <!-- Issue 7 -->
+                        <div class="p-3.5 rounded-xl bg-white border border-slate-200 shadow-2xs">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-1.5">
+                                <strong class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span class="w-4 h-4 rounded bg-rose-100 text-rose-700 text-[10px] font-bold flex items-center justify-center">7</span>
+                                    クラウドファンディングの事前準備工数
+                                </strong>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-teal-100 text-teal-700 self-start sm:self-auto">担当: けいた・J</span>
+                            </div>
+                            <p class="text-xs text-slate-600 pl-5">
+                                <strong>対応策:</strong> 年内に施設確定後、開始前の支援者・ファンコミュニティ形成を先行して推進。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANE 3: 振り返りと組織方針 -->
+                <div id="meeting-pane-retrospective" class="space-y-3.5 hidden">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-amber-600"></span>
+                            <span class="text-xs font-bold text-amber-950">過去の反省とこれからの組織マネジメント方針</span>
+                        </div>
+                        <span class="text-[10px] text-amber-700 font-bold">相互理解・対話重視</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-indigo-600"></i> 過去の立ち上げ経験の反省（けいた）
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                過去に関わったフリースクールおよび塾の立ち上げにおいて、収益・人員・負担に関する前提を十分に確認しないまま進めた結果、実態と乖離が生じた反省があります。アカデミア構想では、<strong>開業前から率直かつ具体的な対話を継続</strong>し、ダイちゃんが過大な負担に置かれない関係性を徹底します。
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                            <h4 class="text-xs font-bold text-slate-900 mb-2 flex items-center gap-2">
+                                <i class="fa-solid fa-hands-holding-circle text-teal-600"></i> 「放任」と「責任ある委任」の区別
+                            </h4>
+                            <p class="text-xs text-slate-600 leading-relaxed">
+                                単に仕事を丸投げする「放任」ではなく、成果を出せる環境を整えて任せる「委任」を実践。「自分でやった方が早い」という思考から脱却し、自律判断できる範囲と責任者に委ねる範囲の線引きを明確化します。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200">
+                        <h4 class="text-xs font-bold text-indigo-950 mb-1 flex items-center gap-2">
+                            <i class="fa-solid fa-people-roof text-indigo-600"></i> 目指す組織像とダイちゃんへの期待
+                        </h4>
+                        <p class="text-xs text-indigo-900 leading-relaxed">
+                            中海テレビ・鳥取大学・地域関係者との連携を通じ、従来の介護事業の枠を超えた魅力的な職場・事業を創出します。ダイちゃんには<strong>将来のアカデミア学長・現場責任者</strong>として、現場運営のみならず人材育成・発信・組織づくりにも深く関与していただくことを期待しています。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PANE 4: 次回までの宿題・ToDo -->
+                <div id="meeting-pane-tasks" class="space-y-3 hidden">
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-3 flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                            <span class="text-xs font-bold text-blue-950">次回定例MTG（10/19）までの必達アクション</span>
+                        </div>
+                        <span class="text-[10px] text-blue-700 font-bold">全11件</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                        <!-- けいた -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h4 class="text-xs font-bold text-indigo-900 mb-2.5 flex items-center gap-1.5 pb-2 border-b border-slate-200">
+                                <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span> けいた（4件）
+                            </h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・10/19 中海テレビ戦略協議（社長直接提案）
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/19 (月)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・センビル代替案（山陰酸素連携）情報収集
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/24 (土)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・10/29 LOOP様ヒアリング事前論点整理
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/27 (火)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・11/28 鳥取大学連携プレゼン準備
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 11/20 (金)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- ダイちゃん -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h4 class="text-xs font-bold text-amber-900 mb-2.5 flex items-center gap-1.5 pb-2 border-b border-slate-200">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span> ダイちゃん（4件）
+                            </h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・フォーカス等へ買い物支援デイ終了の背景ヒアリング
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/23 (金)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・介護保険×自費をまたぐ送迎費用・運用ルール確認
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/26 (月)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・10/29 LOOP様MTGの事前ヒアリング質問票作成
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/27 (火)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・学長として地域ニーズ・相談内容・利用者像の継続収集
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 随時</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- J -->
+                        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <h4 class="text-xs font-bold text-teal-900 mb-2.5 flex items-center gap-1.5 pb-2 border-b border-slate-200">
+                                <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span> J（3件）
+                            </h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・午前（保険）＋午後（自費）収支シミュレーション作成支援
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/21 (水)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・10/29 LOOP様MTGへの参加調整（任意）
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/25 (日)</span>
+                                </li>
+                                <li class="p-2 bg-white rounded border border-slate-200 font-medium">
+                                    ・知的カリキュラム自費特化プログラム化の検討
+                                    <span class="text-[10px] text-slate-400 block mt-0.5">期日: 10/30 (金)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANE 5: 全文テキスト -->
+                <div id="meeting-pane-raw" class="space-y-3 hidden">
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-700">議事録全文テキスト（マークダウン形式）:</span>
+                        <button onclick="copyMeetingMinutesText()" class="px-3 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow-2xs">
+                            <i class="fa-regular fa-copy"></i> テキストコピー
+                        </button>
+                    </div>
+                    <textarea id="meetingMinutesRawText" rows="12" readonly class="w-full text-xs font-mono bg-slate-50 border border-slate-200 rounded-xl p-3 focus:outline-none text-slate-800 custom-scrollbar select-all leading-relaxed"></textarea>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="bg-slate-50 border-t border-slate-200 px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-2 shrink-0">
+                <div class="flex items-center gap-2">
+                    <button onclick="copyShareUrl()" class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg text-xs font-bold border border-indigo-200 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-link"></i> チーム共有URLをコピー
+                    </button>
+                    <button onclick="copyMeetingMinutesText()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1.5 shadow-2xs">
+                        <i class="fa-regular fa-copy"></i> 議事録全文をコピー
+                    </button>
+                </div>
+                <button onclick="closeTodayMeetingModal()" class="px-4 py-1.5 bg-slate-200 hover:bg-slate-300 text-slate-700 rounded-lg text-xs font-bold transition">
+                    閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Toast Notification -->
+    <div id="globalToast" class="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-slate-700 text-xs font-bold z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-sm"></i>
+        <span id="toastMessage">コピーしました！</span>
+    </div>
+
+    <!-- ======================================================== -->
     <!-- 6. JAVASCRIPT LOGIC (DATA & STATE MANAGEMENT)             -->
     <!-- ======================================================== -->
     <script>
         const STORAGE_KEY = "yuru_re_war_room_v3";
+        const SHARE_URL = "https://yuru-re-academia.github.io/yuru-re-academia/";
+
+        // 10/12 定例MTG 全議事録テキスト原本
+        const todayMeetingMinutesText = `【シニアアカデミア YURU-RE: 定例MTG議事録（2026/10/12）】
+日時: 2026年10月12日
+参加: けいた、ダイちゃん（記録・反映：J）
+共有URL: https://yuru-re-academia.github.io/yuru-re-academia/
+
+■ 1. 本日の決定事項（合意メモ）
+1. 【中海テレビ交渉】中海テレビとの共同事業化を最優先。10/19戦略協議で社長トップダウン提案の進め方を詰める。
+2. 【代替案（プランB）】センビル部分賃貸不可（全体約90万）リスクに備え、山陰酸素連携による高島屋近辺物件の改装・活用を第2案として並行調査。
+3. 【二部制ハイブリッドモデル】午前：介護保険デイ（半日型・固定費回収）＋午後：自費特化サービス（成長原資）の二部制を採用。
+4. 【組織・マネジメント】「放任」と「責任ある委任」を区別し、完了基準・判断権限の線引きを明確化。ダイちゃんを学長・現場責任者へ。月次収支共有・コスト削減還元制度を設計。
+5. 【買い物支援・送迎】既存デイ終了の背景をダイちゃんが調査。送迎エリアは初期は絞り込み、車両も段階的導入。
+6. 【スケジュール】年内に施設判断 ➔ 3ヶ月でクラファン構想 ➔ 2027秋クラファン開始。ダイちゃんの退職時期は準備進捗に応じて前倒し可能。
+
+■ 2. 課題と対応方針
+・センビル部分賃貸不可（全体約90万）リスク ➔ 中海社長直接提案＋山陰酸素代替案（けいた）
+・買い物支援既存デイの終了理由・需要未確認 ➔ フォーカス等ヒアリング（ダイちゃん）
+・介護保険と自費サービスを跨ぐ送迎ルールの曖昧さ ➔ 制度整理（ダイちゃん）
+・広域送迎による車両・運転人員コストの増大 ➔ 対象エリア絞り込み・段階的増車（ダイちゃん・けいた）
+・曖昧な指示による業務やり直し・認識齟齬 ➔ 完了基準・判断権限の明文化（けいた・ダイちゃん）
+・コスト意識・経営数値の自分事化不足 ➔ 月次収支共有・コスト削減還元制度（けいた）
+・クラウドファンディングの事前準備工数 ➔ 年内施設確定後3ヶ月で設計、2027秋開始（けいた・J）
+
+■ 3. 次回までの必達ToDo（担当別）
+【けいた】
+・10/19 (月) 13:30〜 中海テレビ連続戦略協議（社長直接提案・共同事業化・センビル条件交渉）
+・センタービル代替案（山陰酸素連携・高島屋周辺物件）の初期情報収集 (10/24)
+・10/29 LOOP様ヒアリングの事前論点整理 (10/27)
+・11/28 鳥取大学連携プレゼン準備・リハーサル (11/20)
+
+【ダイちゃん】
+・フォーカス等の地域関係者へ買い物支援デイ終了の背景ヒアリング (10/23)
+・介護保険と自費サービスをまたぐ送迎の費用・運用ルール（制度的整理）確認 (10/26)
+・10/29 (木) 10:00〜 LOOP様MTGの事前ヒアリング質問票の作成 (10/27)
+・学長・現場責任者として地域ニーズ・相談内容・利用者像の継続収集 (随時)
+
+【J】
+・午前（保険）＋午後（自費）ハイブリッド収支シミュレーションの作成支援 (10/21)
+・10/29 (木) 10:00〜 LOOP様MTGへの参加調整（任意） (10/25)
+・知的カリキュラム（大学連携・教養・スマホ）の自費特化プログラム化検討 (10/30)
+
+■ 次回定例MTG
+2026/10/19 (月) 13:30〜（中海テレビ戦略協議 ＆ 社長提案検討）`;
 
                 // 初期標準データ（2026/10/12 定例MTG最新版）
         const defaultState = {
@@ -899,6 +1415,8 @@
             renderTasks();
             document.getElementById("nextMeetingDate").value = state.nextMeeting || "";
             document.getElementById("weeklyDecisionsNote").value = state.weeklyDecisions || "";
+            const rawEl = document.getElementById("meetingMinutesRawText");
+            if (rawEl) rawEl.value = todayMeetingMinutesText;
         }
 
         // メンバー描画
@@ -965,9 +1483,9 @@
                         </div>
                     </div>
                     ${ag.detail ? `<p class="text-xs text-slate-600 mb-2 pl-1">${ag.detail}</p>` : ''}
-                    <div class="mt-2 pt-2 border-t border-slate-100 flex items-center gap-2">
+                    <div class="mt-2 pt-2 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2">
                         <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">結論・合意メモ:</span>
-                        <input type="text" value="${ag.conclusion || ''}" onchange="updateAgendaConclusion('${ag.id}', this.value)" class="flex-1 text-xs bg-slate-50 border border-slate-200 rounded px-2 py-1 text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="議論後の結論を入力...">
+                        <input type="text" value="${ag.conclusion || ''}" onchange="updateAgendaConclusion('${ag.id}', this.value)" class="w-full sm:flex-1 text-xs bg-slate-50 border border-slate-200 rounded px-2 py-1 text-slate-800 focus:outline-none focus:ring-1 focus:ring-indigo-500" placeholder="議論後の結論を入力...">
                     </div>
                 </div>
             `).join("");
@@ -1149,7 +1667,7 @@
             });
 
             text += `\n■ 次回MTG予定: ${state.nextMeeting || "未定"}\n`;
-            text += `ポータル: https://yuru-re-academia.github.io/yuru-re-academia/team_hub.html`;
+            text += `ポータル: ${SHARE_URL}`;
 
             document.getElementById("shareTextOutput").value = text;
             document.getElementById("copiedToast").classList.add("hidden");
@@ -1162,13 +1680,121 @@
 
         function copyShareText() {
             const textarea = document.getElementById("shareTextOutput");
-            textarea.select();
-            navigator.clipboard.writeText(textarea.value).then(() => {
-                document.getElementById("copiedToast").classList.remove("hidden");
-                setTimeout(() => {
-                    document.getElementById("copiedToast").classList.add("hidden");
-                }, 2000);
+            copyToClipboard(textarea.value, "定例MTGサマリーをコピーしました！");
+            document.getElementById("copiedToast").classList.remove("hidden");
+            setTimeout(() => {
+                document.getElementById("copiedToast").classList.add("hidden");
+            }, 2500);
+        }
+
+        // ========================================================
+        // 7. TOAST, CLIPBOARD & SHARE HELPERS                     
+        // ========================================================
+
+        // トースト通知表示
+        function showToast(message) {
+            const toast = document.getElementById("globalToast");
+            const msgEl = document.getElementById("toastMessage");
+            if (!toast || !msgEl) return;
+            msgEl.textContent = message;
+            toast.classList.remove("translate-y-20", "opacity-0", "pointer-events-none");
+            toast.classList.add("translate-y-0", "opacity-100");
+            setTimeout(() => {
+                toast.classList.remove("translate-y-0", "opacity-100");
+                toast.classList.add("translate-y-20", "opacity-0", "pointer-events-none");
+            }, 3000);
+        }
+
+        // クリップボードコピー汎用
+        function copyToClipboard(text, successMsg) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(successMsg || "コピーしました！");
+                }).catch(() => {
+                    fallbackCopyText(text, successMsg);
+                });
+            } else {
+                fallbackCopyText(text, successMsg);
+            }
+        }
+
+        function fallbackCopyText(text, successMsg) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast(successMsg || "コピーしました！");
+            } catch (err) {
+                prompt("以下をコピーしてください:", text);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        // チーム共有URLコピー
+        function copyShareUrl() {
+            copyToClipboard(SHARE_URL, "チーム共有URLをコピーしました！LINEやSlackに貼り付けて共有できます。");
+        }
+
+        // チームハブWeb Share API呼び出し（スマホネイティブ共有対応）
+        async function shareTeamHub() {
+            if (navigator.share && /mobile|android|iphone|ipad/i.test(navigator.userAgent)) {
+                try {
+                    await navigator.share({
+                        title: "シニアアカデミア YURU-RE: ｜ Weekly War Room",
+                        text: "シニアアカデミア YURU-RE: の最新定例MTG議事録・事業計画・ToDoハブです。スマホからワンクリックで閲覧できます。",
+                        url: SHARE_URL
+                    });
+                    return;
+                } catch (e) {
+                    if (e.name === 'AbortError') return;
+                }
+            }
+            copyShareUrl();
+        }
+
+        // 10/12 定例MTG詳細議事録モーダル開閉＆タブ切替
+        function openTodayMeetingModal() {
+            const rawEl = document.getElementById("meetingMinutesRawText");
+            if (rawEl) rawEl.value = todayMeetingMinutesText;
+            document.getElementById("todayMeetingModal").classList.remove("hidden");
+            switchMeetingTab("decisions");
+            document.body.classList.add("overflow-hidden");
+        }
+
+        function closeTodayMeetingModal() {
+            document.getElementById("todayMeetingModal").classList.add("hidden");
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        function switchMeetingTab(tabName) {
+            const tabs = ["decisions", "issues", "retrospective", "tasks", "raw"];
+            tabs.forEach(t => {
+                const pane = document.getElementById(`meeting-pane-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (pane) {
+                    if (t === tabName) {
+                        pane.classList.remove("hidden");
+                    } else {
+                        pane.classList.add("hidden");
+                    }
+                }
+                if (btn) {
+                    if (t === tabName) {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap bg-white text-indigo-700 shadow-xs border border-slate-200";
+                    } else {
+                        btn.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap text-slate-600 hover:text-slate-900";
+                    }
+                }
             });
+        }
+
+        function copyMeetingMinutesText() {
+            copyToClipboard(todayMeetingMinutesText, "10/12定例MTG議事録をコピーしました！LINEやSlackに貼り付けできます。");
         }
 
         // データエクスポート
