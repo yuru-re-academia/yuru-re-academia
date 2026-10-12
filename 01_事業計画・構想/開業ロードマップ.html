@@ -3,345 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>シニアアカデミア　YURU-RE：（ゆるり） 2028年春開業 逆算マスターロードマップ</title>
+    <title>シニアアカデミア YURU-RE: ｜ 開業マスターロードマップ</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
-        @media print {
-            body { background: white !important; font-size: 8.5pt; color: #0f172a; padding: 0 !important; }
-            .no-print { display: none !important; }
-            .page-container { box-shadow: none !important; border: none !important; max-width: 100% !important; padding: 0 !important; }
-            @page { margin: 8mm 10mm 8mm 10mm; size: A4 landscape; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+            letter-spacing: -0.01em;
         }
-        body { font-family: 'Noto Sans JP', sans-serif; }
-        .font-num { font-family: 'Plus Jakarta Sans', sans-serif; }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; font-size: 9pt; }
+        }
     </style>
 </head>
-<body class="bg-slate-100 text-slate-800 min-h-screen py-6 antialiased">
+<body class="bg-slate-100 text-slate-800 min-h-screen py-5 antialiased">
 
-    <!-- Control Bar (No Print) -->
-    <aside aria-label="ナビゲーション" class="max-w-6xl mx-auto px-4 mb-4 flex flex-wrap justify-between items-center gap-3 no-print bg-slate-900 text-white p-3 rounded-xl shadow-md">
+    <!-- Global Top Bar (No Print) -->
+    <aside class="max-w-6xl mx-auto px-4 mb-4 flex flex-wrap justify-between items-center gap-3 no-print bg-slate-900 text-white p-3 rounded-xl shadow-md">
         <div class="flex items-center gap-2">
-            <a href="../03_米子市/事前相談書.html" class="text-xs text-slate-400 hover:text-white transition flex items-center gap-1">
-                <i class="fa-solid fa-arrow-left"></i> ポータルへ
+            <a href="../team_hub.html" class="text-xs text-slate-300 hover:text-white transition flex items-center gap-1 font-bold">
+                <i class="fa-solid fa-arrow-left"></i> Team Hub
             </a>
             <span class="text-slate-600">|</span>
-            <span class="text-xs font-bold text-emerald-400">開業マスターロードマップ（最新版）</span>
+            <span class="text-xs font-bold text-indigo-400">開業マスターロードマップ</span>
         </div>
         <div class="flex items-center gap-2">
-            <a href="../team_hub.html" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded border border-indigo-500 shadow-sm transition">
-                <i class="fa-solid fa-users"></i> チームハブ
+            <a href="アカデミア概要.html" class="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded shadow-xs transition flex items-center gap-1">
+                <i class="fa-solid fa-building-user"></i> アカデミア概要
             </a>
             <a href="事業計画・初期収支計画サマリー.html" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded border border-slate-700 transition">
                 <i class="fa-solid fa-file-invoice-dollar"></i> 収支サマリー
             </a>
-            <a href="開業時系列チェックリスト.html" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs rounded border border-slate-700 transition">
-                <i class="fa-solid fa-list-check"></i> チェックリスト
-            </a>
-            <button onclick="window.print()" class="px-3 py-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded shadow transition flex items-center gap-1">
-                <i class="fa-solid fa-print"></i> A4横印刷 / PDF保存
+            <button onclick="window.print()" class="px-2.5 py-1 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded shadow transition flex items-center gap-1">
+                <i class="fa-solid fa-print"></i> 印刷 / PDF
             </button>
         </div>
     </aside>
 
     <!-- Main Container -->
-    <main class="max-w-6xl mx-auto bg-white p-6 sm:p-8 shadow-lg rounded-xl border border-slate-200 page-container">
+    <main class="max-w-6xl mx-auto bg-white p-6 sm:p-8 shadow-sm rounded-2xl border border-slate-200 space-y-6">
 
         <!-- Header -->
-        <!-- Header Banner -->
-        <header class="bg-slate-900 text-white p-5 rounded-lg mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pb-4 border-b border-slate-100">
             <div>
                 <div class="flex items-center gap-2 mb-1">
-                    <span class="px-2 py-0.5 bg-indigo-500 text-white text-[10px] font-extrabold rounded">2028年春開業目標</span>
-                    <span class="text-xs text-slate-300">補助金採択ルート（2028年4月本線） ＆ 融資先行ルートの2系統タイムライン</span>
+                    <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">2028年4月 Grand Opening</span>
+                    <span class="text-xs text-slate-500">中海テレビ センビル1階 拠点化プロジェクト</span>
                 </div>
-                <h1 class="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-2">
-                    <i class="fa-solid fa-timeline text-emerald-400"></i>
-                    「シニアアカデミア　YURU-RE：（ゆるり）」開業マスターロードマップ
+                <h1 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                    シニアアカデミア YURU-RE: 開業マスターロードマップ
                 </h1>
             </div>
-            <div class="bg-emerald-950/80 border border-emerald-500/40 px-4 py-2 rounded-lg text-right">
-                <span class="text-[10px] text-emerald-300 font-bold block uppercase tracking-wider">Target Grand Opening</span>
-                <span class="text-base sm:text-lg font-black text-emerald-400 font-num">2028年4月1日</span>
-            </div>
+            <a href="アカデミア概要.html" class="inline-flex items-center gap-1 text-xs text-indigo-600 font-bold hover:underline">
+                施設・間取り詳細は「アカデミア概要」へ <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
         </header>
 
-        <!-- ルート選択・概要比較バー -->
-        <div class="mb-5 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-            <div class="bg-emerald-50 border-2 border-emerald-500 p-3.5 rounded-xl shadow-xs">
-                <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-bold text-emerald-900 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-star text-amber-500"></i> 【ルートA】地域医療介護総合確保基金 採択ルート（本線）
-                    </span>
-                    <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-bold rounded">2028年4月開業</span>
-                </div>
-                <p class="text-[11px] text-emerald-800 leading-relaxed">
-                    米子市の高齢者施設整備補助金（基金）を活用し、内装工事費の助成を得て堅実に立ち上げるモデル。<strong>「交付決定（2027年5月頃）後の着工」</strong>を厳守し、ダイちゃんの現職1年引き継ぎと完全同期。
-                </p>
-            </div>
-            <div class="bg-slate-50 border border-slate-300 p-3.5 rounded-xl">
-                <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-bolt text-blue-600"></i> 【ルートB】補助金なし・融資先行ルート（機動的展開）
-                    </span>
-                    <span class="px-2 py-0.5 bg-slate-700 text-white text-[10px] font-bold rounded">自主進行型</span>
-                </div>
-                <p class="text-[11px] text-slate-600 leading-relaxed">
-                    補助金の年1回公募に左右されず、日本政策金融公庫・信金融資（700〜750万円）で2027年前半に先行着工。中海拠点でのよろず相談会・自費ゼミを先行稼働させながらダイちゃん合流を迎えるモデル。
-                </p>
-            </div>
-        </div>
-
-        <!-- Visual Timeline Grid: Route A (4 Phases) -->
-        <section class="mb-6">
-            <h2 class="text-xs sm:text-sm font-bold text-slate-900 bg-slate-100 border-l-4 border-emerald-600 px-3 py-1.5 rounded-r mb-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="w-4 h-4 rounded-full bg-emerald-600 text-white text-[10px] flex items-center justify-center font-bold">A</span>
-                    <span>【ルートA（本線）】地域医療介護総合確保基金 4大フェーズ（2026秋 〜 2028春）</span>
-                </div>
-                <span class="text-[11px] font-semibold text-emerald-800">2028年4月1日指定認可</span>
+        <!-- ======================================================== -->
+        <!-- 1. 最上部: めっちゃシンプルな横軸ロードマップ (Phase 1〜3) -->
+        <!-- ======================================================== -->
+        <section class="bg-slate-50 p-5 rounded-2xl border border-slate-200">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
+                <i class="fa-solid fa-arrow-right-arrow-left text-indigo-600"></i> 全体進行フェーズ（横軸フロー）
             </h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
-
-                <!-- Phase 01 -->
-                <div class="border-2 border-blue-200 bg-blue-50/40 rounded-lg p-3 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-blue-200">
-                            <span class="px-2 py-0.5 bg-blue-600 text-white text-[10px] font-black rounded">PHASE 01</span>
-                            <span class="text-xs font-bold text-blue-900 font-num">'26.9月〜12月</span>
-                        </div>
-                        <h3 class="font-bold text-sm text-slate-900 mb-1">事前希望申出＆物件合意</h3>
-                        <p class="text-[10px] text-blue-800 font-bold mb-2">米子市補助金要望 ＆ 中海合意</p>
-                        <ul class="text-[11px] text-slate-700 space-y-1.5">
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-blue-600 text-[10px] mt-0.5"></i>
-                                <span><strong>【今月9/30締切】米子市へ補助金事前希望提出</strong><br><span class="text-[10px] text-rose-600 font-bold">長寿社会課・永戸様宛 Eメール提出（申出書・調査票）</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-blue-600 text-[10px] mt-0.5"></i>
-                                <span><strong>中海ビル森さん面談・賃貸合意</strong><br><span class="text-[10px] text-slate-500">中海スマホ常設相談所提案・家賃目標5万（保守20万）</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-blue-600 text-[10px] mt-0.5"></i>
-                                <span><strong>株式会社ユルクへの組織変更着手</strong><br><span class="text-[10px] text-slate-500">組織変更計画・官報公告（1ヶ月）</span></span>
-                            </li>
-                        </ul>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 relative">
+                <!-- Phase 1 -->
+                <div class="p-4 rounded-xl bg-white border-2 border-indigo-200 shadow-2xs relative">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="px-2 py-0.5 bg-indigo-100 text-indigo-700 text-[10px] font-extrabold rounded">PHASE 1</span>
+                        <span class="text-xs font-bold text-slate-500">2026年後半 〜 2027年初</span>
                     </div>
-                    <div class="mt-3 pt-2 border-t border-blue-200/80 text-[10px] text-blue-800 font-bold bg-blue-100/50 p-1.5 rounded text-center">
-                        ★ 物件内諾 ＆ 補助金事前エントリー
-                    </div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-1.5">準備 ＆ アライアンス確立</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        中海テレビ・鳥取大学との提携骨子合意、米子市との事前相談、株式会社への組織変更準備。
+                    </p>
                 </div>
 
-                <!-- Phase 02 -->
-                <div class="border-2 border-amber-300 bg-amber-50/40 rounded-lg p-3 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-amber-200">
-                            <span class="px-2 py-0.5 bg-amber-600 text-white text-[10px] font-black rounded">PHASE 02</span>
-                            <span class="text-xs font-bold text-amber-900 font-num">'27.1月〜5月</span>
-                        </div>
-                        <h3 class="font-bold text-sm text-slate-900 mb-1">補助金内示＆交付決定</h3>
-                        <p class="text-[10px] text-amber-800 font-bold mb-2">確約通知 ➔ 本申請交付決定</p>
-                        <ul class="text-[11px] text-slate-700 space-y-1.5">
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-amber-600 text-[10px] mt-0.5"></i>
-                                <span><strong>3月：米子市議会にて予算成立・補助金内示</strong><br><span class="text-[10px] text-slate-500">令和9年度当初予算成立・採択枠内定通知の受領</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-amber-600 text-[10px] mt-0.5"></i>
-                                <span><strong>4〜5月：補助金本申請＆交付決定通知</strong><br><span class="text-[10px] text-red-600 font-bold">※交付決定前の着工は絶対厳禁</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-amber-600 text-[10px] mt-0.5"></i>
-                                <span><strong>施工業者相見積もり・契約準備</strong><br><span class="text-[10px] text-slate-500">バリアフリートイレ・防滑床・消防確認</span></span>
-                            </li>
-                        </ul>
+                <!-- Phase 2 -->
+                <div class="p-4 rounded-xl bg-white border-2 border-amber-300 shadow-2xs relative">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-extrabold rounded">PHASE 2</span>
+                        <span class="text-xs font-bold text-slate-500">2027年度（通年）</span>
                     </div>
-                    <div class="mt-3 pt-2 border-t border-amber-200/80 text-[10px] text-amber-800 font-bold bg-amber-100/50 p-1.5 rounded text-center">
-                        ★ 補助金確約（着工許可トリガー）
-                    </div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-1.5">ビル管理受託 ＆ 窓口先行稼働</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        ★<strong>センビルのビル管理をYURU'Qが受託</strong>し日常的信頼を構築。スマホ相談窓口を先行開始、秋に本指定申請。
+                    </p>
                 </div>
 
-                <!-- Phase 03 -->
-                <div class="border-2 border-indigo-200 bg-indigo-50/40 rounded-lg p-3 relative flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-indigo-200">
-                            <span class="px-2 py-0.5 bg-indigo-600 text-white text-[10px] font-black rounded">PHASE 03</span>
-                            <span class="text-xs font-bold text-indigo-900 font-num">'27.6月〜11月</span>
-                        </div>
-                        <h3 class="font-bold text-sm text-slate-900 mb-1">内装着工＆ダイちゃん引き継ぎ</h3>
-                        <p class="text-[10px] text-indigo-800 font-bold mb-2">工事施工 ＆ 円満退職準備</p>
-                        <ul class="text-[11px] text-slate-700 space-y-1.5">
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-indigo-600 text-[10px] mt-0.5"></i>
-                                <span><strong>6〜8月：内装工事着工・完了</strong><br><span class="text-[10px] text-slate-500">中海スマホ相談ブース・消防検査・完了報告</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-indigo-600 text-[10px] mt-0.5"></i>
-                                <span><strong>ダイちゃん現職引き継ぎ（1年間）</strong><br><span class="text-[10px] text-slate-500">タイアップ近藤さん相談・円満退職調整</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-indigo-600 text-[10px] mt-0.5"></i>
-                                <span><strong>J福祉車両借用 ＆ 新型シエンタ導入</strong><br><span class="text-[10px] text-slate-500">適正使用料（Win-Win）・シエンタ公式ラッピング施工</span></span>
-                            </li>
-                        </ul>
+                <!-- Phase 3 -->
+                <div class="p-4 rounded-xl bg-white border-2 border-emerald-400 shadow-2xs relative">
+                    <div class="flex items-center justify-between mb-1">
+                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-extrabold rounded">PHASE 3</span>
+                        <span class="text-xs font-bold text-slate-500">2028年 春</span>
                     </div>
-                    <div class="mt-3 pt-2 border-t border-indigo-200/80 text-[10px] text-indigo-800 font-bold bg-indigo-100/50 p-1.5 rounded text-center">
-                        ★ 拠点完成 ＆ チーム体制合流
-                    </div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-1.5">シニアアカデミア 本開校！</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        <strong>2028年4月1日開校</strong>。半日型デイ（定員18名）＋知的学び舎＋スマホ拠点としてフル稼働スタート。
+                    </p>
                 </div>
-
-                <!-- Phase 04 -->
-                <div class="border-2 border-emerald-300 bg-emerald-50/50 rounded-lg p-3 relative flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="flex justify-between items-center mb-2 pb-1.5 border-b border-emerald-200">
-                            <span class="px-2 py-0.5 bg-emerald-600 text-white text-[10px] font-black rounded">PHASE 04</span>
-                            <span class="text-xs font-bold text-emerald-900 font-num">'27.12月〜'28.4月</span>
-                        </div>
-                        <h3 class="font-bold text-sm text-slate-900 mb-1">指定申請＆グランドオープン</h3>
-                        <p class="text-[10px] text-emerald-800 font-bold mb-2">米子市指定 ＆ 4/1開業</p>
-                        <ul class="text-[11px] text-slate-700 space-y-1.5">
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-emerald-600 text-[10px] mt-0.5"></i>
-                                <span><strong>1月4日：指定申請書一式（電子申請）提出〆切</strong><br><span class="text-[10px] text-slate-500">添付書類チェックリスト全9項目・総合事業同時申請</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-emerald-600 text-[10px] mt-0.5"></i>
-                                <span><strong>2月中：【最重要関門】密着委員会の審議・意見聴取</strong><br><span class="text-[10px] text-emerald-700 font-bold">米子市地域密着型サービス運営委員会での承認（出席不要）</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-emerald-600 text-[10px] mt-0.5"></i>
-                                <span><strong>3月：現地立入検査 ＆ 指定通知書受領</strong><br><span class="text-[10px] text-slate-500">ケアマネ内覧会・プレ体験会・初期利用登録15名確保</span></span>
-                            </li>
-                            <li class="flex items-start gap-1.5">
-                                <i class="fa-solid fa-check text-emerald-600 text-[10px] mt-0.5"></i>
-                                <span><strong>2028年4月1日：指定認可グランドオープン</strong><br><span class="text-[10px] text-emerald-700 font-bold">中海スマホ相談室長稼働・BEP8.5名早期達成</span></span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mt-3 pt-2 border-t border-emerald-300 text-[11px] text-emerald-900 font-black bg-emerald-200/70 p-2 rounded text-center shadow-xs">
-                        2028.4.1 GRAND OPEN!<br><span class="text-[10px] font-bold text-emerald-800">ダイちゃん管理者・中海スマホ相談室長出港</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Detailed Strategy Cards (2 Columns) -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-4">
+        <!-- ======================================================== -->
+        <!-- 2. 下部: 縦軸でドンドン並ぶ時系列詳細タイムライン         -->
+        <!-- ======================================================== -->
+        <section class="space-y-4">
+            <h2 class="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <i class="fa-solid fa-list-timeline text-indigo-600"></i> 時系列詳細タイムライン（縦軸アクション）
+            </h2>
 
-            <!-- 補助金確約と着工ルール -->
-            <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
-                <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5 border-b border-slate-200 pb-1.5">
-                    <i class="fa-solid fa-landmark text-emerald-600"></i>
-                    1. 補助金（確保基金）の確約プロセスと絶対遵守ルール
-                </h3>
-                <div class="space-y-2 text-slate-700 text-[11px]">
-                    <div class="bg-white p-2.5 rounded border border-slate-200">
-                        <span class="font-bold text-slate-900 block mb-0.5">① 予算要望〜内示〜交付決定のタイムライン</span>
-                        <p class="text-slate-600 leading-relaxed">
-                            米子市長寿社会課へ今秋「補助事業事前希望申出書」を提出し、令和9年度米子市当初予算に計上。翌年2〜3月の市議会可決を経て<strong>「内示（確約通知）」</strong>を受領。その後4月の本申請を経て5月に<strong>「交付決定通知書」</strong>が交付されます。
-                        </p>
-                    </div>
-                    <div class="bg-red-50 p-2.5 rounded border border-red-200 text-red-900">
-                        <strong class="block mb-0.5 text-red-800 flex items-center gap-1">
-                            <i class="fa-solid fa-triangle-exclamation"></i> 最重要警告：事前着工の厳禁（全額不支給リスク）
-                        </strong>
-                        <p class="text-xs text-red-700 leading-relaxed">
-                            補助金交付要綱上、<strong>「交付決定通知を受ける前（2027年5月以前）の工事契約・着工」は補助対象外（全額不支給）</strong>となります。したがって内装工事は必ず交付決定後の2027年6月以降に着工します。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 人材＆車両アライアンス戦略 -->
-            <div class="border border-slate-200 rounded-lg p-4 bg-slate-50">
-                <h3 class="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5 border-b border-slate-200 pb-1.5">
-                    <i class="fa-solid fa-handshake text-indigo-600"></i>
-                    2. ダイちゃん引き継ぎ ＆ J送迎車両アライアンス・シエンタ導入
-                </h3>
-                <div class="space-y-2 text-slate-700 text-[11px]">
-                    <div class="bg-white p-2.5 rounded border border-slate-200">
-                        <span class="font-bold text-slate-900 block mb-0.5">① ダイちゃんの1年円満引き継ぎスケジュール</span>
-                        <p class="text-slate-600 leading-relaxed">
-                            狭い地域社会での評判・人間関係を守るため、中海ビル契約確定後に現職（タイアップ）エリア担当・近藤さんに相談。2027年の1年間を後任育成・引き継ぎに充て、2028年春の開業にノーリスクで合流します。
-                        </p>
-                    </div>
-                    <div class="bg-white p-2.5 rounded border border-slate-200">
-                        <span class="font-bold text-slate-900 block mb-0.5">② J所有福祉車両のシェアリング ＋ トヨタ新型シエンタ（公式ラッピング）</span>
-                        <p class="text-slate-600 leading-relaxed">
-                            Jの福祉車両1台借用＋欧州風デザインのトヨタ新型シエンタ1台（公式スタイリッシュラッピング施工・初期20万）の2台体制。ダサい介護車感を払拭し、手元運転資金を厚く保持しつつ街中のキラーブランドとして確立します。
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- Strategy 3: Corporation Migration & Regulatory Clearance -->
-        <section class="border border-slate-200 rounded-lg p-3 bg-white text-xs">
-            <h3 class="font-bold text-slate-900 mb-1.5 flex items-center gap-1.5">
-                <i class="fa-solid fa-building text-blue-600"></i>
-                3. 株式会社ユルクへの組織変更 ＆ 指定申請手続き（2026.10〜2028.1）
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[11px] text-slate-600">
-                <p>
-                    <strong>■ 株式会社ユルクへの組織変更（年内完了）：</strong><br>
-                    合同会社から株式会社への組織変更計画作成、総社員同意、官報公告（1ヶ月間の債権者異議申出期間）、法務局連件登記申請を経て、対外信用力と金融機関・行政協議の基盤を今年度中に確立。
-                </p>
-                <p>
-                    <strong>■ 米子市指定認可と初月BEP突破（2028.4）：</strong><br>
-                    ダイちゃん管理者（月30万仮・中海スマホ相談室長兼任）＋看護師・介護職の実働3名、予備スタッフ2名の4〜5名プール体制で指定申請。ケアマネ営業を2〜3月に先行展開し、初月からBEP（家賃20万保守時：1日約8.5名/稼働率57.0%、家賃5万妥結時：1日約7.2名/稼働率47.9%）を上回る登録者を獲得して即座に黒字化。
-                </p>
-            </div>
-        </section>
-
-    
-        <!-- Strategy 4: 密着委員会 ＆ 米子市公式チェックリスト完全対策 -->
-        <section class="border-2 border-indigo-200 rounded-lg p-3.5 bg-gradient-to-r from-blue-50/60 to-indigo-50/60 text-xs mt-4 shadow-xs">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2 pb-2 border-b border-indigo-200">
-                <h3 class="font-bold text-slate-900 flex items-center gap-1.5">
-                    <i class="fa-solid fa-gavel text-indigo-700"></i>
-                    4. 米子市「密着委員会（地域密着型サービス運営委員会）」審議 ＆ 添付書類チェックリスト対策
-                </h3>
+            <!-- Step 1: 2026 Q4 (現在) -->
+            <div class="border-l-4 border-indigo-600 pl-4 py-1 space-y-2">
                 <div class="flex items-center gap-2">
-                    <span class="px-2 py-0.5 rounded bg-indigo-700 text-white text-[10px] font-bold">令和9年度2月審議（2028.2）</span>
-                    <span class="px-2 py-0.5 rounded bg-rose-600 text-white text-[10px] font-bold">提出〆切：2028年1月4日</span>
+                    <span class="px-2 py-0.5 bg-indigo-600 text-white rounded text-[11px] font-bold">2026年 10月〜12月</span>
+                    <strong class="text-sm font-bold text-slate-900">パートナーシップ合意 ＆ 提案本格化</strong>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-indigo-900 block font-bold mb-1">🤝 中海テレビ放送</strong>
+                        <p class="text-slate-600 leading-snug">協業提案書（全7S）提示。センビル1F利活用と次年度ビル管理移行の協議。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-sky-900 block font-bold mb-1">🎓 鳥取大学 連携</strong>
+                        <p class="text-slate-600 leading-snug">11月28日鳥取市にて大学連携プレゼン本番。とっとり方式＆実習受入提案。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-emerald-900 block font-bold mb-1">🏛️ 米子市 長寿社会課</strong>
+                        <p class="text-slate-600 leading-snug">事前相談書の点検、高齢者施設整備補助金（基金）の要件精査。</p>
+                    </div>
                 </div>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px] text-slate-700">
-                <div class="bg-white p-2.5 rounded border border-indigo-100">
-                    <strong class="text-indigo-900 block mb-1"><i class="fa-solid fa-scale-balanced text-indigo-600 mr-1"></i>① 密着委員会とは</strong>
-                    <p class="leading-relaxed text-slate-600">
-                        地域密着型デイ新設時に米子市が開く法定関門。有識者・地域代表が適格性を審査（※事業者出席不要）。2028年4月1日指定を受けるには<strong>2028年2月開催の委員会での意見聴取が必須</strong>となります。
-                    </p>
+
+            <!-- Step 2: 2027 Q1-Q2 (助走・ビル管理開始) -->
+            <div class="border-l-4 border-amber-500 pl-4 py-1 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-amber-500 text-white rounded text-[11px] font-bold">2027年 1月〜6月</span>
+                    <strong class="text-sm font-bold text-slate-900">センビル管理受託 ＆ 株式会社組織変更 ＆ 窓口先行オープン</strong>
                 </div>
-                <div class="bg-white p-2.5 rounded border border-indigo-100">
-                    <strong class="text-indigo-900 block mb-1"><i class="fa-solid fa-clipboard-check text-indigo-600 mr-1"></i>② 2027年秋〜12月末の書類完成目途</strong>
-                    <p class="leading-relaxed text-slate-600">
-                        1月4日の電子申請提出〆切に向け、2027年10月〜12月で米子市公式「添付書類チェックリスト」全9項目（運営規程・平面図45㎡・管理者経歴書・勤務形態表・誓約書・自己点検等）を完全整備。
-                    </p>
-                </div>
-                <div class="bg-white p-2.5 rounded border border-indigo-100">
-                    <strong class="text-indigo-900 block mb-1"><i class="fa-solid fa-download text-emerald-600 mr-1"></i>③ 米子市公式様式 配備完了</strong>
-                    <p class="leading-relaxed text-slate-600">
-                        「指定申請ガイドブック」「添付書類チェックリスト」「新規チェックポイント」「補助金事前申出書」等の公式ファイル21点をプロジェクト内（<code>▶︎米子市/</code>）に保管・配備済み。
-                    </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-amber-900 block font-bold mb-1">🏢 センビル管理受託</strong>
+                        <p class="text-slate-600 leading-snug">委託先よりビル管理業務（清掃・保守・窓口）を引き受け、日常常駐を開始。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-slate-900 block font-bold mb-1">⚖️ 株式会社YURU'Qへ変更</strong>
+                        <p class="text-slate-600 leading-snug">官報公告（1ヶ月）を経て本人申請にて登記完了。信用力と契約体制を確立。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-sky-900 block font-bold mb-1">📱 chukaiスマホ窓口先行稼働</strong>
+                        <p class="text-slate-600 leading-snug">1F受付でスマホ相談・料金見直しを先行開始。シニア集客の流れを早期構築。</p>
+                    </div>
                 </div>
             </div>
-            <div class="mt-2.5 pt-2 border-t border-indigo-200/70 flex flex-wrap items-center justify-between gap-2 text-[10px]">
-                <span class="text-slate-600 font-medium"><i class="fa-solid fa-circle-info text-blue-600 mr-1"></i>詳細は <code>▶︎米子市/00_米子市長寿社会課_指定申請チェックリストと行政手続ガイド.md</code> を参照</span>
-                <a href="開業時系列チェックリスト.html" class="text-indigo-700 font-bold hover:underline flex items-center gap-1">
-                    時系列マスターチェックリスト（全53タスク）を開く <i class="fa-solid fa-arrow-right text-[9px]"></i>
-                </a>
+
+            <!-- Step 3: 2027 Q3-Q4 (申請・内装) -->
+            <div class="border-l-4 border-purple-500 pl-4 py-1 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-purple-600 text-white rounded text-[11px] font-bold">2027年 7月〜12月</span>
+                    <strong class="text-sm font-bold text-slate-900">米子市本指定申請 ＆ 内装設計・施工 ＆ スタッフ採用</strong>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-purple-900 block font-bold mb-1">📑 米子市指定本申請</strong>
+                        <p class="text-slate-600 leading-snug">地域密着型通所介護の指定申請書類一式を提出。地域密着型委員会審議へ。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-indigo-900 block font-bold mb-1">🛠️ 1Fフロア改修工事</strong>
+                        <p class="text-slate-600 leading-snug">消防・建築基準適合工事、ゆるダン®スタジオ・静養室・個別ブース整備。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-pink-900 block font-bold mb-1">👥 人員体制・研修</strong>
+                        <p class="text-slate-600 leading-snug">専従管理者（ダイちゃん）正式着任、看護師・機能訓練指導員採用と研修。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: 2028 Q1 (開校直前〜本番) -->
+            <div class="border-l-4 border-emerald-500 pl-4 py-1 space-y-2">
+                <div class="flex items-center gap-2">
+                    <span class="px-2 py-0.5 bg-emerald-600 text-white rounded text-[11px] font-bold">2028年 1月〜4月</span>
+                    <strong class="text-sm font-bold text-slate-900">竣工検査 ＆ 内覧会 ＆ グランドオープン！</strong>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-emerald-900 block font-bold mb-1">🔍 行政現地確認（2月）</strong>
+                        <p class="text-slate-600 leading-snug">米子市長寿社会課の実地確認検査をクリア、事業所番号取得。</p>
+                    </div>
+                    <div class="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <strong class="text-teal-900 block font-bold mb-1">🎉 市民・ケアマネ内覧会（3月）</strong>
+                        <p class="text-slate-600 leading-snug">中海テレビ放送特集、公民館ネットワークへ案内、体験会開催。</p>
+                    </div>
+                    <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-300">
+                        <strong class="text-emerald-950 block font-bold mb-1">🌟 4月1日 本開校！</strong>
+                        <p class="text-emerald-900 leading-snug font-semibold">シニアアカデミア YURU-RE: 開校。午前・午後2部制スタート！</p>
+                    </div>
+                </div>
             </div>
         </section>
 
     </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-xs text-slate-400">
+        <p>© 2026 YURU'Q合同会社（株式会社YURU'Q） ｜ シニアアカデミア YURU-RE: 開業ロードマップ</p>
+    </footer>
 
 </body>
 </html>

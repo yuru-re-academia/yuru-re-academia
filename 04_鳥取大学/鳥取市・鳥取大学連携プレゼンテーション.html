@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳥取市・鳥取大学 × YURU'Q 連携構想プレゼンテーション（2026.11.28）</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+            background-color: #0f172a;
+            color: #1e293b;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1024px;
+            aspect-ratio: 16 / 9;
+            margin: 0 auto;
+        }
+        .slide.active {
+            display: flex;
+        }
+        @media print {
+            body { background: white !important; }
+            .no-print { display: none !important; }
+            .slide {
+                display: flex !important;
+                page-break-after: always;
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+                margin-bottom: 20px;
+                aspect-ratio: 16 / 9;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4 sm:p-6 antialiased select-none">
+
+    <!-- Top Bar Controls -->
+    <header class="no-print max-w-5xl w-full mx-auto mb-4 flex items-center justify-between text-white text-xs bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700">
+        <div class="flex items-center gap-3">
+            <a href="鳥取大学連携構想サマリー_A4.html" class="hover:text-sky-300 font-bold flex items-center gap-1">
+                <i class="fa-solid fa-arrow-left"></i> A4サマリーへ
+            </a>
+            <span class="text-slate-600">|</span>
+            <span class="font-semibold text-sky-400">鳥取市・鳥取大学連携 プレゼン資料（11/28本番）</span>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="slideIndicator" class="font-mono bg-slate-900 px-2.5 py-1 rounded-md text-sky-300 font-bold">1 / 6</span>
+            <button onclick="prevSlide()" class="p-1.5 hover:bg-slate-700 rounded transition" title="前へ (←)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button onclick="nextSlide()" class="p-1.5 hover:bg-slate-700 rounded transition" title="次へ (→)"><i class="fa-solid fa-chevron-right"></i></button>
+            <button onclick="window.print()" class="px-2.5 py-1 bg-sky-600 hover:bg-sky-500 rounded font-bold transition flex items-center gap-1">
+                <i class="fa-solid fa-print"></i> 印刷/PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- Slide Container -->
+    <main class="flex-1 flex items-center justify-center w-full">
+
+        <!-- ==================== SLIDE 1: COVER ==================== -->
+        <article class="slide active bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="1">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 rounded text-[11px] font-bold">産学官民包括連携提案</span>
+                    <span class="text-xs text-slate-400 font-medium">| 鳥取市 ＆ 鳥取大学 × YURU'Q</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">2026.11.28</span>
+            </div>
+
+            <div class="my-auto py-4">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold mb-3">
+                    <i class="fa-solid fa-graduation-cap text-sky-600"></i> 「大人の知的学び舎 ── 最終学歴の更新」
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight tracking-tight mb-4">
+                    大学の知と地域を繋ぐ、<br>
+                    次世代型シニア自立支援モデルの共創
+                </h1>
+                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
+                    2028年春開校予定のデイサービス「シニアアカデミア YURU-RE:」を実証フィールドとした、<br class="hidden sm:inline">
+                    とっとり方式連携・看護学生実習受入れ・CoRE共同提案構想
+                </p>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-500">
+                <div>
+                    <strong class="text-slate-800 font-bold">YURU'Q合同会社</strong>（株式会社YURU'Qへ組織変更中）
+                </div>
+                <span class="font-mono text-slate-400">Slide 01 / 06</span>
+            </div>
+        </article>
+
+        <!-- ==================== SLIDE 2: COMPANY & ASSETS ==================== -->
+        <article class="slide bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="2">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-purple-100 text-purple-800 rounded text-[11px] font-bold">Who We Are</span>
+                    <span class="text-xs text-slate-400 font-medium">| YURU'Qの事業実績と圧倒的武器</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">02 / 06</span>
+            </div>
+
+            <div class="my-auto py-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 leading-tight">
+                    シニアを熱狂させ、社会と繋げる発信力と企画力
+                </h2>
+                <p class="text-xs text-slate-500 mb-5 font-medium">
+                    鳥取・山陰から全国へ。SNSとリアルを融合し、高齢者の「生きがい」と「輝き」を創出しています。
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Stat 1 -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="w-8 h-8 rounded-lg bg-pink-100 text-pink-600 flex items-center justify-center text-sm mb-2 font-bold">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold block uppercase">全国トップクラスの拡散力</span>
+                        <p class="text-xl font-black text-slate-900 mt-0.5">1動画 1億回再生</p>
+                        <p class="text-[11px] text-slate-600 mt-1 leading-snug">総フォロワー15万人に迫る自社アカウント群を運用。圧倒的な若者・シニア共感力。</p>
+                    </div>
+
+                    <!-- Stat 2 -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center text-sm mb-2 font-bold">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold block uppercase">シニアプロデュース実績</span>
+                        <p class="text-xl font-black text-slate-900 mt-0.5">83歳 クリエイター</p>
+                        <p class="text-[11px] text-slate-600 mt-1 leading-snug">全国SNSスクールで最多再生を記録。新聞・TV特集多数。10/24「ねんりんフェスタ」DJ出演決定！</p>
+                    </div>
+
+                    <!-- Stat 3 -->
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-sm mb-2 font-bold">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <span class="text-[10px] text-slate-400 font-bold block uppercase">地域の広告塔</span>
+                        <p class="text-xl font-black text-slate-900 mt-0.5">シニアダンスチーム</p>
+                        <p class="text-[11px] text-slate-600 mt-1 leading-snug">弊社が独自プロデュース。健康×エンタメの力で、受動的な高齢者をアクティブな主体者へ。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-400">
+                <span>※米子市内全公民館の委託事業網を有し、年間延べ10,000人超のリアルシニア接点を保持</span>
+                <span class="font-mono">Slide 02 / 06</span>
+            </div>
+        </article>
+
+        <!-- ==================== SLIDE 3: 2028 VISION ==================== -->
+        <article class="slide bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="3">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 rounded text-[11px] font-bold">Vision 2028</span>
+                    <span class="text-xs text-slate-400 font-medium">| なぜ今、デイサービスを開校するのか？</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">03 / 06</span>
+            </div>
+
+            <div class="my-auto py-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-2 leading-tight">
+                    「介護される場所」から、「最終学歴を更新する場所」へ
+                </h2>
+                <p class="text-xs text-slate-500 mb-5 font-medium">
+                    既存の預かり型デイサービスが直面する「行きたくない」「プライドが許さない」という壁を破壊します。
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="px-2 py-0.5 bg-slate-200 text-slate-700 text-[10px] font-bold rounded">従来のデイサービス</span>
+                        <h3 class="text-base font-bold text-slate-600 mt-2 mb-2">「お世話される・預かりの場」</h3>
+                        <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside">
+                            <li>塗り絵や受動的なレクリエーション</li>
+                            <li>知的好奇心が刺激されず、自尊心が傷つく</li>
+                            <li>男性や軽度シニアが通うのを嫌がる</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-5 rounded-xl bg-indigo-50/70 border-2 border-indigo-300">
+                        <span class="px-2 py-0.5 bg-indigo-600 text-white text-[10px] font-bold rounded">シニアアカデミア YURU-RE:</span>
+                        <h3 class="text-base font-black text-indigo-950 mt-2 mb-2">「誇り高き大人の知的学び舎」</h3>
+                        <ul class="text-xs text-indigo-900 space-y-1.5 list-disc list-inside font-medium">
+                            <li>大学やカルチャーと連携した最先端の学び</li>
+                            <li>スマホを使いこなし、社会と繋がり直す</li>
+                            <li>「あの学校に通っている」という誇りとアイデンティティ</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-400">
+                <span>2028年春開校目標 ｜ 半日型・自立支援型地域密着型通所介護</span>
+                <span class="font-mono">Slide 03 / 06</span>
+            </div>
+        </article>
+
+        <!-- ==================== SLIDE 4: FACILITY OVERVIEW ==================== -->
+        <article class="slide bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="4">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[11px] font-bold">Facility & Program</span>
+                    <span class="text-xs text-slate-400 font-medium">| 拠点とサービスの特徴</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">04 / 06</span>
+            </div>
+
+            <div class="my-auto py-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 leading-tight">
+                    千日前センビル1階 拠点 ＆ 2大独自ツール
+                </h2>
+                <p class="text-xs text-slate-500 mb-4 font-medium">
+                    中海テレビ放送センタービル1階をリノベーションし、日常的に人が集う空間を形成。
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                    <!-- Point 1 -->
+                    <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                        <strong class="text-slate-900 block font-bold text-sm mb-1">🏢 センビル拠点展開</strong>
+                        <p class="text-slate-600 text-[11px] leading-relaxed">
+                            2027年にビル管理をYURU'Qが受託し信頼関係を構築。2028年春に1階旧事務所にアカデミアを開校。
+                        </p>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200">
+                        <strong class="text-emerald-950 block font-bold text-sm mb-1">🎵 独自ツール「ゆるダン®︎」</strong>
+                        <p class="text-emerald-800 text-[11px] leading-relaxed">
+                            身体調律メソッド。音楽とリズムに合わせて楽しく動き、無理なく日常生活動作（ADL）を改善。
+                        </p>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200">
+                        <strong class="text-sky-950 block font-bold text-sm mb-1">📱 中海スマホ常設相談</strong>
+                        <p class="text-sky-800 text-[11px] leading-relaxed">
+                            中海テレビとタスクを組み、訪問サポートを巻き取る来店型窓口。シニアのデジタル活用を推進。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-400">
+                <span>午前・午後2部制（半日型） ｜ 定員15〜18名 ｜ 米子市千日前</span>
+                <span class="font-mono">Slide 04 / 06</span>
+            </div>
+        </article>
+
+        <!-- ==================== SLIDE 5: COLLABORATION WITH TOTTORI UNIV ==================== -->
+        <article class="slide bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="5">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 rounded text-[11px] font-bold">Collaboration Plan</span>
+                    <span class="text-xs text-slate-400 font-medium">| 鳥取市 ＆ 鳥取大学との3大連携提案</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">05 / 06</span>
+            </div>
+
+            <div class="my-auto py-2">
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-1 leading-tight">
+                    大学の知見を地域へ実装する「3本の連携の柱」
+                </h2>
+                <p class="text-xs text-slate-500 mb-4 font-medium">
+                    アカデミアをリアルな実証フィールドとして開放し、学術研究・人材育成・地域創生の好循環を生み出します。
+                </p>
+
+                <div class="space-y-2.5 text-xs">
+                    <!-- Pillar 1 -->
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                        <span class="w-6 h-6 rounded bg-sky-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">1</span>
+                        <div>
+                            <strong class="text-slate-900 text-sm font-bold block">「とっとり方式」× YURU'Qメソッドの共同研究・実証</strong>
+                            <p class="text-slate-600 text-[11px] mt-0.5 leading-relaxed">
+                                浦上克彦教授の「とっとり方式認知症予防」を、弊社の「ゆるダン®︎」や知的プログラムと掛け合わせ、デイサービス内で経過を追跡・共同検証。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                        <span class="w-6 h-6 rounded bg-indigo-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">2</span>
+                        <div>
+                            <strong class="text-slate-900 text-sm font-bold block">医学部保健学科 看護学生の実習受入れ ＆ 多世代共創</strong>
+                            <p class="text-slate-600 text-[11px] mt-0.5 leading-relaxed">
+                                地域に溶け込む新しい通所介護として、大学生を積極的に受け入れ。医療・看護の学びの場を提供するとともに、シニア×学生の世代間交流を創出。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                        <span class="w-6 h-6 rounded bg-purple-600 text-white flex items-center justify-center font-bold text-xs flex-shrink-0">3</span>
+                        <div>
+                            <strong class="text-slate-900 text-sm font-bold block">地域価値創造研究機構（CoRE）× 中海テレビとの共同提案</strong>
+                            <p class="text-slate-600 text-[11px] mt-0.5 leading-relaxed">
+                                中海テレビ放送とYURU'Qがタッグを組み、大学の研究成果を地域メディア・通信インフラに乗せて県内全域へ社会実装する共同スキーム。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-[11px] text-slate-400">
+                <span>浦上克彦教授 ｜ 医学部保健学科 ｜ 地域価値創造研究機構（CoRE）</span>
+                <span class="font-mono">Slide 05 / 06</span>
+            </div>
+        </article>
+
+        <!-- ==================== SLIDE 6: CONCLUSION & NEXT STEP ==================== -->
+        <article class="slide bg-white rounded-2xl shadow-2xl p-8 sm:p-12 flex-col justify-between border border-slate-200 relative overflow-hidden" data-slide="6">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 rounded text-[11px] font-bold">Next Steps</span>
+                    <span class="text-xs text-slate-400 font-medium">| 山陰から全国へ広がる未来図</span>
+                </div>
+                <span class="text-xs font-bold text-slate-400">06 / 06</span>
+            </div>
+
+            <div class="my-auto py-3 text-center max-w-2xl mx-auto">
+                <span class="inline-block px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-xs font-bold mb-3 border border-sky-200">
+                    大学の知見 × メディアの拡散力 × YURU'Qの熱狂創出
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mb-4 leading-tight">
+                    米子モデルを皮切りに、<br>鳥取県全域へ広がる「シニア新時代」へ
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                    私たちは場所に関わらず、2028年春にこの自立支援モデルを確実にやり抜きます。<br>
+                    鳥取大学様・鳥取市様と手を取り合い、超高齢社会を「活力あふれる社会」へと転換する<br>
+                    産学官民のフロントランナーとして共創させてください。
+                </p>
+
+                <div class="inline-flex items-center gap-4 bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-700">
+                    <div><strong>次回アクション:</strong> 共同研究テーマの具体化 ＆ 実習受入れ協定の検討</div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-slate-100 pt-3 text-xs text-slate-500">
+                <span>ご清聴ありがとうございました ｜ YURU'Q合同会社</span>
+                <span class="font-mono">Slide 06 / 06</span>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Bottom Navigation Bar -->
+    <footer class="no-print max-w-5xl w-full mx-auto mt-4 flex items-center justify-between text-slate-400 text-xs">
+        <span>← → キーまたはクリックでスライド移動</span>
+        <div class="flex items-center gap-2">
+            <button onclick="prevSlide()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition">前へ</button>
+            <button onclick="nextSlide()" class="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-lg transition">次へ</button>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 6;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            const target = document.querySelector(`.slide[data-slide="${n}"]`);
+            if (target) target.classList.add('active');
+            document.getElementById('slideIndicator').textContent = `${n} / ${totalSlides}`;
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) showSlide(currentSlide - 1);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+
+</body>
+</html>
