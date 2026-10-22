@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【経営収支計画の再検証】通所介護・自費アカデミアの財務構造と新モデル提案 ｜ アカデミア構想</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 8mm 10mm;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+            letter-spacing: -0.015em;
+            color: #1e293b;
+            background-color: #f1f5f9;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; }
+            .sheet { 
+                border: none !important; 
+                box-shadow: none !important; 
+                padding: 0 !important; 
+                width: 100% !important; 
+                max-width: 100% !important;
+            }
+            .page-break {
+                page-break-after: always !important;
+                break-after: page !important;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen py-4 px-2 sm:px-6">
+
+    <div class="max-w-4xl mx-auto space-y-4">
+
+        <!-- Action Bar (No Print) -->
+        <div class="flex items-center justify-between no-print bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+            <a href="../team_hub.html" class="inline-flex items-center gap-1.5 text-xs text-indigo-600 hover:text-indigo-800 font-bold bg-indigo-50 px-3 py-1.5 rounded-lg border border-indigo-100 transition">
+                <i class="fa-solid fa-arrow-left"></i> Team Hubに戻る
+            </a>
+            <div class="flex items-center gap-2.5">
+                <span class="text-xs text-slate-500 hidden sm:inline"><i class="fa-solid fa-file-pdf text-rose-500 mr-1"></i> A4縦・2ページ完結仕様</span>
+                <button onclick="window.print()" class="inline-flex items-center gap-1.5 text-xs bg-slate-900 hover:bg-slate-800 text-white font-bold px-4 py-2 rounded-lg shadow-sm transition">
+                    <i class="fa-solid fa-print"></i> PDF保存 / 印刷する
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================== PAGE 1 ==================== -->
+        <div class="sheet page-break bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-3.5 text-slate-800">
+
+            <!-- Header -->
+            <div class="border-b border-slate-200 pb-2.5">
+                <div class="flex items-center justify-between text-[11px] text-slate-500 mb-1">
+                    <span class="font-bold tracking-wider uppercase text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Financial Strategy Report</span>
+                    <span>2026年10月</span>
+                </div>
+                <h1 class="text-lg font-black text-slate-900 leading-snug">
+                    【経営収支計画の再検証】通所介護・自費アカデミアの財務構造と新モデル提案
+                </h1>
+                <p class="text-[11px] text-slate-600 mt-0.5 font-medium">
+                    〜現場シミュレーションの「3大盲点」の解消と、会社が死守すべき内部留保モデル〜
+                </p>
+                
+                <div class="mt-2 pt-1.5 border-t border-slate-100 flex flex-wrap justify-between gap-2 text-[10.5px]">
+                    <div>
+                        <span class="text-slate-400">対象:</span>
+                        <strong class="text-slate-800 ml-1">アカデミア経営検討チーム（学長：ダイちゃん ／ 経営統括：佐々木啓太）</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400">位置づけ:</span>
+                        <strong class="text-slate-700 ml-1">収支予測シミュレーションに対する財務検証および新提案書</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- エグゼクティブ・サマリー -->
+            <div class="bg-indigo-50/70 border border-indigo-100 rounded-xl p-3 space-y-1.5">
+                <div class="flex items-center justify-between text-indigo-950 font-bold text-xs">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-compass text-indigo-600"></i> エグゼクティブ・サマリー（結論）</span>
+                    <span class="text-[9.5px] text-rose-600 bg-white px-2 py-0.5 rounded border border-rose-200 font-bold">要警戒：現状のままでは黒字倒産</span>
+                </div>
+                <p class="text-[10.5px] text-slate-700 leading-relaxed">
+                    ダイちゃんが策定したシミュレーションは現場体制が精緻に組まれた名作ですが、会社経営の観点からは<strong>「借入元金の返済」「法人税」「内部留保」</strong>が抜け落ちています。その結果、<strong>「帳簿上は月＋19万黒字でも、実際の手元現金は毎月1万円ずつ流出し続ける（実質赤字・黒字倒産）」</strong>という致命的な構造になっています。初期借入を圧縮し、ダイちゃんの現場感覚（午後は人が集まりにくい）を前提とした「午前8割＋午後4割」モデルへ組み替えることで、<strong>月＋55万円の確実な内部留保</strong>を死守できます。
+                </p>
+                <div class="grid grid-cols-3 gap-2 pt-0.5 text-center">
+                    <div class="bg-white p-1.5 rounded-lg border border-indigo-100">
+                        <span class="text-slate-500 block text-[9.5px]">初期借入の圧縮</span>
+                        <strong class="text-indigo-950 font-bold text-xs">1,200万 ➔ 750万</strong>
+                        <span class="text-slate-500 block text-[9px]">月返済8.9万へ半減</span>
+                    </div>
+                    <div class="bg-white p-1.5 rounded-lg border border-indigo-100">
+                        <span class="text-slate-500 block text-[9.5px]">午後の自費アカデミア</span>
+                        <strong class="text-rose-600 font-bold text-xs">主軸化は赤字確定</strong>
+                        <span class="text-slate-500 block text-[9px]">相場月7千円・BEP40名</span>
+                    </div>
+                    <div class="bg-white p-1.5 rounded-lg border border-indigo-100">
+                        <span class="text-slate-500 block text-[9.5px]">新・2回転モデル</span>
+                        <strong class="text-emerald-700 font-bold text-xs">午前8割 ＋ 午後4割</strong>
+                        <span class="text-emerald-800 block text-[9px] font-bold">月手残り ＋55.1万円</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション 1: 3大盲点の検証 -->
+            <div class="space-y-2">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded bg-rose-600 text-white font-bold text-[10px] flex items-center justify-center">1</span>
+                    <h2 class="text-xs font-black text-slate-900">現行シミュレーションに潜む「3大盲点」の徹底検証</h2>
+                </div>
+
+                <!-- ギャップ可視化 -->
+                <div class="grid grid-cols-2 gap-2 text-[10.5px]">
+                    <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50/70 space-y-1">
+                        <span class="inline-block text-[9.5px] font-bold px-1.5 py-0.5 bg-slate-200 text-slate-700 rounded">ダイちゃんの現場シミュレーション（パターン①）</span>
+                        <div class="space-y-0.5 text-slate-600">
+                            <div class="flex justify-between"><span>月間総売上（午前8割＋午後自費）:</span><span class="font-bold text-slate-800">1,500,000 円</span></div>
+                            <div class="flex justify-between"><span>月間総経費（毎日4名現場配置）:</span><span class="font-bold text-slate-800">▲1,310,000 円</span></div>
+                            <div class="border-t border-slate-200 pt-0.5 flex justify-between font-bold text-slate-900">
+                                <span>試算上の月間営業利益:</span>
+                                <span class="text-indigo-600">＋190,000 円（年＋228万）</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-2.5 rounded-lg border border-rose-200 bg-rose-50/50 space-y-1">
+                        <span class="inline-block text-[9.5px] font-bold px-1.5 py-0.5 bg-rose-100 text-rose-800 rounded">経営・財務の現実（3大盲点の適用後）</span>
+                        <div class="space-y-0.5 text-slate-700">
+                            <div class="flex justify-between"><span>試算上の営業利益:</span><span class="font-bold text-slate-900">＋190,000 円</span></div>
+                            <div class="flex justify-between text-rose-600"><span>【盲点①】法人税等（約30%）:</span><span class="font-bold">▲57,000 円</span></div>
+                            <div class="flex justify-between text-rose-600"><span>【盲点②】借入元金返済（1,200万/7年）:</span><span class="font-bold">▲143,000 円</span></div>
+                            <div class="border-t border-rose-200 pt-0.5 flex justify-between font-black text-rose-700">
+                                <span>実質会社手残り（内部留保）:</span>
+                                <span>▲10,000 円 / 月（年▲12万）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3大盲点の解説リスト -->
+                <div class="grid grid-cols-3 gap-2 text-[10px]">
+                    <div class="p-2 rounded border border-slate-200 bg-white space-y-0.5">
+                        <strong class="text-slate-900 font-bold block text-[10.5px] text-rose-700">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> 盲点1: 借入元金の返済
+                        </strong>
+                        <p class="text-slate-600 leading-relaxed">
+                            借入金の元金返済は経費（P/L）に乗らず、税引後利益から現金返済します。1,200万円（7年返済）だと毎月14.3万円が直接引かれ、利益19万の大半が消滅します。
+                        </p>
+                    </div>
+                    <div class="p-2 rounded border border-slate-200 bg-white space-y-0.5">
+                        <strong class="text-slate-900 font-bold block text-[10.5px] text-rose-700">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> 盲点2: 法人税等の支払い
+                        </strong>
+                        <p class="text-slate-600 leading-relaxed">
+                            利益が出れば約30%の法人税・住民税・事業税（年約68万・月約5.7万）が課税されます。税金を払った後に借入を返済すると、手元現金はマイナス（年間▲12万）になります。
+                        </p>
+                    </div>
+                    <div class="p-2 rounded border border-slate-200 bg-white space-y-0.5">
+                        <strong class="text-slate-900 font-bold block text-[10.5px] text-rose-700">
+                            <i class="fa-solid fa-circle-exclamation mr-1"></i> 盲点3: 会社の内部留保ゼロ
+                        </strong>
+                        <p class="text-slate-600 leading-relaxed">
+                            会社は倒産・連帯保証・雇用責任を負います。トントンでは利用者の入院・キャンセルや車両事故で即資金ショートします。<strong>「月50万〜60万の内部留保」</strong>は死守ラインです。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション 2: 初期借入の圧縮 -->
+            <div class="space-y-1.5">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center">2</span>
+                    <h2 class="text-xs font-black text-slate-900">構造改革①：初期借入を1,200万から「750万円」へ圧縮する</h2>
+                </div>
+                <p class="text-[10px] text-slate-600 leading-snug">
+                    一般的なデイの開業費（1,200万〜1,500万）は「特殊浴室（300〜500万）」「厨房（100〜200万）」「油圧マシン（200〜400万）」が含まれるためです。アカデミア型は重機不要で車両もリース化できるため、<strong>総所要資金は750万円で十分</strong>です。
+                </p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-[10px] border border-slate-200 rounded-lg overflow-hidden">
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-1.5">投資項目</th>
+                                <th class="p-1.5">一般的デイ（大ちゃん前提）</th>
+                                <th class="p-1.5 bg-indigo-50/80 text-indigo-900">アカデミア適正プラン</th>
+                                <th class="p-1.5">圧縮・適正化の理由</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">内装工事費</td>
+                                <td class="p-1 text-slate-400">600万〜800万円</td>
+                                <td class="p-1 font-bold text-indigo-950 bg-indigo-50/30">250万〜300万円</td>
+                                <td class="p-1">センビル区画。床壁クロス張替、バリアフリートイレ、軽間仕切り</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">什器・備品・PC</td>
+                                <td class="p-1 text-slate-400">200万〜300万円</td>
+                                <td class="p-1 font-bold text-indigo-950 bg-indigo-50/30">100万円</td>
+                                <td class="p-1">机・椅子・大型モニター・音響・軽測定器のみ（重機マシンゼロ）</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">送迎車両導入費</td>
+                                <td class="p-1 text-slate-400">300万〜400万円（購入）</td>
+                                <td class="p-1 font-bold text-indigo-950 bg-indigo-50/30">15万円（諸費用のみ）</td>
+                                <td class="p-1">購入せずスロープ付き福祉軽2台をリース化（月8万固定費化）</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">運転資金（手元予備）</td>
+                                <td class="p-1 text-slate-400">400万円</td>
+                                <td class="p-1 font-bold text-indigo-950 bg-indigo-50/30">350万円</td>
+                                <td class="p-1">国保連2ヶ月遅れ対応（約290万）＋初期赤字バッファ（60万）</td>
+                            </tr>
+                            <tr class="bg-slate-50 font-bold border-t border-slate-200">
+                                <td class="p-1.5 text-slate-900">調達総額・月返済額</td>
+                                <td class="p-1.5 text-rose-600">1,200万（月返済 14.3万）</td>
+                                <td class="p-1.5 text-indigo-600 bg-indigo-50 text-[11px]">750万円（月返済 8.9万円）</td>
+                                <td class="p-1.5 text-emerald-700">★ 毎月5.4万円（10年なら8.1万円）の返済負担を削減！</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== PAGE 2 ==================== -->
+        <div class="sheet bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-3.5 text-slate-800">
+
+            <!-- セクション 3: 午後の自費の現実 -->
+            <div class="space-y-1.5">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center">3</span>
+                    <h2 class="text-xs font-black text-slate-900">構造改革②：午後の「自費アカデミア」の採算ラインと相場の限界</h2>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <div class="p-2.5 rounded-lg border border-slate-200 bg-slate-50 space-y-1">
+                        <strong class="text-slate-900 font-bold block text-[10.5px]">■ シニア向け自費サービスの世の中の相場</strong>
+                        <ul class="list-disc list-outside pl-4 space-y-0.5 text-slate-600">
+                            <li>カーブス等（シニア女性フィットネス）: <strong>月額 6,500〜7,500円</strong></li>
+                            <li>カルチャー教室・PC教室: <strong>月額 5,000〜8,000円</strong>（月2〜4回）</li>
+                            <li>民間デイの自費利用（要介護外）: <strong>1回 1,500〜2,500円</strong>（送迎込）</li>
+                            <li class="text-slate-800 font-bold pt-0.5">高齢者が払える上限は「月額5,000円〜8,000円」が相場の壁。</li>
+                        </ul>
+                    </div>
+                    <div class="p-2.5 rounded-lg border border-amber-200 bg-amber-50/50 space-y-1">
+                        <strong class="text-amber-950 font-bold block text-[10.5px]">■ スタッフ1名配置時の採算ライン（BEP）</strong>
+                        <ul class="list-disc list-outside pl-4 space-y-0.5 text-slate-700">
+                            <li>専任スタッフ1名の人件費（月給20万＋社保等）: <strong>約24万円</strong></li>
+                            <li>送迎ガソリン・教材消耗品等の変動費: <strong>約4万〜6万円</strong></li>
+                            <li>損益分岐点売上: <strong>最低でも【月商 28万〜30万円】</strong></li>
+                            <li class="text-rose-700 font-bold pt-0.5">月7,000円なら「常に43名の会員」が必要。大ちゃん案（13万）は赤字！</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="text-[9.5px] text-slate-600 bg-slate-50 p-1.5 rounded border border-slate-200">
+                    <strong class="text-slate-800">【位置づけの修正】:</strong> 自費アカデミアは主軸ではなく、地域シニアを集める「フロント体験」や「将来の介護保険利用者の予備軍づくり（集客フック）」として小さく運営するのが鉄則です。
+                </p>
+            </div>
+
+            <!-- セクション 4: 大本命の新・収支モデル -->
+            <div class="space-y-2">
+                <div class="flex items-center gap-1.5">
+                    <span class="w-4 h-4 rounded bg-emerald-600 text-white font-bold text-[10px] flex items-center justify-center">4</span>
+                    <h2 class="text-xs font-black text-slate-900">【大本命の新モデル】大ちゃんの肌感を反映した「午前8割＋午後4割」モデル</h2>
+                </div>
+                <div class="bg-emerald-50/70 border border-emerald-200 rounded-lg p-2 text-[10px] text-emerald-950 space-y-0.5">
+                    <strong class="font-bold flex items-center gap-1.5 text-emerald-900 text-[11px]">
+                        <i class="fa-solid fa-check-double text-emerald-600"></i>
+                        大ちゃんの「午後は人が集まりにくい」という現場感覚をそのまま採用！
+                    </strong>
+                    <p class="text-slate-700 leading-relaxed">
+                        高齢者は午前活動型が多く午後は休息ニーズが強いため、午後の集客が難しいのは全国共通です。そこで、<strong>「午後は定員の半分以下（たった6名／稼働率40%）しか集まらない」というシビアな前提</strong>のまま、午後も介護保険（半日型通所）として設計しました。
+                    </p>
+                </div>
+
+                <!-- 収支シミュレーション表 -->
+                <div class="grid grid-cols-2 gap-2 text-[10px]">
+                    <div class="border border-slate-200 rounded-lg p-2.5 bg-white space-y-1">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-1 font-bold text-slate-800 text-[10.5px]">
+                            <span>① 月間売上予測（定員15名・月22日）</span>
+                            <span class="text-[9.5px] text-slate-500 font-normal">午前12名 ＋ 午後6名</span>
+                        </div>
+                        <div class="space-y-0.5 text-slate-600">
+                            <div class="flex justify-between">
+                                <span>午前：要支援50%・要介護50%（12名/日）:</span>
+                                <span class="font-bold text-slate-800">1,476,800 円</span>
+                            </div>
+                            <div class="flex justify-between text-emerald-700">
+                                <span>午後：たった6名（稼働率40%・半分以下）:</span>
+                                <span class="font-bold">738,400 円</span>
+                            </div>
+                            <div class="flex justify-between text-slate-500">
+                                <span>自費・教材・スポット利用:</span>
+                                <span class="font-bold">50,000 円</span>
+                            </div>
+                            <div class="border-t border-slate-200 pt-0.5 flex justify-between font-black text-slate-900 text-[11px]">
+                                <span>【月間総売上】:</span>
+                                <span class="text-indigo-600">2,265,200 円</span>
+                            </div>
+                            <span class="text-[8.5px] text-slate-400 block text-right">※超保守（要支援80%）でも月商 209万円</span>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-200 rounded-lg p-2.5 bg-white space-y-1">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-1 font-bold text-slate-800 text-[10.5px]">
+                            <span>② 月間総経費（毎日4名現場配置）</span>
+                            <span class="text-[9.5px] text-slate-500 font-normal">啓太報酬0円で計算</span>
+                        </div>
+                        <div class="space-y-0.5 text-slate-600">
+                            <div class="flex justify-between">
+                                <span>人件費（管理者30万/機能訓練20万/パート28万/社保10万）:</span>
+                                <span class="font-bold text-slate-800">880,000 円</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>物件費（中海センビル家賃想定値）:</span>
+                                <span class="font-bold text-slate-800">200,000 円</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>車両費（福祉軽2台リース＋ガソリン）:</span>
+                                <span class="font-bold text-slate-800">100,000 円</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>光熱費・システム・保険・予備費等:</span>
+                                <span class="font-bold text-slate-800">220,000 円</span>
+                            </div>
+                            <div class="border-t border-slate-200 pt-0.5 flex justify-between font-black text-slate-900 text-[11px]">
+                                <span>【月間総経費】:</span>
+                                <span class="text-slate-800">1,400,000 円</span>
+                            </div>
+                            <span class="text-[8.5px] text-slate-400 block text-right">大ちゃん希望の安心シフト体制を維持</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション 5: 完全比較表 -->
+            <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-[11px] font-black text-slate-900">■ 財務3大要素を反映した新旧モデルの完全比較</h3>
+                    <span class="text-[9.5px] text-slate-500">端数四捨五入</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-[9.5px] border border-slate-200 rounded-lg overflow-hidden">
+                        <thead class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="p-1.5">比較項目</th>
+                                <th class="p-1.5 bg-rose-50 text-rose-900">大ちゃん現行案（8割稼働）</th>
+                                <th class="p-1.5 bg-emerald-50 text-emerald-900 font-black">新提案（午前8割・午後4割）標準</th>
+                                <th class="p-1.5 bg-slate-50 text-slate-800">新提案（超保守：要支援80%）</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">稼働体制</td>
+                                <td class="p-1 text-rose-800 bg-rose-50/30">午前介護12名 ＋ 午後自費3.5名</td>
+                                <td class="p-1 font-bold text-emerald-950 bg-emerald-50/50">午前介護12名 ＋ 午後介護6名（半分）</td>
+                                <td class="p-1 bg-slate-50/50">午前介護12名 ＋ 午後介護6名</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">月間売上</td>
+                                <td class="p-1 text-slate-500 bg-rose-50/30">1,500,000 円</td>
+                                <td class="p-1 font-bold text-emerald-900 bg-emerald-50/50">2,265,000 円</td>
+                                <td class="p-1 bg-slate-50/50">2,090,000 円</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 font-bold text-slate-800">月間総経費</td>
+                                <td class="p-1 text-slate-500 bg-rose-50/30">1,310,000 円</td>
+                                <td class="p-1 text-slate-700 bg-emerald-50/50">1,400,000 円</td>
+                                <td class="p-1 bg-slate-50/50">1,400,000 円</td>
+                            </tr>
+                            <tr class="font-bold border-t border-slate-200">
+                                <td class="p-1 text-slate-900">営業利益（P/L）</td>
+                                <td class="p-1 text-slate-700 bg-rose-50/50">＋190,000 円</td>
+                                <td class="p-1 text-emerald-700 bg-emerald-50/80">＋865,000 円（利益率38%）</td>
+                                <td class="p-1 text-indigo-700 bg-slate-50">＋690,000 円（利益率33%）</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 text-slate-500">法人税等見込（約30%）</td>
+                                <td class="p-1 text-rose-600 bg-rose-50/30">▲57,000 円</td>
+                                <td class="p-1 text-slate-500 bg-emerald-50/50">▲225,000 円</td>
+                                <td class="p-1 text-slate-500 bg-slate-50/50">▲180,000 円</td>
+                            </tr>
+                            <tr>
+                                <td class="p-1 text-slate-500">借入元金返済（7年）</td>
+                                <td class="p-1 text-rose-600 bg-rose-50/30">▲143,000 円（1,200万）</td>
+                                <td class="p-1 text-slate-500 bg-emerald-50/50">▲89,000 円（750万）</td>
+                                <td class="p-1 text-slate-500 bg-slate-50/50">▲89,000 円（750万）</td>
+                            </tr>
+                            <tr class="bg-slate-100 font-black border-t-2 border-slate-300">
+                                <td class="p-1.5 text-slate-900 text-[10.5px]">会社純手残り（月間内部留保）</td>
+                                <td class="p-1.5 text-rose-600 bg-rose-100 text-[10.5px]">【▲10,000 円】</td>
+                                <td class="p-1.5 text-emerald-800 bg-emerald-100 text-xs">【＋551,000 円】</td>
+                                <td class="p-1.5 text-indigo-900 bg-slate-200 text-[10.5px]">【＋421,000 円】</td>
+                            </tr>
+                            <tr class="font-bold text-[9px]">
+                                <td class="p-1 text-slate-500">年間純キャッシュ蓄積額</td>
+                                <td class="p-1 text-rose-600 bg-rose-50/50">▲120,000 円 / 年</td>
+                                <td class="p-1 text-emerald-700 bg-emerald-50">＋6,612,000 円 / 年</td>
+                                <td class="p-1 text-indigo-700 bg-slate-50">＋5,052,000 円 / 年</td>
+                            </tr>
+                            <tr class="text-[9px] font-bold">
+                                <td class="p-1 text-slate-600">経営判断</td>
+                                <td class="p-1 text-rose-700 bg-rose-50/80">事業性なし（黒字倒産）</td>
+                                <td class="p-1 text-emerald-800 bg-emerald-100">目標完全達成・極めて堅牢</td>
+                                <td class="p-1 text-indigo-900 bg-slate-100">超保守でも安全圏クリア</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 次のステップ・合意形成方針 -->
+            <div class="border-t border-slate-200 pt-2 flex flex-col sm:flex-row items-center justify-between gap-1 text-[9.5px] text-slate-600">
+                <div>
+                    <strong class="text-slate-800">【次の合意形成ステップ】:</strong> 
+                    ダイちゃんへ本試算を共有し、「午後は6名で十分成り立つ設計」への安心感を持ってもらいながら、公庫融資（750万）と米子市への午前午後2単位申請を進める。
+                </div>
+                <div class="shrink-0 font-bold text-slate-400">YURU'Q LLC &copy; 2026</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
